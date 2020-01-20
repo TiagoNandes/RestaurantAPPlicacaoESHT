@@ -9,7 +9,7 @@ This app will lower food waste, make the processes of consulting, making and pay
 ## Project setup
 ```
 npm install
-``https://github.com/TiagoNandes/RestaurantAPPlicacaoESHT/issues`
+```
 
 ### Compiles and hot-reloads for development
 ```
