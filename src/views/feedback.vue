@@ -1,136 +1,259 @@
 <template>
-  <div class="hello">
-    <h2>Feedback</h2>
+<div id="principal">
+  <navBar></navBar>
 
-    <p>Reservas anteriores</p>
-    <button type="button">Click Me!</button>
-    <button type="button">Click Me!</button>
-    <button type="button">Click Me!</button>
-    <button type="button">Click Me!</button>
-    <button type="button">Click Me!</button>
-    <button type="button">Click Me!</button>
-    <button type="button">Click Me!</button>
-    <br />
-    <br />
-    <p>Como estava a comida?</p>
-    <button type="button">1</button>
-    <button type="button">2</button>
-    <button type="button">3</button>
-    <button type="button">4</button>
-    <button type="button">5</button>
-    <br />
-    <br />
-    <p>Como foi o serviço?</p>
-    <button type="button">1</button>
-    <button type="button">2</button>
-    <button type="button">3</button>
-    <button type="button">4</button>
-    <button type="button">5</button>
-    <br />
-    <br />
-    <p>Como estava o ambiente?</p>
-    <button type="button">1</button>
-    <button type="button">2</button>
-    <button type="button">3</button>
-    <button type="button">4</button>
-    <button type="button">5</button>
-    <br />
-    <br />
-    <p>A temperatura da sala estava agradável?</p>
-    <button type="button">1</button>
-    <button type="button">2</button>
-    <button type="button">3</button>
-    <button type="button">4</button>
-    <button type="button">5</button>
-    <br />
-    <br />
-    <p>A temperatura da sala estava agradável?</p>
-    <textarea rows="4" cols="50" name="comment" form="usrform">Enter text here...</textarea>
-    <br>
-    <button type="button">Submeter</button>
+  <div class="container">
+      <div class="row">
+        <router-link to="/">Home |</router-link>
+        <router-link to="/about">About |</router-link>
+        <router-link to="/main">Main (testes)</router-link>
+      </div>
+
+    <div class="py-4">
+    <div class="container"></div>
   </div>
+  <div class="py-5" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2" style=""></div>
+        <div class="col-md-8" style="">
+          <h1 class="text-center pt-5 pb-4" style="color: #127834;">Feedback</h1>
+          <h6 class="text-center pb-4">Reservas anteriores<br></h6>
+        </div>
+  
+    
+        <div class="col-md-2" style=""></div>
+
+      </div>
+
+    </div>
+
+<div class="container">
+            <div class="row blog">
+                <div class="col-md-12">
+                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators" style="margin-bottom: -35px">
+                            <li style="background-color: #127834;" data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                            <li style="background-color: #127834;" data-target="#blogCarousel" data-slide-to="1"></li>
+                        </ol>
+
+                        <!-- Carousel items -->
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                      <!-- onClick() here -->
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Almoço</h4>
+                                                <p class="text-center">terça-feira, 2 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Jantar</h4>
+                                                <p class="text-center">quarta-feira, 3 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Almoço</h4>
+                                                <p class="text-center">segunda-feira, 8 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Almoço</h4>
+                                                <p class="text-center">sexta-feira, 17 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--.row-->
+                            </div>
+                            <!--.item-->
+
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Jantar</h4>
+                                                <p class="text-center">quarta-feira, 3 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Jantar</h4>
+                                                <p class="text-center">quarta-feira, 3 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Jantar</h4>
+                                                <p class="text-center">quarta-feira, 3 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#">
+                                            <div class="card">
+                                              <div class="card-body" style="max-width:100%;" >
+                                                <h4 class="text-center">Jantar</h4>
+                                                <p class="text-center">quarta-feira, 3 nov.</p>
+                                              </div>
+                                            </div> 
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--.row-->
+                            </div>
+                            <!--.item-->
+
+                        </div>
+                        
+                        <!--.carousel-inner-->
+                    </div>
+                    <!--.Carousel-->
+
+                </div>
+            </div>
+</div>
+
+
+<section id="formMultibanco" class="outer-wrapper text-center pt-4">
+
+  <div class="inner-wrapper">
+<div class="container">
+  <div class="row" style="margin-top: 32px">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 col-sm-offset-8">
+      <form role="form">
+  <div class="form-group">
+    <p for="exampleInputCard">Como estava a comida?</p>
+    <button class="btn btn-outline-success rating ratingFood">1</button><button class="btn btn-outline-success rating">2</button><button class="btn btn-outline-success rating">3</button><button class="btn btn-outline-success rating">4</button><button class="btn btn-outline-success rating">5</button>
+  </div>
+  <div class="form-group">
+    <p>Como foi o serviço?</p>
+    <button class="btn btn-outline-success rating ratingService">1</button><button class="btn btn-outline-success rating">2</button><button class="btn btn-outline-success rating">3</button><button class="btn btn-outline-success rating">4</button><button class="btn btn-outline-success rating">5</button>
+  </div>
+   <div class="form-group pb-4">
+    <p>Como estava o ambiente?</p>
+    <button class="btn btn-outline-success rating ratingEnvironment">1</button><button class="btn btn-outline-success rating">2</button><button class="btn btn-outline-success rating">3</button><button class="btn btn-outline-success rating">4</button><button class="btn btn-outline-success rating">5</button>
+    <!-- as classes ratingFood, ratingService e ratingEnvironment são para criar um JS para que os botões permaneçam "clicados" -->
+
+  </div>
+  <button type="submit" class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834">Enviar feedback</button>
+</form>
+    </div>
+  </div>
+</div>
+</div>
+
+</section>
+  </div>
+
+    </div>
+
+
+
+
+
+</div>
 </template>
 
+
+<style>
+.rating{
+  border-radius: 8px;
+  background-color: #127834; /* Green */
+  border: none;
+  color: white;
+  padding: 6px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#principal {
+  font-family: 'Poppins', sans-serif;
+}
+
+#buttonMultibanco:focus{
+border-color: white;
+}
+#buttonMultibanco:hover{
+background-color: #fff !important;
+text-decoration: none;
+}
+
+.page-holder {
+  min-height: 100vh;
+}
+
+.bg-cover {
+  
+  background-size: cover !important;
+}
+
+.carousel-indicators li {
+    background-color: #127834;
+}
+/*#footer{
+  height: 50px;
+  position: absolute;
+  bottom: -25px;
+  background-color: #383a38;
+  border-radius: 25px;
+} */
+</style>
+
+
+
+
 <script>
+// @ is an alias to /src
+import navBar from "@/components/navBar.vue";
+
 export default {
-  name: "menuOfTheWeek",
-  data: function() {
+  name: "main",
+  components: {
+    navBar
+  },
+  data() {
     return {
-      daysCont: [],
-      menuOfTheWeek: [],
-      num: 0,
-      cont: 0
+      
     };
-  },
-  methods: {
-    /*  callFunction: function() {
-        var dayOfWeek;
-        var d = new Date();
-        var weekday = new Array(7);
-        weekday[0] = "Sunday";
-        weekday[1] = "Monday";
-        weekday[2] = "Tuesday";
-        weekday[3] = "Wednesday";
-        weekday[4] = "Thursday";
-        weekday[5] = "Friday";
-        weekday[6] = "Saturday";
-
-        dayOfWeek = weekday[d.getDay() + this.num];
-
-        if (d.getDay() + this.num == 5) {
-          this.num = 0;
-          //dayOfWeek = weekday[d.getDay() + this.num];
-        }
-
-        this.num = this.num + 1;
-
-        return dayOfWeek;
-    }*/
-  },
-  mounted() {},
-  created: function() {
-    this.menuOfTheWeek = this.$store.getters.getMenuOfTheWeek;
-    var dayOfWeek;
-    var d = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-    for (var a = 0; a < 5; a++) {
-      dayOfWeek = weekday[d.getDay() + this.num];
-      if (d.getDay() + this.num == 6) {
-        var difference = d.getDay() - 1;
-        this.num = 0;
-        dayOfWeek = weekday[d.getDay() - this.num - difference];
-      }
-
-      this.num = this.num + 1;
-      this.daysCont.push(dayOfWeek);
-    }
-    //alert(this.daysCont);
-    //alert(JSON.stringify(this.$store.getters.getMenuOfTheWeek));
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
