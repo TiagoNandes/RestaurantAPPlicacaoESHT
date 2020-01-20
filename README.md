@@ -1,9 +1,15 @@
-# projeto
+# Restaurante APPlicação ESHT
+
+## Info
+
+This project is a web application developed during the 2nd year in the Web Information Systems and Technologies course for the Web Programming I subject at ESMAD. 
+The main objective is to develop an app that allows users to make and manage reservations at ESHT's restaurant.
+This app will lower food waste, make the processes of consulting, making and paying a reservation much easier, and allow for a convenient and informative way to get to know the school's restaurant.  
 
 ## Project setup
 ```
 npm install
-```
+``https://github.com/TiagoNandes/RestaurantAPPlicacaoESHT/issues`
 
 ### Compiles and hot-reloads for development
 ```
