@@ -8,6 +8,7 @@ import WeeklyMenu from '../views/WeeklyMenu.vue'
 import Reservation from '../views/Reservation.vue'
 import Confirmation from '../views/Confirmation.vue'
 import Restaurant from '../views/Restaurant.vue'
+import Registration from '../views/Registration.vue'
 
 import store from '../store'
 import Login from '../views/auth/Login.vue'
@@ -16,7 +17,7 @@ import usersList from '../views/usersList.vue'
 //import homeAdmin from '../views/admin/homeAdmin.vue'
 import menuOfTheWeek from '../views/menuOfTheWeek.vue'
 import reserva from '../views/reserva.vue'
-import Feedback from '../views/Feedback.vue'
+import Feedback from '../views/feedback.vue'
 import menuSelection from '../views/menuSelection.vue'
 import addEmentaSemanal from '../views/admin/addEmentaSemanal.vue'
 import addNewUser from '../views/admin/addNewUser.vue'
@@ -150,6 +151,11 @@ const routes = [{
     path: '/statisticsFeedbacks',
     name: 'statisticsFeedbacks',
     component: statisticsFeedbacks
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: Registration
   }
 
 ]

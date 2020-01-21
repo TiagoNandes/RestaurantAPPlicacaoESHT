@@ -25,7 +25,7 @@
         </ul>
 
           <router-link style="color: #127834" to="/addFunds">Saldo: {user.saldo}</router-link>
-          <button class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834">Login</button>
+          <router-link to="/registration"><button class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834">Entrar</button></router-link>
       </div>
     </nav>
   </div>
