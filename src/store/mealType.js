@@ -33,9 +33,11 @@ const getters = {
   getAllMealTypes: state => state.mealTypes,
   getlastID: state => state.mealTypes[state.mealTypes.length - 2].id + 1,
   getMealTypeById: state => idMealType => {
-    return state.mealTypes.find(users => (users.idMealType === idMealType))
+    return state.mealTypes.find(mealTypes => (mealTypes.idMealType === idMealType))
   },
-
+  getMealTypeByMealType: state => mealType => {
+    return state.mealTypes.find(mealTypes => (mealTypes.mealType === mealType))
+  },
 
 }
 const MealType = {

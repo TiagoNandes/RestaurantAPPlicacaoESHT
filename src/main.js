@@ -7,7 +7,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import injectedData from './injectedData'
-require('ajax')
+require('jquery')
 require('bootstrap')
 //require('font-awesome')
 Vue.config.productionTip = false

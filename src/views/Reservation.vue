@@ -252,8 +252,9 @@
 </div>
     
   </div>
-
+<!-- apaga-se o router link, button on click chama method que guarda os valores da data() and get id menu(funçao da store)-->
   <router-link to="/confirmation"> <button type="submit" class="btn btn btn-primary my-2 my-sm-0 p-2" style="background-color: #127834; border-color: #127834;">Continuar</button></router-link>
+
 </form>
     </div>
   </div>
@@ -271,6 +272,50 @@
 
 </div>
 </template>
+
+
+<script>
+// @ is an alias to /src
+import navBar from "@/components/navBar.vue";
+
+export default {
+  name: "reservation",
+  components: {
+    navBar
+  },
+  data() {
+    return {
+      numPeople: 0,
+      date: 0,
+      price: 0,
+      numPersonsCommunity: 0,
+      numPersonsRegular: 0,
+      numPersonsKids: 0,
+      state: "Em curso",
+      mealTime: 0
+    };
+  },
+  methods: {
+    saveReservation() {
+      this.$store.dispatch("SAVE_RESERVATION", {
+      numPeople: this.numPeople,
+      date: this.date,
+      price: this.price,
+      numPersonsCommunity: this.numPersonsCommunity,
+      numPersonsRegular: this.numPersonsRegular,
+      numPersonsKids: this.numPersonsKids,
+      state: this.state,
+      mealTime: this.mealTime,
+        
+      });
+    }
+  },
+  created: function() {
+    this.menuOfTheWeek = this.$store.getters.getMenuOfTheWeek;
+  }
+
+};
+</script>
 
 
 <style>
@@ -328,23 +373,3 @@ text-decoration: none;
   border-radius: 25px;
 } */
 </style>
-
-
-
-
-<script>
-// @ is an alias to /src
-import navBar from "@/components/navBar.vue";
-
-export default {
-  name: "main",
-  components: {
-    navBar
-  },
-  data() {
-    return {
-      
-    };
-  }
-};
-</script>

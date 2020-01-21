@@ -10,6 +10,17 @@ const state = {
     meals: imported
 }
 const mutations = {
+  mealCreater(context, [idMenu, description, idTipo]){
+    const newId = state.meals[state.meals.length - 1].idMeal + 1
+    let newMeal = {
+      idMeal: newId,
+      description: description,
+      idMealType: idTipo,
+      idMenu: idMenu
+    }
+    alert(JSON.stringify(newMeal))
+    return state.meals.push(newMeal)
+  },
       //Update USER
   mealUpdater(context,{index,newMeal}) {
       alert(index + newMeal)
@@ -35,8 +46,12 @@ const getters = {
     },
     //getOne
     getMealByIdMenu:state =>(idMenu)=>{
-        return state.meals.find(meal=>meal.idMenu===idMenu)
-    }
+        return state.meals.filter(meal=>meal.idMenu===idMenu)
+    },
+     //Ementa correspondente ao menu(dia e horario) e ao idtipomenu
+     getMealByMenuType: state => (idMenu, idMealType) => {
+      return state.meals.find(meals => (meals.idMenu === idMenu && meals.idMealType == idMealType))
+  },
 }
 const Meals = {
     namespaced: true,
