@@ -7,14 +7,35 @@
       <br />
       <br />
       <br />
+      <form @submit.prevent="filteredStatistics" class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col">
+            <label for="date" class="mr-sm-2">Escolha o dia:</label>
+            <input id="date" type="date" v-model="date" />
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="sel1">Selecione o horário:</label>
+              <select class="form-control" id="mealTime" name="mealTime" v-model="mealTime">
+                <option>Almoço</option>
+                <option>Jantar</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Ver estatistica</button>
+      </form>
       <br />
+            <h2>Estatisticas do dia {{this.date}} ao {{this.mealTime}}</h2>
+
       <br />
       <div class="row">
         <div class="col" id="contentSpan">
           <span class="badge badge-secondary">
             <i class="fas fa-utensils" style="font-size:36px"></i>
-            <br/>
-            <br/><br/>  
+            <br />
+            <br />
+            <br />
             <h3>TOTAL</h3>
             <div>{{this.carneCount + this.peixeCount + this.vegetarianoCount}}</div>
             <br />
@@ -26,32 +47,39 @@
         <div class="col" id="contentSpan">
           <span class="badge badge-danger">
             <i class="fas fa-drumstick-bite" style="font-size:36px"></i>
-            <br><br><br>
-            <h3>Carne em dia x</h3>
+            <br />
+            <br />
+            <br />
+            <h3>Carne</h3>
             <div>{{this.carneCount}}</div>
-            <br>
-            <br>
+            <br />
+            <br />
           </span>
         </div>
         <br />
         <div class="col" id="contentSpan">
           <span class="badge badge-info">
             <i class="fas fa-fish" style="font-size:36px"></i>
-            <br><br><br>
-            <h3>Peixe em dia x</h3>
+            <br />
+            <br />
+            <br />
+            <h3>Peixe</h3>
             <div>{{this.peixeCount}}</div>
-            <br><br>
+            <br />
+            <br />
           </span>
         </div>
         <br />
         <div class="content col">
           <span class="badge badge-success">
-            <i class='fas fa-carrot' style='font-size:36px'></i>
-            <br><br><br>
-            <h3>Vegetariano em dia x</h3>
+            <i class="fas fa-carrot" style="font-size:36px"></i>
+            <br />
+            <br />
+            <br />
+            <h3>Vegetariano</h3>
             <div>{{this.vegetarianoCount}}</div>
-            <br>
-            <br>
+            <br />
+            <br />
           </span>
         </div>
       </div>
@@ -62,7 +90,7 @@
 <script>
 import { mapGetters } from "vuex";
 import Navbar from "@/components/homeAdmin.vue";
-
+import moment from 'moment'
 export default {
   name: "homeAdmin",
   components: {
@@ -71,14 +99,37 @@ export default {
   data() {
     return {
       actualDate: "",
-      idReservation: 0
+      idReservation: 0,
+      idMenu: "",
+      date: "",
+      mealTime: ""
     };
+  },
+  created() {
+    this.date = new Date()
+      .toJSON()
+      .slice(0, 10)
+      .replace(/-/g, "-");
+    if (this.getIdMenuByDaySchedule("Almoço", String(this.date))) {
+      this.idMenu = this.getIdMenuByDaySchedule("Almoço",String(this.date)
+      ).idMenu;
+      this.mealTime= "Almoço"
+
+    } else if (this.getIdMenuByDaySchedule("Jantar", String(this.date))){
+      this.idMenu = this.getIdMenuByDaySchedule("Jantar", String(this.date)).idMenu;
+      this.mealTime= "Jantar"
+    }
+    else {
+      alert(this.date)
+      alert("Não existem refeições hoje! Selecione uma data");
+    }
   },
   computed: {
     ...mapGetters("reservations", [
       "getAllReservations",
       "getReservationsByIdMenu"
     ]),
+    ...mapGetters("menu", ["getIdMenuByDaySchedule"]),
     mealsDay() {
       let count =
         this.carneCount() + this.peixeCount() + this.vegetarianoCount();
@@ -86,7 +137,7 @@ export default {
     },
     carneCount() {
       var count = 0;
-      let reservations = this.getReservationsByIdMenu(1);
+      let reservations = this.getReservationsByIdMenu(this.idMenu);
       for (let i in reservations) {
         count = reservations[i].carne + count;
       }
@@ -94,7 +145,7 @@ export default {
     },
     peixeCount() {
       var count = 0;
-      let reservations = this.getReservationsByIdMenu(1);
+      let reservations = this.getReservationsByIdMenu(this.idMenu);
       for (let i in reservations) {
         count = reservations[i].peixe + count;
       }
@@ -102,11 +153,19 @@ export default {
     },
     vegetarianoCount() {
       var count = 0;
-      let reservations = this.getReservationsByIdMenu(1);
+      let reservations = this.getReservationsByIdMenu(this.idMenu);
       for (let i in reservations) {
         count = reservations[i].vegetariano + count;
       }
       return count;
+    }
+  },
+  methods: {
+    filteredStatistics() {
+      this.idMenu = this.getIdMenuByDaySchedule(
+        this.mealTime,
+        this.date
+      ).idMenu;
     }
   }
 };

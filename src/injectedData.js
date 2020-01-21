@@ -44,27 +44,27 @@ if (!localStorage.getItem('user')) {
 /**************************** MENU ***************************************/
 const menuCreated = [{
     idMenu: 1,
-    date: "2020-01-07",
+    date: "2020-01-21",
     mealTime: "Jantar",
     avaiableSeats:150
 
 },
 {
     idMenu: 2,
-    date: "2020-01-07",
+    date: "2020-01-21",
     mealTime: "Almoço",
     avaiableSeats:150
 
 },
 {
     idMenu: 3,
-    date: "2020-01-09",
+    date: "2020-01-22",
     mealTime: "Jantar",
     avaiableSeats:150
 },
 {
     idMenu: 4,
-    date: "2020-01-09",
+    date: "2020-01-22",
     mealTime: "Almoço",
     avaiableSeats:150
 },
