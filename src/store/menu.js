@@ -10,10 +10,22 @@ const state = {
     menus: imported
 }
 const mutations = {
-    updateAvaiableSeats(context,{ idMenu, seats}) {
+    menuCreater(context, [date, mealTime]) {
+        const newId = state.menus[state.menus.length - 1].idMenu + 1
+        let newMenu = {
+            idMenu: newId,
+            date: date,
+            mealTime: mealTime,
+        }
+        return state.menus.push(newMenu)
+    },
+    updateAvaiableSeats(context, {
+        idMenu,
+        seats
+    }) {
         for (let menu in state.menus) {
             if (state.menus[menu].idMenu == idMenu) {
-                state.menus[menu].avaiableSeats= state.menus[menu].avaiableSeats + seats
+                state.menus[menu].avaiableSeats = state.menus[menu].avaiableSeats + seats
             }
         }
     }

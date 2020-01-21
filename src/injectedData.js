@@ -44,39 +44,39 @@ if (!localStorage.getItem('user')) {
 /**************************** MENU ***************************************/
 const menuCreated = [{
     idMenu: 1,
-    date: "07-01-2020",
+    date: "2020-01-07",
     mealTime: "Jantar",
     avaiableSeats:150
 
 },
 {
     idMenu: 2,
-    date: "07-01-2020",
+    date: "2020-01-07",
     mealTime: "Almoço",
     avaiableSeats:150
 
 },
 {
     idMenu: 3,
-    date: "07-01-2020",
+    date: "2020-01-09",
     mealTime: "Jantar",
     avaiableSeats:150
 },
 {
     idMenu: 4,
-    date: "08-01-2020",
+    date: "2020-01-09",
     mealTime: "Almoço",
     avaiableSeats:150
 },
 {
     idMenu: 5,
-    date: "08-01-2020",
+    date: "2020-01-08",
     mealTime: "Almoço",
     avaiableSeats:150
 },
 {
     idMenu: 6,
-    date: "08-01-2020",
+    date: "2020-01-08",
     mealTime: "Jantar",
     avaiableSeats:150
 }
@@ -93,14 +93,14 @@ if (!localStorage.getItem('menu')) {
 const mealCreated = [{
     idMeal: 1,
     description: "Migas Ripadas",
-    idMealType: 1,
+    idMealType: 2,
     idMenu: 1
 },
 {
     idMeal: 2,
     description: "Sopa de Pedra",
-    idMealType: 2,
-    idMenu: 4
+    idMealType: 1,
+    idMenu: 1
 },
 {
     idMeal: 3,
@@ -112,7 +112,7 @@ const mealCreated = [{
     idMeal: 4,
     description: "Caldeirada de Lulas",
     idMealType: 4,
-    idMenu: 3
+    idMenu: 1
 },
 {
     idMeal: 5,
@@ -124,7 +124,7 @@ const mealCreated = [{
     idMeal: 6,
     description: "Pudim Abade de Priscos",
     idMealType: 6,
-    idMenu: 2
+    idMenu: 1
 }
 ]
 var c = []

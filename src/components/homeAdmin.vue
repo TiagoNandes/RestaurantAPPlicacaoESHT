@@ -40,11 +40,6 @@
                 <router-link to="/listAllReservations">Listar todas</router-link>
               </a>
             </li>
-            <li>
-              <a href="#">
-                 <router-link to="/addEmentaSemanal">Adicionar reserva</router-link>
-              </a>
-            </li>
           </ul>
         </li>
         <li>
@@ -59,9 +54,6 @@
               <a href="#">
                 <router-link to="/listAllUsers">Listar todas</router-link>
               </a>
-            </li>
-            <li>
-              <a href="#">Adcionar utilizador</a>
             </li>
           </ul>
         </li>

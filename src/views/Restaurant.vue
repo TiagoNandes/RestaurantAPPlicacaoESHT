@@ -71,6 +71,7 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
     </div>
   </div>
   </div>
+  
 </template>
 
 
@@ -123,6 +124,7 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
 import bgImage from "@/assets/bg.png";
 import navBar from "@/components/navBar.vue";
 
+
 export default {
   name: "main",
   components: {
@@ -134,4 +136,7 @@ export default {
     };
   }
 };
+
+
+
 </script>

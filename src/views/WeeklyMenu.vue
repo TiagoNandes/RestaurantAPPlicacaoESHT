@@ -1,78 +1,75 @@
 <template>
-<div id="principal">
-  <navBar></navBar>
+  <div id="principal">
+    <navBar></navBar>
 
-  <div class="container">
+    <div class="container">
       <div class="row">
         <router-link to="/">Home |</router-link>
         <router-link to="/about">About |</router-link>
         <router-link to="/main">Main (testes)</router-link>
       </div>
 
-    <div class="py-4">
-    <div class="container"></div>
-  </div>
-  <div class="py-5" >
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2" style=""></div>
-        <div class="col-md-8" style="">
-          <h1 class="text-center pt-5 pb-4" style="color: #127834;">Ementa Semanal</h1>
-  <ul class="nav nav-pills nav-fill pt-5">
-          <li class="nav-item border">
-              <a class="nav-link" href="#">Segunda-Feira</a>
-          </li>
-          <li class="nav-item border">
-              <a class="nav-link" href="#">Terça-Feira</a>
-          </li>
-          <li class="nav-item border">
-            <a class="nav-link" href="#">Quarta-Feira</a>
-          </li>
-          <li class="nav-item border">
-            <a class="nav-link" href="#">Quinta-Feira</a>
-          </li>
-          <li class="nav-item border">
-            <a class="nav-link" href="#">Sexta-Feira</a>
-          </li>
-</ul>
-        </div>
-  
-    
-        <div class="col-md-2" style=""></div>
+      <div class="py-4">
+        <div class="container"></div>
+      </div>
+      <div class="py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2" style></div>
+            <div class="col-md-8" style>
+              <h1 class="text-center pt-5 pb-4" style="color: #127834;">Ementa Semanal</h1>
+              <ul class="nav nav-pills nav-fill pt-5">
+                <li class="nav-item border">
+                  <a class="nav-link" href="#">Segunda-Feira</a>
+                </li>
+                <li class="nav-item border">
+                  <a class="nav-link" href="#">Terça-Feira</a>
+                </li>
+                <li class="nav-item border">
+                  <a class="nav-link" href="#">Quarta-Feira</a>
+                </li>
+                <li class="nav-item border">
+                  <a class="nav-link" href="#">Quinta-Feira</a>
+                </li>
+                <li class="nav-item border">
+                  <a class="nav-link" href="#">Sexta-Feira</a>
+                </li>
+              </ul>
+            </div>
 
+            <div class="col-md-2" style></div>
+          </div>
+        </div>
+
+        <section id="formMultibanco" class="outer-wrapper text-center">
+          <div class="py-5">
+            <div class="container pt-5">
+              <ul class="list-group list-group-horizontal">
+                <li class="list-group-item flex-fill">Entrada</li>
+                <li class="list-group-item flex-fill">Sopa</li>
+                <li class="list-group-item flex-fill">Prato Principal</li>
+                <li class="list-group-item flex-fill">Sobremesa</li>
+              </ul>
+              <ul class="list-group list-group-horizontal pt-5">
+                <li class="list-group-item flex-fill border-0">{{this.getEmenta(1)}}</li>
+                <li class="list-group-item flex-fill border-0">{{this.getEmenta(2)}}</li>
+                <li class="list-group-item flex-fill border-0">
+                  {{this.getEmenta(3)}}
+                  <br />ou
+                  <br />
+                  {{ this.getEmenta(4)}}
+                  <br />ou
+                  <br />
+                  {{this.getEmenta(5)}}
+                </li>
+                <li class="list-group-item flex-fill border-0">{{this.getEmenta(6)}}</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
 
-    </div>
-
-    <section id="formMultibanco" class="outer-wrapper text-center">
-
-
-<div class="py-5">
-    <div class="container pt-5">
-      
-        <ul class="list-group list-group-horizontal">
-  <li class="list-group-item flex-fill">Entrada</li>
-  <li class="list-group-item flex-fill">Sopa</li>
-  <li class="list-group-item flex-fill">Prato Principal</li>
-  <li class="list-group-item flex-fill">Sobremesa</li>
-  
-</ul>
- <ul class="list-group list-group-horizontal pt-5">
-  <li class="list-group-item flex-fill border-0">Entrada #1</li>
-  <li class="list-group-item flex-fill border-0">Sopa #2</li>
-  <li class="list-group-item flex-fill border-0">Prato Principal #3</li>
-  <li class="list-group-item flex-fill border-0">Sobremesa #4</li>
-  
-</ul>
-      
-    </div>
-  </div>
-
-
-</section>
-  </div>
-  
-  <!--<div id="footer" class="container">
+      <!--<div id="footer" class="container">
   <div class="row">
     <div class="col-sm-4">
       Trabalho realizado por:
@@ -87,34 +84,32 @@
       Tiago Fernandes
     </div>
   </div>
-  </div> -->
-
-
+      </div>-->
     </div>
 
-
-
-
-<button type="submit" class="btn btn btn-primary my-2 my-sm-0 btn-lg mt-5" style="background-color: #127834; border-color: #127834">Reservar</button>
-</div>
+    <button
+      type="submit"
+      class="btn btn btn-primary my-2 my-sm-0 btn-lg mt-5"
+      style="background-color: #127834; border-color: #127834"
+    >Reservar</button>
+  </div>
 </template>
 
-
 <style>
-.navlink > .active{
+.navlink > .active {
   color: white;
 }
 
 #principal {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-#buttonMultibanco:focus{
-border-color: white;
+#buttonMultibanco:focus {
+  border-color: white;
 }
-#buttonMultibanco:hover{
-background-color: #fff !important;
-text-decoration: none;
+#buttonMultibanco:hover {
+  background-color: #fff !important;
+  text-decoration: none;
 }
 
 .page-holder {
@@ -122,7 +117,6 @@ text-decoration: none;
 }
 
 .bg-cover {
-  
   background-size: cover !important;
 }
 
@@ -135,22 +129,54 @@ text-decoration: none;
 } */
 </style>
 
-
-
-
 <script>
 // @ is an alias to /src
+import { mapGetters } from "vuex";
+//import mapMutations from "vuex";
+//import router from "../router/index";
 import navBar from "@/components/navBar.vue";
+//import $ from "jquery";
 
 export default {
-  name: "main",
+  name: "weeklyMenu",
   components: {
     navBar
   },
   data() {
     return {
-      
+      isActive: false,
+      idMealEntrada: 0,
+      idMealSopa: 0,
+      idMealMenu: 0
     };
+  },
+  /*actions:{
+$(".nav .nav-link").on("click", function() {
+  $(".nav")
+    .find("active")
+    .removeClass("active");
+  alert($(".nav").find("active"));
+  $(this).addClass("active");
+});
+  },*/
+  computed: {
+    ...mapGetters("mealType", ["getAllMealTypes", "getMealTypeById","getMealTypeByMealType"]),
+    ...mapGetters("meals", ["getAllMeals", "getMealByIdMenu","getMealByMenuType"]),
+    ...mapGetters("menu", ["getMenuById", "getIdMenuByDaySchedule"])
+  },
+  methods: {
+    getEmenta(idType) {
+      this.idMealMenu = this.getIdMenuByDaySchedule("Jantar", "07-01-2020").idMenu
+      //let mealTypes = this.getMealTypeByMealType("Sopa").idMealType
+      /*mealtype 1- entrada 2-sopa 3- prato carne 4- peixe 5-vegetariano 6 sobremesa */
+      return  this.getMealByMenuType(this.idMealMenu, idType).description
+
+    }
+    /*
+    myFilter: function() {
+      this.isActive = !this.isActive;
+    } */
   }
 };
+
 </script>
