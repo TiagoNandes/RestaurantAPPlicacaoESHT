@@ -97,7 +97,7 @@
           <!-- form-group// -->
           <p class="text-center">
             Já possui uma conta?
-            <a href style="color: #127834;">Log In</a>
+            <router-link to="/loginUser"><a href style="color: #127834;">Log In</a></router-link>
           </p>
           </div> <!--col-->
           </div>
