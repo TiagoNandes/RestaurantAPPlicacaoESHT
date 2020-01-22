@@ -19,7 +19,7 @@ import usersList from '../views/usersList.vue'
 //import homeAdmin from '../views/admin/homeAdmin.vue'
 import menuOfTheWeek from '../views/menuOfTheWeek.vue'
 import reserva from '../views/reserva.vue'
-import Feedback from '../views/feedback.vue'
+import feedback from '../views/Feedback.vue'
 import menuSelection from '../views/menuSelection.vue'
 import addEmentaSemanal from '../views/admin/addEmentaSemanal.vue'
 import addNewUser from '../views/admin/addNewUser.vue'
@@ -68,7 +68,7 @@ const routes = [{
   {
     path: '/feedback',
     name: 'feedback',
-    component: Feedback
+    component: feedback
   },
   {
     path: '/menuSelection',
