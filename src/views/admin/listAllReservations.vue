@@ -76,7 +76,7 @@ export default {
     ...mapGetters("menu", ["getMenuById", "getAvaiableSeatsById"]),
     ...mapGetters("reservations", [
       "getAllReservations",
-      "getReservationByIdReservation"
+      "getReservationsByIdReservation"
     ])
   },
   methods: {

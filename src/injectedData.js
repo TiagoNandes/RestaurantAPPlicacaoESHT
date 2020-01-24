@@ -44,39 +44,39 @@ if (!localStorage.getItem('user')) {
 /**************************** MENU ***************************************/
 const menuCreated = [{
     idMenu: 1,
-    date: "2020-01-21",
+    date: "2020-01-23",
     mealTime: "Jantar",
     avaiableSeats:150
 
 },
 {
     idMenu: 2,
-    date: "2020-01-21",
+    date: "2020-01-23",
     mealTime: "Almoço",
     avaiableSeats:150
 
 },
 {
     idMenu: 3,
-    date: "2020-01-22",
+    date: "2020-01-26",
     mealTime: "Jantar",
     avaiableSeats:150
 },
 {
     idMenu: 4,
-    date: "2020-01-22",
+    date: "2020-01-27",
     mealTime: "Almoço",
     avaiableSeats:150
 },
 {
     idMenu: 5,
-    date: "2020-01-08",
-    mealTime: "Almoço",
+    date: "2020-01-27",
+    mealTime: "Jantar",
     avaiableSeats:150
 },
 {
     idMenu: 6,
-    date: "2020-01-08",
+    date: "2020-01-28",
     mealTime: "Jantar",
     avaiableSeats:150
 }
@@ -94,38 +94,38 @@ const mealCreated = [{
     idMeal: 1,
     description: "Migas Ripadas",
     idMealType: 2,
-    idMenu: 1
+    idMenu: 4
 },
 {
     idMeal: 2,
     description: "Sopa de Pedra",
     idMealType: 1,
-    idMenu: 1
+    idMenu: 4
 },
 {
     idMeal: 3,
     description: "Feijoada à Transmontana",
     idMealType: 3,
-    idMenu: 1
+    idMenu: 4
 },
 {
     idMeal: 4,
     description: "Caldeirada de Lulas",
     idMealType: 4,
-    idMenu: 1
+    idMenu: 4
 },
 {
     idMeal: 5,
     description: "Salada de tomate com mozzarella",
     idMealType: 5,
-    idMenu: 1
+    idMenu: 4
 },
 {
     idMeal: 6,
     description: "Pudim Abade de Priscos",
     idMealType: 6,
-    idMenu: 1
-}
+    idMenu: 4
+},
 ]
 var c = []
 for (let value in menuCreated) {

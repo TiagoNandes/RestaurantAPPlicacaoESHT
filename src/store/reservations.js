@@ -29,7 +29,9 @@ const getters = {
 const mutations = {
     //UpdatemenusdaReserva ??
     //cancelarReserva(delete)
-    reservationDeleter(context, { idReservation }) {
+    reservationDeleter(context, {
+        idReservation
+    }) {
         for (let reservation in state.reservations) {
             if (state.reservations[reservation].idReservation == idReservation) {
                 state.reservations.splice(reservation, 1);
@@ -37,6 +39,23 @@ const mutations = {
             }
         }
     },
+    reservationCreater(context, {newReservation}) {
+        const newId = state.reservations[state.reservations.length - 1].idReservation + 1
+        let newReservation1 = {
+            idReservation: newId,
+            numPersonsCommunity: newReservation.numPersonsCommunity,
+            numPersonsRegular: newReservation.numPersonsRegular,
+            numPersonsKids: newReservation.numPersonsKids,
+            price: newReservation.numPersonsKids * 6.4 + newReservation.numPersonsRegular * 8 + newReservation.numPersonsCommunity * 6.4,
+            date: newReservation.todaysDate,
+            carne: newReservation.carne,
+            peixe: newReservation.peixe,
+            vegetariano: newReservation.vegetariano,
+            idMenu: newReservation.idMenu,
+            idUser: 2
+        }
+        return state.reservations.push(newReservation1)
+    }
 }
 const Reservation = {
     namespaced: true,

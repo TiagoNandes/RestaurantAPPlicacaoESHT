@@ -11,7 +11,6 @@ import Restaurant from '../views/Restaurant.vue'
 import Registration from '../views/Registration.vue'
 import LoginUser from '../views/LoginUser.vue'
 
-
 import store from '../store'
 import Login from '../views/auth/Login.vue'
 import Register from '../views/auth/Register.vue'
@@ -30,6 +29,7 @@ import listAllFeedbacks from '../views/admin/listAllFeedbacks.vue'
 import editUser from '../views/admin/editUser.vue'
 import statiscsDay from '../views/admin/statisticsDay.vue'
 import statisticsFeedbacks from '../views/admin/statisticsFeedbacks.vue'
+import finishReservation from '../views/FinishReservation.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -136,9 +136,9 @@ const routes = [{
     component: Reservation
   },
   {
-    path: '/confirmation',
+    path: '/confirmation/:people/:idMenu',
     name: 'confirmation',
-    component: Confirmation
+    component: Confirmation,
   },
   {
     path: '/restaurant',
@@ -149,7 +149,8 @@ const routes = [{
     path: '/statisticsDay',
     name: 'statisticsDay',
     component: statiscsDay
-  }, {
+  }, 
+  {
     path: '/statisticsFeedbacks',
     name: 'statisticsFeedbacks',
     component: statisticsFeedbacks
@@ -163,6 +164,11 @@ const routes = [{
     path: '/loginUser',
     name: 'loginUser',
     component: LoginUser
+  },
+  {
+    path: '/finishReservation/:people/:idmenu/:carne/:peixe/:vegetariano',
+    name: 'finishReservation',
+    component: finishReservation
   }
 
 ]
