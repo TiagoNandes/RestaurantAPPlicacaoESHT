@@ -42,12 +42,13 @@ const getters = {
     },
     getIdMenuByDate: state => date => state.menus.filter(menus => menus.date === date),
     getIdMenuByMealTime: state => mealTime => state.menus.filter(menus => menus.mealTime === mealTime),
-
+    getMenusNextMenus:state => todaysDate => state.menus.filter(menus=> (menus.date>=todaysDate)), //Get ementas seguintes
     getMenuOfTheWeek: state => state.meals,
 
     getAvaiableSeatsById: state => idMenu => {
         return state.menus.find(menus => (menus.idMenu === idMenu)).avaiableSeats
     }
+
 }
 const menu = {
     namespaced: true,

@@ -18,7 +18,7 @@
             <div class="col-md-2" style></div>
             <div class="col-md-8" style>
               <h1 class="text-center pt-5 pb-4" style="color: #127834;">Ementa Semanal</h1>
-              <ul class="nav nav-pills nav-fill pt-5">
+              <!-- <ul class="nav nav-pills nav-fill pt-5">
                 <li class="nav-item border">
                   <a class="nav-link" href="#">Segunda-Feira</a>
                 </li>
@@ -34,7 +34,27 @@
                 <li class="nav-item border">
                   <a class="nav-link" href="#">Sexta-Feira</a>
                 </li>
-              </ul>
+              </ul>-->
+
+              <form @submit.prevent="myFilter" class="needs-validation" novalidate>
+                <div class="row">
+                  <div class="col">
+                    <label for="date" class="mr-sm-2">Escolha o dia:</label>
+                    <input id="date" type="date" v-model="date" />
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="sel1">Selecione o horário:</label>
+                      <select class="form-control" id="sel1" name="sellist1" v-model="mealTime">
+                        <option>Almoço</option>
+                        <option>Jantar</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </form>
             </div>
 
             <div class="col-md-2" style></div>
@@ -51,18 +71,18 @@
                 <li class="list-group-item flex-fill">Sobremesa</li>
               </ul>
               <ul class="list-group list-group-horizontal pt-5">
-                <li class="list-group-item flex-fill border-0">{{this.getEmenta(1)}}</li>
-                <li class="list-group-item flex-fill border-0">{{this.getEmenta(2)}}</li>
+                <li class="list-group-item flex-fill border-0">{{this.getEntrada}}</li>
+                  <li class="list-group-item flex-fill border-0">{{this.getSopa}}</li>
                 <li class="list-group-item flex-fill border-0">
-                  {{this.getEmenta(3)}}
+                  {{this.getCarne}}
                   <br />ou
                   <br />
-                  {{ this.getEmenta(4)}}
+                  {{this.getPeixe}}
                   <br />ou
                   <br />
-                  {{this.getEmenta(5)}}
+                  {{this.getVegetariano}}
                 </li>
-                <li class="list-group-item flex-fill border-0">{{this.getEmenta(6)}}</li>
+                <li class="list-group-item flex-fill border-0">{{this.getSobremesa}}</li>
               </ul>
             </div>
           </div>
@@ -94,6 +114,114 @@
     >Reservar</button>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import { mapGetters } from "vuex";
+//import mapMutations from "vuex";
+//import router from "../router/index";
+import navBar from "@/components/navBar.vue";
+//import $ from "jquery";
+//import moment from "moment";
+
+export default {
+  name: "weeklyMenu",
+  components: {
+    navBar
+  },
+  data() {
+    return {
+      isActive: false,
+      idMealEntrada: 0,
+      idMealSopa: 0,
+      idMenu: 0,
+      meals: [],
+      filterDay: "",
+      filterSchedule: "",
+      mealTime: "",
+      date: "",
+      ementa: ""
+    };
+  },
+  created() {
+    // this.meals = this.getAllMeals;
+    this.date = new Date()
+      .toJSON()
+      .slice(0, 10)
+      .replace(/-/g, "-");
+    if (this.getIdMenuByDaySchedule("Almoço", String(this.date))) {
+      this.idMenu = this.getIdMenuByDaySchedule(
+        "Almoço",
+        String(this.date)
+      ).idMenu;
+      this.mealTime = "Almoço";
+    } else if (this.getIdMenuByDaySchedule("Jantar", String(this.date))) {
+      this.idMenu = this.getIdMenuByDaySchedule(
+        "Jantar",
+        String(this.date)
+      ).idMenu;
+      this.mealTime = "Jantar";
+    } else {
+      alert(this.date);
+      alert("Não existem refeições hoje! Selecione uma data");
+    }
+    alert("result"+ JSON.stringify(this.getMenusNextMenus(this.date)))
+  },
+  computed: {
+    ...mapGetters("mealType", [
+      "getAllMealTypes",
+      "getMealTypeById",
+      "getMealTypeByMealType"
+    ]),
+    ...mapGetters("meals", [
+      "getAllMeals",
+      "getMealByIdMenu",
+      "getMealByMenuType"
+    ]),
+    ...mapGetters("menu", [
+      "getMenuById", 
+      "getIdMenuByDaySchedule",
+      "getMenusNextMenus"]),
+  
+  getEntrada() {
+    //let mealTypes = this.getMealTypeByMealType("Sopa").idMealType
+    /*mealtype 1- entrada 2-sopa 3- prato carne 4- peixe 5-vegetariano 6 sobremesa */
+   // if(this.getMealByMenuType(this.idMenu, 2)!= ""){
+    return this.getMealByMenuType(this.idMenu, 2).description;
+    /*}else{
+      return "Esta ementa não existe! selecione outro dia"
+    }*/
+  },
+  getSopa() {
+    return this.getMealByMenuType(this.idMenu, 1).description;
+  },
+  getCarne() {
+    return this.getMealByMenuType(this.idMenu, 3).description;
+  },
+  getPeixe() {
+    return this.getMealByMenuType(this.idMenu, 4).description;
+  },
+  getVegetariano() {
+    return this.getMealByMenuType(this.idMenu, 5).description;
+  },
+  getSobremesa() {
+    return this.getMealByMenuType(this.idMenu, 6).description;
+  }
+  },
+  methods: {
+    myFilter() {
+      let idAchieved=this.getIdMenuByDaySchedule(this.mealTime,this.date)
+      if(typeof idAchieved !== 'undefined' && idAchieved !== null){
+        alert("entrou" + idAchieved)
+      this.idMenu = idAchieved.idMenu
+      }else{
+        alert("O dia Selecionado não tem ementa")
+      }
+      this.isActive = !this.isActive;
+    }
+  }
+};
+</script>
 
 <style>
 .navlink > .active {
@@ -128,55 +256,3 @@
   border-radius: 25px;
 } */
 </style>
-
-<script>
-// @ is an alias to /src
-import { mapGetters } from "vuex";
-//import mapMutations from "vuex";
-//import router from "../router/index";
-import navBar from "@/components/navBar.vue";
-//import $ from "jquery";
-
-export default {
-  name: "weeklyMenu",
-  components: {
-    navBar
-  },
-  data() {
-    return {
-      isActive: false,
-      idMealEntrada: 0,
-      idMealSopa: 0,
-      idMealMenu: 0
-    };
-  },
-  /*actions:{
-$(".nav .nav-link").on("click", function() {
-  $(".nav")
-    .find("active")
-    .removeClass("active");
-  alert($(".nav").find("active"));
-  $(this).addClass("active");
-});
-  },*/
-  computed: {
-    ...mapGetters("mealType", ["getAllMealTypes", "getMealTypeById","getMealTypeByMealType"]),
-    ...mapGetters("meals", ["getAllMeals", "getMealByIdMenu","getMealByMenuType"]),
-    ...mapGetters("menu", ["getMenuById", "getIdMenuByDaySchedule"])
-  },
-  methods: {
-    getEmenta(idType) {
-      this.idMealMenu = this.getIdMenuByDaySchedule("Jantar", "07-01-2020").idMenu
-      //let mealTypes = this.getMealTypeByMealType("Sopa").idMealType
-      /*mealtype 1- entrada 2-sopa 3- prato carne 4- peixe 5-vegetariano 6 sobremesa */
-      return  this.getMealByMenuType(this.idMealMenu, idType).description
-
-    }
-    /*
-    myFilter: function() {
-      this.isActive = !this.isActive;
-    } */
-  }
-};
-
-</script>

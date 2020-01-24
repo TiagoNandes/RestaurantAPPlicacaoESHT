@@ -41,11 +41,11 @@
                                 :id="i"
                                 :name="'menu'+(i+1)"
                                 v-model="value[i]"
-                                value="carne"
+                                value="comunidade"
                                 class="card-input-element"
                               />
                               <div class="panel panel-default card-input border">
-                                <div class="panel-body p-3">Carne</div>
+                                <div class="panel-body p-3">Comunidade Campus II</div>
                               </div>
                             </label>
                           </div>
@@ -56,12 +56,12 @@
                                 :id="i"
                                 :name="'menu'+(i+1)"
                                 v-model="value[i]"
-                                value="peixe"
+                                value="publico"
                                 class="card-input-element"
                               />
 
                               <div class="panel panel-default card-input border">
-                                <div class="panel-body p-3">Peixe</div>
+                                <div class="panel-body p-3">Público</div>
                               </div>
                             </label>
                           </div>
@@ -72,12 +72,12 @@
                                 :id="i"
                                 :name="'menu'+(i+1)"
                                 v-model="value[i]"
-                                value="vegetariano"
+                                value="criancas"
                                 class="card-input-element"
                               />
 
                               <div class="panel panel-default card-input border">
-                                <div class="panel-body p-3">Vegetariano</div>
+                                <div class="panel-body p-3">Crianças</div>
                               </div>
                             </label>
                           </div>
@@ -160,7 +160,8 @@ label {
 <script>
 // @ is an alias to /src
 import navBar from "@/components/navBar.vue";
-import router from '../router/index'
+//import router from '../router/index'
+import {mapMutations} from "vuex";
 export default {
   name: "main",
   components: {
@@ -171,32 +172,58 @@ export default {
     return {
       idMenu: "",
       numOfPeople: 0,
+      comunidade: 0,
+      publico: 0,
+      criancas: 0,
       carne: 0,
       peixe: 0,
       vegetariano: 0,
-      value: []
+      value: [],
+      todaysDate: 0
     };
   },
   created() {
     // alert(router.go(1))
     this.idMenu = this.$route.params.idMenu;
     this.numOfPeople = this.$route.params.people;
+    this.carne = this.$route.params.carne;
+    this.peixe = this.$route.params.peixe;
+    this.vegetariano = this.$route.params.vegetariano;
     for (let i in this.numOfPeople) this.value.push(0 * i);
   },
 
   methods: {
+    ...mapMutations("reservations", ["reservationCreater"]),
     nextPage() {
       for (let i = 1; i <= this.numOfPeople; i++) {
-        if (this.value[i] == "carne") {
-          this.carne++;
-        } else if (this.value[i] == "peixe") {
-          this.peixe++;
-        } else if (this.value[i] == "vegetariano") {
-          this.vegetariano++;
+        if (this.value[i] == "comunidade") {
+          this.comunidade++;
+        } else if (this.value[i] == "publico") {
+          this.publico++;
+        } else if (this.value[i] == "criancas") {
+          this.criancas++;
         }
       }
-      router.push({name:"finishReservation", params:{people:this.numOfPeople, idMenu:this.idMenu, carne:this.carne, peixe:this.peixe, vegetariano:this.vegetariano}})
 
+      //date
+      this.todaysDate = new Date()
+        .toJSON()
+        .slice(0, 10)
+        .replace(/-/g, "-");
+
+      let newReservation = {
+        numPersonsCommunity: this.comunidade,
+        numPersonsRegular: this.publico,
+        numPersonsKids: this.criancas,
+        price: this.criancas * 6.4 + this.publico * 8 + this.comunidade * 6.4,
+        date: this.todaysDate,
+        carne: this.carne,
+        peixe: this.peixe,
+        vegetariano: this.vegetariano,
+        idMenu: this.idMenu,
+        idUser: 2
+      };
+      this.reservationCreater({newReservation})
     }
   }
 };
