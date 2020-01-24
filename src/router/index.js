@@ -8,6 +8,9 @@ import WeeklyMenu from '../views/WeeklyMenu.vue'
 import Reservation from '../views/Reservation.vue'
 import Confirmation from '../views/Confirmation.vue'
 import Restaurant from '../views/Restaurant.vue'
+import Registration from '../views/Registration.vue'
+import LoginUser from '../views/LoginUser.vue'
+
 import store from '../store'
 import Login from '../views/auth/Login.vue'
 import Register from '../views/auth/Register.vue'
@@ -151,6 +154,16 @@ const routes = [{
     path: '/statisticsFeedbacks',
     name: 'statisticsFeedbacks',
     component: statisticsFeedbacks
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: Registration
+  },
+  {
+    path: '/loginUser',
+    name: 'loginUser',
+    component: LoginUser
   },
   {
     path: '/finishReservation/:people/:idmenu/:carne/:peixe/:vegetariano',

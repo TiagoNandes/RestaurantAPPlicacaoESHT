@@ -16,6 +16,10 @@
 import { mapActions } from 'vuex'
 
 export default {
+  name: "main",
+  components: {
+    navBar
+  },
   data() {
     return {
       username: "",

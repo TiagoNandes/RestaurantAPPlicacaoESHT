@@ -10,6 +10,7 @@
   "dependencies": {
     "ajax": "0.0.4",
     "axios": "^0.19.1",
+    "bootstrap-datepicker": "^1.9.0",
     "bootstrap-vue": "^2.1.0",
     "core-js": "^3.4.3",
     "font-awesome": "^4.7.0",
