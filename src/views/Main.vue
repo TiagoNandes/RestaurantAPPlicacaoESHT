@@ -15,7 +15,7 @@
       
     </div>
     <div class="col-sm-8 text-center"> 
-      <img id="mainLogo" src="../assets/logo2.png" alt="Logótipo Temporário" style="transform: scale(0.55); top:2px;">
+      <img id="mainLogo" src="../assets/alDente.png" alt="Logótipo Temporário" style="transform: scale(0.55); top:2px;">
       <div id="mainText">
       <h1 style="color: #127834; font-family:Goergia;">Restaurante Aplicação</h1>
       <hr>

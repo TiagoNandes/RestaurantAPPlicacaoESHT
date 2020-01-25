@@ -16,15 +16,15 @@
         <div class="col-sm-8 text-center">
           <img
             id="mainLogo"
-            src="../assets/logo3.png"
+            src="../assets/alDente.png"
             alt="Logótipo Temporário"
             style="transform: scale(0.7); top:2px;"
           />
           <div id="mainText">
-            <h1 style="color: #127834; font-family:Georgia;">Restaurante Aplicação</h1>
+            <h1 style="color: #127834; font-family:Pacifico;">Al Dente</h1>
             <hr />
-            <h5 style="color: #1FBA53;">ESHT</h5>
-            <h5 style="color: #1FBA53;">Gestão e Administração Hoteleira</h5>
+            <h5>Restaurante de Aplicação da ESHT</h5>
+            <h5>Gestão e Administração Hoteleira</h5>
           </div>
           <div id="buttonScene">
             <div id="flips">

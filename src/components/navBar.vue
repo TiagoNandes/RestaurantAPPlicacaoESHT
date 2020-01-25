@@ -2,7 +2,7 @@
 <div>
     <nav class="navbar navbar-expand-md navbar fixed-top border border-success">
       <div id="navBar">
-      <router-link to="/"><img id="navbarLogo" src="../assets/navbarLogo2.png" alt=""></router-link>
+      <router-link to="/"><img id="navbarLogo" src="../assets/alDenteNavbar.png" alt=""></router-link>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

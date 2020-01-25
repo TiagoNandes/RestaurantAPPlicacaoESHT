@@ -10,6 +10,7 @@ import Confirmation from '../views/Confirmation.vue'
 import Restaurant from '../views/Restaurant.vue'
 import Registration from '../views/Registration.vue'
 import LoginUser from '../views/LoginUser.vue'
+import Profile from '../views/Profile.vue'
 
 import store from '../store'
 import Login from '../views/auth/Login.vue'
@@ -18,7 +19,7 @@ import usersList from '../views/usersList.vue'
 //import homeAdmin from '../views/admin/homeAdmin.vue'
 import menuOfTheWeek from '../views/menuOfTheWeek.vue'
 import reserva from '../views/reserva.vue'
-import feedback from '../views/Feedback.vue'
+import feedback from '../views/feedback.vue'
 import menuSelection from '../views/menuSelection.vue'
 import addEmentaSemanal from '../views/admin/addEmentaSemanal.vue'
 import addNewUser from '../views/admin/addNewUser.vue'
@@ -69,6 +70,11 @@ const routes = [{
     path: '/feedback',
     name: 'feedback',
     component: feedback
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
   },
   {
     path: '/menuSelection',
