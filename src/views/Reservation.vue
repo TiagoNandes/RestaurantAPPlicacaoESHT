@@ -22,125 +22,6 @@
             <div class="col-md-2" style></div>
           </div>
         </div>
-        <div class="container">
-          <div class="row blog">
-            <div class="col-md-12">
-              <p for="exampleInputCard">Número de pessoas</p>
-              <div id="blogCarousel" class="carousel slide" data-ride="carousel">
-                <a
-                  class="carousel-control-prev"
-                  href="#blogCarousel"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span class="carousel-control-prev-icon" style="background-color:#127834"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  href="#blogCarousel"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span class="carousel-control-next-icon border" style="background-color:#127834"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="row">
-                      <div class="col-md-3">
-                        <!-- onClick() here -->
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">1</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="col-md-3">
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">2</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="col-md-3">
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">3</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="col-md-3">
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">4</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <!--.row-->
-                  </div>
-                  <!--.item-->
-
-                  <div class="carousel-item">
-                    <div class="row">
-                      <div class="col-md-3">
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">5</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="col-md-3">
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">6</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="col-md-3">
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">7</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                      <div class="col-md-3">
-                        <a href="#">
-                          <div class="card">
-                            <div class="card-body" style="max-width:100%;">
-                              <h4 class="text-center">8</h4>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <!--.row-->
-                  </div>
-                  <!--.item-->
-                </div>
-                <!--.carousel-inner-->
-              </div>
-              <!--.Carousel-->
-            </div>
-          </div>
-        </div>
 
         <section id="formReservation" class="outer-wrapper text-center pt-4">
           <div class="inner-wrapper">
@@ -148,7 +29,6 @@
               <div class="row" style="margin-top: 32px">
                 <div class="col-md-12">
                   <form role="form" @submit.prevent="saveReservation">
-
                     <div class="form-group">
                       <div class="container">
                         <p>Numero Pessoas</p>
@@ -157,6 +37,7 @@
                           <div v-for="i in 6" :key="i" class="col-md-2 col-lg-2 col-sm-2">
                             <label>
                               <input
+                                required
                                 type="radio"
                                 name="people"
                                 id="people"
@@ -176,7 +57,6 @@
                       </div>
                     </div>
 
-
                     <div class="form-group">
                       <div class="container">
                         <p>Data</p>
@@ -185,6 +65,7 @@
                           <div v-for="i in 3" :key="i" class="col-md-4 col-lg-4 col-sm-4">
                             <label>
                               <input
+                                required
                                 type="radio"
                                 name="date"
                                 id="date"
@@ -215,12 +96,15 @@
                             class="col-md-6 col-lg-6 col-sm-6"
                           >
                             <label>
-                              <input type="radio"
+                              <input
+                                required
+                                type="radio"
                                 name="mealTime"
                                 id="mealTime"
                                 v-model="mealTimeSelected"
                                 class="card-input-element"
-                                v-bind:value="getMenuByDate[i-1].mealTime"/>
+                                v-bind:value="getMenuByDate[i-1].mealTime"
+                              />
                               <div class="panel panel-default card-input border p-3">
                                 <div class="panel-body">{{getMenuByDate[i-1].mealTime}}</div>
                               </div>
@@ -231,11 +115,11 @@
                     </div>
                     <!-- apaga-se o router link, button on click chama method que guarda os valores da data() and get id menu(funçao da store)-->
                     <!-- <router-link to="/confirmation"> -->
-                      <button
-                        type="submit"
-                        class="btn btn btn-primary my-2 my-sm-0 p-2"
-                        style="background-color: #127834; border-color: #127834;"
-                      >Continuar</button>
+                    <button
+                      type="submit"
+                      class="btn btn btn-primary my-2 my-sm-0 p-2"
+                      style="background-color: #127834; border-color: #127834;"
+                    >Continuar</button>
                     <!-- </router-link> -->
                   </form>
                 </div>
@@ -253,7 +137,7 @@
 // @ is an alias to /src
 import { mapGetters } from "vuex";
 import navBar from "@/components/navBar.vue";
-import router from '../router/index'
+import router from "../router/index";
 export default {
   name: "reservation",
   components: {
@@ -275,8 +159,8 @@ export default {
       ementa: [],
       data: "",
       lol: [],
-      people:0,
-      mealTimeSelected:0
+      people: 0,
+      mealTimeSelected: 0
     };
   },
   computed: {
@@ -292,11 +176,16 @@ export default {
   },
   methods: {
     saveReservation() {
+      let idMenu = this.getIdMenuByDaySchedule(
+        this.mealTimeSelected,
+        this.dateSelected
+      ).idMenu;
 
-      let idMenu= this.getIdMenuByDaySchedule(this.mealTimeSelected, this.dateSelected).idMenu
-
-      router.push({name:"confirmation", params:{people:this.people, idMenu:idMenu}})
-     /* this.$store.dispatch("SAVE_RESERVATION", {
+      router.push({
+        name: "confirmation",
+        params: { people: this.people, idMenu: idMenu }
+      });
+      /* this.$store.dispatch("SAVE_RESERVATION", {
         numPeople: this.numPeople,
         date: this.date,
         price: this.price,

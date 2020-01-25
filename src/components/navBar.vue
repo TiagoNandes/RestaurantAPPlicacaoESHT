@@ -14,22 +14,47 @@
             <router-link style="color: #127834" to="/weeklyMenu">Ementa<span class="sr-only">(current)</span></router-link>
           </li>
           <li class="nav-item">
-            <router-link style="color: #127834" to="/reservation">Reservar Refeição</router-link>
-          </li>
-          <li class="nav-item">
             <router-link style="color: #127834" to="/restaurant">Instalações</router-link>
           </li>
-          <li class="nav-item">
+          <li v-show="this.getUser !== undefined" class="nav-item">
+            <router-link style="color: #127834" to="/reservation">Reservar Refeição</router-link>
+          </li>
+          <li v-show="this.getUser !== undefined" class="nav-item">
             <router-link style="color: #127834" to="/feedback">Feedback</router-link>
           </li>
         </ul>
-
-          <router-link style="color: #127834" to="/addFunds">Saldo: {user.saldo}</router-link>
-          <router-link to="/registration"><button class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834">Entrar</button></router-link>
+       <!-- <div v-if="this.getUser!== 'undefined' || this.getUser !=='null' ">
+          <router-link style="color: #127834" to="/addFunds" >Saldo: {{this.getUser.saldo}}</router-link>
+        </div>-->
+        <div v-if="this.getUser == undefined">
+          <router-link  to="/LoginUser"><button class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834" >Entrar</button></router-link>
+        </div>
+        <div v-else>
+          <router-link style="color: #127834" to="/addFunds" >Saldo: {{this.getUser.saldo}} </router-link>
+          <router-link  to="/LoginUser"><button class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834" >Sair</button></router-link>
+        </div>
       </div>
     </nav>
   </div>
 </template>
+
+<script>
+import {  mapGetters } from 'vuex'
+export default {
+  data() {
+    return {
+      user: ""
+    };
+  },
+  computed: {
+...mapGetters( "user",['getUserLogged']),
+  getUser(){
+    return this.getUserLogged
+  }
+    
+  },
+};
+</script>
 
 <style>
 #navBar {

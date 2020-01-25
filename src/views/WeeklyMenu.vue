@@ -9,9 +9,6 @@
         <router-link to="/main">Main (testes)</router-link>
       </div>
 
-      <div class="py-4">
-        <div class="container"></div>
-      </div>
       <div class="py-5">
         <div class="container">
           <div class="row">
@@ -53,16 +50,21 @@
                   </div>
                 </div>
                 <br />
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button
+                  type="submit"
+                  class="btn btn btn-primary my-2 my-sm-0 btn-lg mt-5"
+                  style="background-color: #127834; border-color: #127834"
+                >Procurar</button>
               </form>
             </div>
-
-            <div class="col-md-2" style></div>
           </div>
         </div>
 
         <section id="formMultibanco" class="outer-wrapper text-center">
-          <div class="py-5">
+          <div v-if="this.idMenu == undefined || this.idMenu == 0" class="py-5">
+            <h2>Não existem reservas para este dia.</h2>
+          </div>
+          <div v-else class="py-5">
             <div class="container pt-5">
               <ul class="list-group list-group-horizontal">
                 <li class="list-group-item flex-fill">Entrada</li>
@@ -72,7 +74,7 @@
               </ul>
               <ul class="list-group list-group-horizontal pt-5">
                 <li class="list-group-item flex-fill border-0">{{this.getEntrada}}</li>
-                  <li class="list-group-item flex-fill border-0">{{this.getSopa}}</li>
+                <li class="list-group-item flex-fill border-0">{{this.getSopa}}</li>
                 <li class="list-group-item flex-fill border-0">
                   {{this.getCarne}}
                   <br />ou
@@ -88,30 +90,17 @@
           </div>
         </section>
       </div>
-
-      <!--<div id="footer" class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      Trabalho realizado por:
     </div>
-    <div class="col-sm">
-      Diogo Fernandes
+    <div v-if="this.idMenu == undefined || this.idMenu == 0">
+      <p>Não ha refeiçoes</p>
     </div>
-    <div class="col-sm">
-      Sara Rodrigues
+    <div v-else>
+      <button
+        type="submit"
+        class="btn btn btn-primary my-2 my-sm-0 btn-lg mt-5"
+        style="background-color: #127834; border-color: #127834"
+      >Reservar</button>
     </div>
-    <div class="col-sm">
-      Tiago Fernandes
-    </div>
-  </div>
-      </div>-->
-    </div>
-
-    <button
-      type="submit"
-      class="btn btn btn-primary my-2 my-sm-0 btn-lg mt-5"
-      style="background-color: #127834; border-color: #127834"
-    >Reservar</button>
   </div>
 </template>
 
@@ -119,7 +108,6 @@
 // @ is an alias to /src
 import { mapGetters } from "vuex";
 //import mapMutations from "vuex";
-//import router from "../router/index";
 import navBar from "@/components/navBar.vue";
 //import $ from "jquery";
 //import moment from "moment";
@@ -132,15 +120,16 @@ export default {
   data() {
     return {
       isActive: false,
-      idMealEntrada: 0,
-      idMealSopa: 0,
+      entrada: 0,
+      sopa: 0,
       idMenu: 0,
       meals: [],
       filterDay: "",
       filterSchedule: "",
       mealTime: "",
       date: "",
-      ementa: ""
+      ementa: "",
+      err: false
     };
   },
   created() {
@@ -162,10 +151,9 @@ export default {
       ).idMenu;
       this.mealTime = "Jantar";
     } else {
-      alert(this.date);
-      alert("Não existem refeições hoje! Selecione uma data");
+      //alert("Não existem refeições hoje! Selecione outra data");
     }
-    alert("result"+ JSON.stringify(this.getMenusNextMenus(this.date)))
+    //alert("result"+ JSON.stringify(this.getMenusNextMenus(this.date)))
   },
   computed: {
     ...mapGetters("mealType", [
@@ -179,43 +167,78 @@ export default {
       "getMealByMenuType"
     ]),
     ...mapGetters("menu", [
-      "getMenuById", 
+      "getMenuById",
       "getIdMenuByDaySchedule",
-      "getMenusNextMenus"]),
-  
-  getEntrada() {
-    //let mealTypes = this.getMealTypeByMealType("Sopa").idMealType
-    /*mealtype 1- entrada 2-sopa 3- prato carne 4- peixe 5-vegetariano 6 sobremesa */
-   // if(this.getMealByMenuType(this.idMenu, 2)!= ""){
-    return this.getMealByMenuType(this.idMenu, 2).description;
-    /*}else{
+      "getMenusNextMenus"
+    ]),
+
+    getEntrada() {
+      //let mealTypes = this.getMealTypeByMealType("Sopa").idMealType
+      /*mealtype 1- entrada 2-sopa 3- prato carne 4- peixe 5-vegetariano 6 sobremesa */
+      // if(this.getMealByMenuType(this.idMenu, 2)!= ""){
+      //alert("ENTRADA: " + JSON.stringify(this.getMealByMenuType(this.idMenu, 2).description))
+      if (
+        typeof this.getMealByMenuType(this.idMenu, 2) !== undefined &&
+        this.getMealByMenuType(this.idMenu, 2) !== null
+      ) {
+        return this.getMealByMenuType(this.idMenu, 2).description;
+      } else return this.err;
+      /*}else{
       return "Esta ementa não existe! selecione outro dia"
     }*/
-  },
-  getSopa() {
-    return this.getMealByMenuType(this.idMenu, 1).description;
-  },
-  getCarne() {
-    return this.getMealByMenuType(this.idMenu, 3).description;
-  },
-  getPeixe() {
-    return this.getMealByMenuType(this.idMenu, 4).description;
-  },
-  getVegetariano() {
-    return this.getMealByMenuType(this.idMenu, 5).description;
-  },
-  getSobremesa() {
-    return this.getMealByMenuType(this.idMenu, 6).description;
-  }
+    },
+    getSopa() {
+      if (
+        typeof this.getMealByMenuType(this.idMenu, 1) !== undefined &&
+        this.getMealByMenuType(this.idMenu, 1) !== null
+      ) {
+        return this.getMealByMenuType(this.idMenu, 1).description;
+      } else return this.err
+    },
+    getCarne() {
+      if (
+        typeof this.getMealByMenuType(this.idMenu, 3) !== undefined &&
+        this.getMealByMenuType(this.idMenu, 3) !== null
+      ) {
+        return this.getMealByMenuType(this.idMenu, 3).description;
+      } else return this.err
+    },
+    getPeixe() {
+      if (
+        typeof this.getMealByMenuType(this.idMenu, 4) !== undefined &&
+        this.getMealByMenuType(this.idMenu, 4) !== null
+      ) {
+        return this.getMealByMenuType(this.idMenu, 4).description;
+      } else return this.err
+    },
+    getVegetariano() {
+      if (
+        typeof this.getMealByMenuType(this.idMenu, 5) !== undefined &&
+        this.getMealByMenuType(this.idMenu, 5) !== null
+      ) {
+        return this.getMealByMenuType(this.idMenu, 5).description;
+      } else return this.err
+    },
+    getSobremesa() {
+      if (
+        typeof this.getMealByMenuType(this.idMenu, 6) !== undefined &&
+        this.getMealByMenuType(this.idMenu) !== null
+      ) {
+        return this.getMealByMenuType(this.idMenu, 6).description;
+      } else return this.err
+    }
   },
   methods: {
     myFilter() {
-      let idAchieved=this.getIdMenuByDaySchedule(this.mealTime,this.date)
-      if(typeof idAchieved !== 'undefined' && idAchieved !== null){
-        alert("entrou" + idAchieved)
-      this.idMenu = idAchieved.idMenu
-      }else{
-        alert("O dia Selecionado não tem ementa")
+      let idAchieved = this.getIdMenuByDaySchedule(this.mealTime, this.date);
+      if (typeof idAchieved !== undefined && idAchieved !== null) {
+
+        this.idMenu = idAchieved.idMenu;
+        alert(this.getMealByIdMenu(5))
+
+      } else {
+        this.idMenu = 0;
+        alert("Não existem reservas para este dia.");
       }
       this.isActive = !this.isActive;
     }

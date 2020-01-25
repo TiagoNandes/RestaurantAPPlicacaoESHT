@@ -6,7 +6,7 @@
       <div>
         <input id="nome" type="text" v-model="nome" required autofocus />
       </div>
-      <!--  <label for="sobrenome">Sobrenome</label>
+      <label for="sobrenome">Sobrenome</label>
       <div>
         <input id="sobrenome" type="text" v-model="sobrenome" required autofocus />
       </div>
@@ -26,7 +26,7 @@
       <label for="password">Password</label>
       <div>
         <input id="password" type="password" v-model="password" required />
-      </div>-->
+      </div>
 
       <!--<label for="password-confirm">Confirm Password</label>
       <div>

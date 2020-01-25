@@ -3,12 +3,13 @@ import router from '../router/index'
 //import {mapState } from 'vuex'
 const imported = JSON.parse(localStorage.getItem('user'))
 const state = {
-  users: imported
+  users: imported,
+  userLoggedId: null
 }
 
 const mutations = {
   login(context, {
-    name,
+    email,
     pass
   }) {
     var loggedIn = false
@@ -18,8 +19,8 @@ const mutations = {
     for (var user in users) {
       if (users[user] != null) {
         if (JSON.stringify(users[user].email) == JSON.stringify({
-          name
-        }.name)) {
+          email
+        }.email)) {
           if (users[user].password == {
             pass
           }.pass) {
@@ -31,9 +32,9 @@ const mutations = {
     }
     if (loggedIn) {
       alert("Login efetuado com sucesso");
-      alert(this.getters.getlastID)
+      state.userLoggedId = userId;
       localStorage.setItem("token", userId)
-      router.push("/usersList")
+      router.push("/weeklyMenu")
     } else if (!loggedIn) {
       alert("dados incorretos")
       router.go()
@@ -95,6 +96,7 @@ const getters = {
   getSaldoByUser: state => id => {
     return state.users.find(users => (users.id === id)).saldo
   },
+  getUserLogged: state => state.users.find(users =>(users.id===state.userLoggedId)) 
 }
 const user = {
   namespaced: true,

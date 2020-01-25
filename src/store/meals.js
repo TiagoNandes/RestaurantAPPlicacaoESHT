@@ -50,7 +50,7 @@ const getters = {
     },
      //Ementa correspondente ao menu(dia e horario) e ao idtipomenu
      getMealByMenuType: state => (idMenu, idMealType) => {
-      return state.meals.find(meals => (meals.idMenu === idMenu && meals.idMealType == idMealType))
+      return state.meals.find(meals => (meals.idMenu === idMenu && meals.idMealType === idMealType))
   },
 }
 const Meals = {
