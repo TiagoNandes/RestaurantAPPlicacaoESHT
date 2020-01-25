@@ -64,7 +64,7 @@
 </template> 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import router from "../../router/index";
+//import router from "../../router/index";
 import Navbar from "@/components/homeAdmin.vue";
 
 export default {
@@ -92,7 +92,7 @@ export default {
     deletingFeedback(idFeedback) {
       if (confirm("Deseja mesmo remover?")) {
         this.feedbackDeleter(idFeedback)
-        router.go()
+        //router.go()
       }
     }
   }

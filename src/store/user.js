@@ -15,6 +15,7 @@ const mutations = {
     var loggedIn = false
     var users = []
     var userId = null
+    var userType = null
     users = state.users
     for (var user in users) {
       if (users[user] != null) {
@@ -26,6 +27,7 @@ const mutations = {
           }.pass) {
             loggedIn = true
             userId = users[user].id
+            userType = users[user].id_tipoUser
           }
         }
       }
@@ -34,7 +36,10 @@ const mutations = {
       alert("Login efetuado com sucesso");
       state.userLoggedId = userId;
       localStorage.setItem("token", userId)
-      router.push("/weeklyMenu")
+      if (userType == 2) {
+        router.push("/weeklyMenu")
+      }
+      else if (userType == 1) { router.push("/statisticsDay") }
     } else if (!loggedIn) {
       alert("dados incorretos")
       router.go()
@@ -80,6 +85,7 @@ const mutations = {
     for (let user in state.users) {
       if (state.users[user].id == idUser) {
         state.users[user].saldo = state.users[user].saldo + price
+        alert(JSON.stringify(state.users[user]))
       }
     }
   }
@@ -93,10 +99,12 @@ const getters = {
   },
   //GET SALDO USER
   // getSaldoByUser: state => idUser => state.users.filter(users=> users.idUser===idUser),
-  getSaldoByUser: state => id => {
-    return state.users.find(users => (users.id === id)).saldo
+  getSaldoByUserLogged: state => {
+    return state.users.find(users => (users.id === state.userLoggedId)).saldo
   },
-  getUserLogged: state => state.users.find(users =>(users.id===state.userLoggedId)) 
+  getUserLogged: state => { 
+    return state.users.find(users => (users.id === state.userLoggedId))
+  }
 }
 const user = {
   namespaced: true,

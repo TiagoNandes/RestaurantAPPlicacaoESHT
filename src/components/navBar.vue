@@ -30,7 +30,8 @@
           <router-link  to="/LoginUser"><button class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834" >Entrar</button></router-link>
         </div>
         <div v-else>
-          <router-link style="color: #127834" to="/addFunds" >Saldo: {{this.getUser.saldo}} </router-link>
+          <router-link style="color: #127834" to="/addFunds" >{{this.getUser.nome}} &nbsp; </router-link>
+          <img src="../assets/avatar.jpg" alt="Avatar" class="avatar"> 
           <router-link  to="/LoginUser"><button class="btn btn btn-primary my-2 my-sm-0" style="background-color: #127834; border-color: #127834" >Sair</button></router-link>
         </div>
       </div>
@@ -73,6 +74,12 @@ export default {
   padding-left:30px;
   padding-right:5px;
   padding-top: 15px;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 

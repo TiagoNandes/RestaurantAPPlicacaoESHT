@@ -18,12 +18,10 @@ const mutations = {
       idMealType: idTipo,
       idMenu: idMenu
     }
-    alert(JSON.stringify(newMeal))
     return state.meals.push(newMeal)
   },
       //Update USER
   mealUpdater(context,{index,newMeal}) {
-      alert(index + newMeal)
     state.meals[index] = newMeal
     return localStorage.setItem('meal',JSON.stringify(state.meals))
   },

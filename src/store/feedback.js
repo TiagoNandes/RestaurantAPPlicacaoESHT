@@ -9,6 +9,7 @@ const mutations = {
   feedbackDeleter(context, idFeedback){
     for (let feedback in state.feedbacks) {
       if (state.feedbacks[feedback].idFeedback == idFeedback) {
+        alert(feedback)
         state.feedbacks.splice(feedback, 1);
       }
     }

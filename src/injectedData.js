@@ -9,7 +9,7 @@ const userCreated = [{
         password: "123",
         saldo: 20.95,
         telefone: 1,
-        id_tipoUser: 2
+        id_tipoUser: 1
     },
     {
         id: 2,
@@ -18,9 +18,9 @@ const userCreated = [{
         data_nascimento: "07-07-1996",
         email: "tiago@esmad.ipp.pt",
         password: 123,
-        saldo: 10,
+        saldo: 13,
         telefone: 3,
-        id_tipoUser: 1
+        id_tipoUser: 2
     },
     {
         id: 3,
@@ -189,7 +189,7 @@ const feedbackCreated = [{
         taste: 4,
         service: 3,
         presentation: 4,
-        idReservation: 3,
+        idReservation: 4,
         idUser: 3
     },
 ]
@@ -250,7 +250,7 @@ const reservationsCreated = [{
         carne: 2,
         peixe: 2,
         vegetariano: 1,
-        idMenu: 1,
+        idMenu: 5,
         idUser: 3
     }
 ]

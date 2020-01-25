@@ -158,7 +158,6 @@ export default {
       //guardar ementas com data > hoje
       ementa: [],
       data: "",
-      lol: [],
       people: 0,
       mealTimeSelected: 0
     };
@@ -170,6 +169,7 @@ export default {
       "getMenusNextMenus",
       "getIdMenuByDate"
     ]),
+    ...mapGetters("user", ["getSaldoByUserLogged"]),
     getMenuByDate() {
       return this.getIdMenuByDate(this.dateSelected);
     }
@@ -180,21 +180,23 @@ export default {
         this.mealTimeSelected,
         this.dateSelected
       ).idMenu;
-
-      router.push({
-        name: "confirmation",
-        params: { people: this.people, idMenu: idMenu }
-      });
-      /* this.$store.dispatch("SAVE_RESERVATION", {
-        numPeople: this.numPeople,
-        date: this.date,
-        price: this.price,
-        numPersonsCommunity: this.numPersonsCommunity,
-        numPersonsRegular: this.numPersonsRegular,
-        numPersonsKids: this.numPersonsKids,
-        state: this.state,
-        mealTime: this.mealTime
-      });*/
+      let avaiableSeats = this.getIdMenuByDaySchedule(
+        this.mealTimeSelected,
+        this.dateSelected
+      ).avaiableSeats;
+      if (avaiableSeats >= this.people) {
+        if (this.getSaldoByUserLogged>= 6.4*this.people) {
+          router.push({
+            name: "confirmation",
+            params: { people: this.people, idMenu: idMenu }
+          });
+        }
+        else{
+          alert("Saldo insuficente!! Para esta reserva necessita de ter um saldo maior ou igual a " + parseFloat(6.4*this.people).toFixed(2)+ "€")
+        }
+      } else {
+        alert("Apenas existem " + avaiableSeats + " lugares disponiveis!");
+      }
     },
     filteredByDay() {
       const uniqueDate = Array.from(new Set(this.ementa.map(a => a.date))).map(
