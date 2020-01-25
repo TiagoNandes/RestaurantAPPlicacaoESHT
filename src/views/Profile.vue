@@ -49,20 +49,27 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr> <!-- <i class="fas fa-trash-alt"></i> -->
       <td>7 Dezembro</td>
       <td>7h55</td>
-      <td> <a href=""><i class="fas fa-eye" style="color: #127834; float:right;"></i></a></td>
+      <td><a href=""><i class="fas fa-trash-alt" style="color: #127834; float:right;"></i></a>
+          <a href=""><i class="fas fa-eye" style="color: #127834; float:right; padding-right: 15px;"></i></a>
+      </td>
+     
     </tr>
     <tr>
       <td>18 Março</td>
       <td>16h00</td>
-      <td> <a href=""><i class="fas fa-eye" style="color: #127834; float:right;"></i></a></td>
+      <td><a href=""><i class="fas fa-trash-alt" style="color: #127834; float:right;"></i></a>
+          <a href=""><i class="fas fa-eye" style="color: #127834; float:right; padding-right: 15px;"></i></a>
+      </td>
     </tr>
     <tr>
       <td>Dia</td>
       <td>Hora</td>
-      <td>Avaliação <a href=""><i class="fas fa-eye" style="color: #127834; float:right;"></i></a></td>
+      <td>Avaliação<a href=""><i class="fas fa-trash-alt" style="color: #127834; float:right;"></i></a>
+          <a href=""><i class="fas fa-eye" style="color: #127834; float:right; padding-right: 15px;"></i></a>
+      </td>
     </tr>
   </tbody>
 </table>
