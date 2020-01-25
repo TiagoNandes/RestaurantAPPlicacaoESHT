@@ -161,7 +161,7 @@ label {
 // @ is an alias to /src
 import navBar from "@/components/navBar.vue";
 //import router from '../router/index'
-import {mapMutations} from "vuex";
+import {mapMutations, mapGetters} from "vuex";
 export default {
   name: "main",
   components: {
@@ -177,6 +177,7 @@ export default {
       criancas: 0,
       carne: 0,
       peixe: 0,
+      price:0,
       vegetariano: 0,
       value: [],
       todaysDate: 0
@@ -191,10 +192,16 @@ export default {
     this.vegetariano = this.$route.params.vegetariano;
     for (let i in this.numOfPeople) this.value.push(0 * i);
   },
-
+  computed:{
+    ...mapGetters("user", ["getSaldoByUserLogged", "getUserLogged"])
+  },
   methods: {
     ...mapMutations("reservations", ["reservationCreater"]),
+    ...mapMutations("user", ["updateSaldo"]),
     nextPage() {
+      this.comunidade=0
+      this.criancas= 0
+      this.publico = 0
       for (let i = 1; i <= this.numOfPeople; i++) {
         if (this.value[i] == "comunidade") {
           this.comunidade++;
@@ -204,26 +211,33 @@ export default {
           this.criancas++;
         }
       }
-
       //date
       this.todaysDate = new Date()
         .toJSON()
         .slice(0, 10)
         .replace(/-/g, "-");
-
+      this.price = this.criancas * 6.4 + this.publico * 8 + this.comunidade * 6.4
       let newReservation = {
         numPersonsCommunity: this.comunidade,
         numPersonsRegular: this.publico,
         numPersonsKids: this.criancas,
-        price: this.criancas * 6.4 + this.publico * 8 + this.comunidade * 6.4,
+        price: this.price,
         date: this.todaysDate,
         carne: this.carne,
         peixe: this.peixe,
         vegetariano: this.vegetariano,
         idMenu: this.idMenu,
-        idUser: 2
+        idUser: this.getUserLogged.id
       };
+      if (this.getSaldoByUserLogged>= newReservation.price){
       this.reservationCreater({newReservation})
+      this.updateSaldo({idUser:newReservation.idUser, price: -Math.abs(newReservation.price)})
+      alert(JSON.stringify(this.getUserLogged))
+
+      }
+      else{
+         alert("Saldo insuficente!! Para esta reserva necessita de ter um saldo maior ou igual a " + parseFloat(this.price).toFixed(2)+ "€")
+      }
     }
   }
 };

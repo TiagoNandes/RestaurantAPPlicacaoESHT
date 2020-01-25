@@ -62,7 +62,7 @@
 
         <section id="formMultibanco" class="outer-wrapper text-center">
           <div v-if="this.idMenu == undefined || this.idMenu == 0" class="py-5">
-            <h2>Não existem reservas para este dia.</h2>
+            <h2>Não existem ementas para este dia.</h2>
           </div>
           <div v-else class="py-5">
             <div class="container pt-5">
@@ -91,16 +91,13 @@
         </section>
       </div>
     </div>
-    <div v-if="this.idMenu == undefined || this.idMenu == 0">
-      <p>Não ha refeiçoes</p>
-    </div>
-    <div v-else>
+    <!--<div>
       <button
         type="submit"
         class="btn btn btn-primary my-2 my-sm-0 btn-lg mt-5"
         style="background-color: #127834; border-color: #127834"
       >Reservar</button>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -150,10 +147,7 @@ export default {
         String(this.date)
       ).idMenu;
       this.mealTime = "Jantar";
-    } else {
-      //alert("Não existem refeições hoje! Selecione outra data");
-    }
-    //alert("result"+ JSON.stringify(this.getMenusNextMenus(this.date)))
+    } 
   },
   computed: {
     ...mapGetters("mealType", [
@@ -173,23 +167,16 @@ export default {
     ]),
 
     getEntrada() {
-      //let mealTypes = this.getMealTypeByMealType("Sopa").idMealType
-      /*mealtype 1- entrada 2-sopa 3- prato carne 4- peixe 5-vegetariano 6 sobremesa */
-      // if(this.getMealByMenuType(this.idMenu, 2)!= ""){
-      //alert("ENTRADA: " + JSON.stringify(this.getMealByMenuType(this.idMenu, 2).description))
       if (
-        typeof this.getMealByMenuType(this.idMenu, 2) !== undefined &&
+        typeof this.getMealByMenuType(this.idMenu, 2) !== 'undefined' &&
         this.getMealByMenuType(this.idMenu, 2) !== null
       ) {
         return this.getMealByMenuType(this.idMenu, 2).description;
       } else return this.err;
-      /*}else{
-      return "Esta ementa não existe! selecione outro dia"
-    }*/
     },
     getSopa() {
       if (
-        typeof this.getMealByMenuType(this.idMenu, 1) !== undefined &&
+        typeof this.getMealByMenuType(this.idMenu, 1) !== 'undefined' &&
         this.getMealByMenuType(this.idMenu, 1) !== null
       ) {
         return this.getMealByMenuType(this.idMenu, 1).description;
@@ -197,7 +184,7 @@ export default {
     },
     getCarne() {
       if (
-        typeof this.getMealByMenuType(this.idMenu, 3) !== undefined &&
+        typeof this.getMealByMenuType(this.idMenu, 3) !== 'undefined' &&
         this.getMealByMenuType(this.idMenu, 3) !== null
       ) {
         return this.getMealByMenuType(this.idMenu, 3).description;
@@ -205,7 +192,7 @@ export default {
     },
     getPeixe() {
       if (
-        typeof this.getMealByMenuType(this.idMenu, 4) !== undefined &&
+        typeof this.getMealByMenuType(this.idMenu, 4) !== 'undefined' &&
         this.getMealByMenuType(this.idMenu, 4) !== null
       ) {
         return this.getMealByMenuType(this.idMenu, 4).description;
@@ -213,7 +200,7 @@ export default {
     },
     getVegetariano() {
       if (
-        typeof this.getMealByMenuType(this.idMenu, 5) !== undefined &&
+        typeof this.getMealByMenuType(this.idMenu, 5) !== 'undefined' &&
         this.getMealByMenuType(this.idMenu, 5) !== null
       ) {
         return this.getMealByMenuType(this.idMenu, 5).description;
@@ -221,7 +208,7 @@ export default {
     },
     getSobremesa() {
       if (
-        typeof this.getMealByMenuType(this.idMenu, 6) !== undefined &&
+        typeof this.getMealByMenuType(this.idMenu, 6) !== 'undefined' &&
         this.getMealByMenuType(this.idMenu) !== null
       ) {
         return this.getMealByMenuType(this.idMenu, 6).description;
@@ -231,14 +218,10 @@ export default {
   methods: {
     myFilter() {
       let idAchieved = this.getIdMenuByDaySchedule(this.mealTime, this.date);
-      if (typeof idAchieved !== undefined && idAchieved !== null) {
-
+      if (typeof idAchieved !== 'undefined' && idAchieved !== null) {
         this.idMenu = idAchieved.idMenu;
-        alert(this.getMealByIdMenu(5))
-
       } else {
         this.idMenu = 0;
-        alert("Não existem reservas para este dia.");
       }
       this.isActive = !this.isActive;
     }

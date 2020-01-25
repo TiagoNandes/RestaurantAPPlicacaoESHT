@@ -16,20 +16,20 @@
           <div class="col">
             <div class="form-group">
               <label for="sel1">Selecione o horário:</label>
-              <select class="form-control" id="mealTime" name="mealTime" v-model="mealTime">
+              <select class="mr-sm-2 form-control" id="mealTime" name="mealTime" v-model="mealTime">
                 <option>Almoço</option>
                 <option>Jantar</option>
               </select>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Ver estatistica</button>
+        <button type="submit" class="btn btn-success">Ver estatistica</button>
       </form>
       <br />
             <h2>Estatisticas do dia {{this.date}} ao {{this.mealTime}}</h2>
 
       <br />
-      <div class="row">
+      <div v-if = "this.existe===true" class="row">
         <div class="col" id="contentSpan">
           <span class="badge badge-secondary">
             <i class="fas fa-utensils" style="font-size:36px"></i>
@@ -83,6 +83,9 @@
           </span>
         </div>
       </div>
+          <div v-if= "this.existe===false" class="row">
+            <h3>Não existem estatisticas para este dia</h3>
+    </div>
     </div>
   </div>
 </template>
@@ -102,7 +105,8 @@ export default {
       idReservation: 0,
       idMenu: "",
       date: "",
-      mealTime: ""
+      mealTime: "",
+      existe: false
     };
   },
   created() {
@@ -114,14 +118,12 @@ export default {
       this.idMenu = this.getIdMenuByDaySchedule("Almoço",String(this.date)
       ).idMenu;
       this.mealTime= "Almoço"
+      this.existe = true
 
     } else if (this.getIdMenuByDaySchedule("Jantar", String(this.date))){
       this.idMenu = this.getIdMenuByDaySchedule("Jantar", String(this.date)).idMenu;
       this.mealTime= "Jantar"
-    }
-    else {
-      alert(this.date)
-      alert("Não existem refeições hoje! Selecione uma data");
+      this.existe = true
     }
   },
   computed: {
@@ -162,10 +164,17 @@ export default {
   },
   methods: {
     filteredStatistics() {
+      if(typeof this.getIdMenuByDaySchedule(this.mealTime, this.date) !== 'undefined'){
+      this.existe= true
       this.idMenu = this.getIdMenuByDaySchedule(
         this.mealTime,
         this.date
       ).idMenu;
+      }
+      else {
+        this.existe = false
+      }
+
     }
   }
 };

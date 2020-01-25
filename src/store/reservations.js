@@ -1,11 +1,9 @@
 //Reserva(id_reserva, n_pessoasComunidade, n_pessoasPublico, n_criancas, valor, estado, data_reserva, id_menu, id_utilizador)
-
 //Meal(idMeal, description, idMealType)
-
 //Menu(id_menu, data, horario, id_prato)
-
 //const user = JSON.parse(localStorage.getItem('user'));
 //import router from '../router/index'
+
 const imported = JSON.parse(localStorage.getItem('reservations'))
 
 const state = {
@@ -23,7 +21,7 @@ const getters = {
     //get numero reservas by idMenu
     getReservationsByIdMenu: state => idMenu => state.reservations.filter(reservations => (reservations.idMenu === idMenu)),
     getNumberReservationsByIdMenu: state => idMenu => state.reservations.filter(reservations => reservations.idMenu === idMenu).length,
-    getReservationsByUser: state => idUser => state.reservations.filter(reservations => reservations.idUser === idUser),
+    getReservationsByUser: state => idUser => state.reservations.filter(reservations => reservations.idUser === idUser)
 }
 
 const mutations = {
@@ -52,7 +50,7 @@ const mutations = {
             peixe: newReservation.peixe,
             vegetariano: newReservation.vegetariano,
             idMenu: newReservation.idMenu,
-            idUser: 2
+            idUser: newReservation.idUser
         }
         return state.reservations.push(newReservation1)
     }
