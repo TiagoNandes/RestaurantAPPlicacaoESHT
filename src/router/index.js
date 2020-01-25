@@ -10,6 +10,7 @@ import Confirmation from '../views/Confirmation.vue'
 import Restaurant from '../views/Restaurant.vue'
 import Registration from '../views/Registration.vue'
 import LoginUser from '../views/LoginUser.vue'
+import Profile from '../views/Profile.vue'
 
 import store from '../store'
 import Login from '../views/auth/Login.vue'
@@ -69,6 +70,11 @@ const routes = [{
     path: '/feedback',
     name: 'feedback',
     component: feedback
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
   },
   {
     path: '/menuSelection',
