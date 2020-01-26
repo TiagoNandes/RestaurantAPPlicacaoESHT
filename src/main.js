@@ -12,9 +12,12 @@ require('bootstrap')
 //require('font-awesome')
 Vue.config.productionTip = false
 
-new Vue({
+const vm = new Vue({
   router,
   injectedData,
   store,
   render: h => h(App)
 }).$mount('#app')
+window.onunload = function () {
+  vm.$destroy()  
+}

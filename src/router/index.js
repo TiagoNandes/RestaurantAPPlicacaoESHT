@@ -213,12 +213,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.matched.some(routes => routes.meta.requiresAuthUser)) {
     if (store.getters["user/getUserLogged"] == undefined) {
-      next({
+      next(router.push("/"))
+      /*next({
         path: "/main",
         query: {
           redirect: to.fullPath
         }
-      })
+      })*/
       return
     }
     else{
@@ -238,18 +239,19 @@ router.beforeEach((to, from, next) => {
   }
   if (to.matched.some(routes => routes.meta.requiresAuthAdmin)) {
     if (store.getters["user/getUserLogged"] == undefined) {
-      next({
+      next(router.push("/"))
+      /*next({
         path: "/main",
         query: {
           redirect: to.fullPath
         }
-      })
+      })*/
       return
     }
     else{
       if(store.getters["user/getUserLogged"].id_tipoUser!=1){
         next({
-          path: "/main",
+          path: "",
           query: {
             redirect: to.fullPath
           }
