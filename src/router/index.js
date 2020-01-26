@@ -29,6 +29,7 @@ import editUser from '../views/admin/editUser.vue'
 import statiscsDay from '../views/admin/statisticsDay.vue'
 import statisticsFeedbacks from '../views/admin/statisticsFeedbacks.vue'
 import finishReservation from '../views/FinishReservation.vue'
+import reservationInfo from '../views/reservationInfo.vue'
 //import user from '../store/user'
 Vue.use(VueRouter)
 
@@ -194,6 +195,13 @@ const routes = [{
   name: 'finishReservation',
   component: finishReservation,
   meta: { requiresAuthUser: true }
+
+},
+{
+  path: '/reservationInfo',
+  name: 'reservationInfo',
+  component: reservationInfo,
+  //meta: { requiresAuthUser: true }
 
 }
 
