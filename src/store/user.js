@@ -63,10 +63,6 @@ const mutations = {
     router.push("/listAllUsers")
     return state.users.push(newUser)
   },
-  //Carregamento saldo
-
-  //Update password ou outros dados do user
-
   //Update USER
   updater(context, { index, newUser }) {
     state.users[index] = newUser
@@ -81,6 +77,8 @@ const mutations = {
       }
     }
   },
+  //Carregamento saldo
+
   updateSaldo(context, { idUser, price }) {
     for (let user in state.users) {
       if (state.users[user].id == idUser) {
@@ -88,6 +86,10 @@ const mutations = {
         alert(JSON.stringify(state.users[user]))
       }
     }
+  },
+  logOut(){
+    state.userLoggedId = null
+     router.push("/")
   }
 }
 const getters = {
