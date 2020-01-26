@@ -133,7 +133,6 @@ export default {
         meal => meal.idMeal === this.updatedMeal.idMeal
       );
       let newMeal = this.updatedMeal;
-      alert(JSON.stringify(newMeal));
       this.mealUpdater({ index, newMeal });
       this.modalClose();
     }

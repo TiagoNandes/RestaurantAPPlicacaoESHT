@@ -89,7 +89,7 @@ const mutations = {
   },
   logOut(){
     state.userLoggedId = null
-     router.push("/")
+     router.push("/main")
   }
 }
 const getters = {

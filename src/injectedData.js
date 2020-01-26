@@ -1,3 +1,4 @@
+//alert(localStorage.getItem("reservations"))
 localStorage.clear()
 /**************************** USER ***************************************/
 const userCreated = [{
@@ -28,7 +29,7 @@ const userCreated = [{
         sobrenome: "Fernandes",
         data_nascimento: "",
         email: "diogo@esmad.ipp.pt",
-        password: 65,
+        password: 123,
         saldo: 12.00,
         telefone: 2,
         id_tipoUser: 2
@@ -258,6 +259,6 @@ var e = []
 for (let value in reservationsCreated) {
     e.push(reservationsCreated[value])
 }
-if (!localStorage.getItem('resevations')) {
+if (!localStorage.getItem('reservations')) {
     localStorage.setItem('reservations', JSON.stringify(e))
 }

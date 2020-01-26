@@ -1,21 +1,38 @@
 <template>
-  <div id="app">
-    <!--<div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/About">About</router-link> |   
-      <router-link to="/statisticsDay">Admin</router-link> |
-      <router-link to="/menuOfTheWeek">Ementa Semanal</router-link> |
-      <router-link to="/reserva">Reservar Refeição</router-link> |
-      <router-link to="/feedback">Feedback</router-link> |
-      <router-link to="/menuSelection">Selecionar Menu</router-link> |
-    </div>-->
-    <router-view/>
+  <div id="app"><router-view />
   </div>
 </template>
+<script>
+import { mapGetters } from "vuex";
 
+export default {
+  data(){
+    return{
+
+    }
+  },
+  created(){
+    //localStorage.clear()
+  },
+  beforeDestroy() {
+    localStorage.setItem("reservations", JSON.stringify(this.getAllReservations))
+    localStorage.setItem("user", JSON.stringify(this.getAllUsers))
+    localStorage.setItem("menu", JSON.stringify(this.getAllMenus))
+    localStorage.setItem("meal", JSON.stringify(this.getAllMeals))
+    localStorage.setItem("feedback", JSON.stringify(this.getAllFeedbacks))
+      },
+  computed: {
+    ...mapGetters("reservations", ["getAllReservations"]),
+    ...mapGetters("user",["getAllUsers"]),
+    ...mapGetters("menu",["getAllMenus"]),
+    ...mapGetters("meals",["getAllMeals"]),
+    ...mapGetters("feedback",["getAllFeedbacks"]),
+  }
+};
+</script>
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
