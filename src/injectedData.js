@@ -179,7 +179,7 @@ const feedbackCreated = [{
         taste: 3,
         service: 4,
         presentation: 5,
-        idReservation: 3,
+        idReservation: 1,
         idUser: 1
     },
     {
@@ -189,9 +189,10 @@ const feedbackCreated = [{
         taste: 4,
         service: 3,
         presentation: 4,
-        idReservation: 4,
-        idUser: 3
+        idReservation: 2,
+        idUser: 1
     },
+
 ]
 var d = []
 for (let value in feedbackCreated) {
@@ -238,7 +239,7 @@ const reservationsCreated = [{
         peixe: 2,
         vegetariano: 1,
         idMenu: 2,
-        idUser: 3
+        idUser: 1
     },
     {
         idReservation: 4,

@@ -23,7 +23,9 @@
             <div class="col-md-2" style></div>
           </div>
         </div>
-
+        <div class="progress" style="width:35%; margin:0 auto;">
+          <div class="progress-bar bg-success" style="width:50%">50%</div>
+        </div>
         <section id="formConfirmation" class="outer-wrapper text-center pt-4">
           <div class="inner-wrapper">
             <div class="container">
@@ -160,7 +162,7 @@ label {
 <script>
 // @ is an alias to /src
 import navBar from "@/components/navBar.vue";
-import router from '../router/index'
+import router from "../router/index";
 export default {
   name: "main",
   components: {
@@ -195,8 +197,16 @@ export default {
           this.vegetariano++;
         }
       }
-      router.push({name:"finishReservation", params:{people:this.numOfPeople, idMenu:this.idMenu, carne:this.carne, peixe:this.peixe, vegetariano:this.vegetariano}})
-
+      router.push({
+        name: "finishReservation",
+        params: {
+          people: this.numOfPeople,
+          idMenu: this.idMenu,
+          carne: this.carne,
+          peixe: this.peixe,
+          vegetariano: this.vegetariano
+        }
+      });
     }
   }
 };

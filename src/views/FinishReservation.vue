@@ -23,7 +23,9 @@
             <div class="col-md-2" style></div>
           </div>
         </div>
-
+        <div class="progress" style="width:35%; margin:0 auto;">
+          <div class="progress-bar bg-success" style="width:75%">75%</div>
+        </div>
         <section id="formConfirmation" class="outer-wrapper text-center pt-4">
           <div class="inner-wrapper">
             <div class="container">

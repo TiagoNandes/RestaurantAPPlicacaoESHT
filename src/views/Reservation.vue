@@ -22,7 +22,9 @@
             <div class="col-md-2" style></div>
           </div>
         </div>
-
+        <div class="progress" style="width:35%; margin:0 auto;">
+          <div class="progress-bar bg-success" style="width:25%">25%</div>
+        </div>
         <section id="formReservation" class="outer-wrapper text-center pt-4">
           <div class="inner-wrapper">
             <div class="container">
@@ -185,14 +187,17 @@ export default {
         this.dateSelected
       ).avaiableSeats;
       if (avaiableSeats >= this.people) {
-        if (this.getSaldoByUserLogged>= 6.4*this.people) {
+        if (this.getSaldoByUserLogged >= 6.4 * this.people) {
           router.push({
             name: "confirmation",
             params: { people: this.people, idMenu: idMenu }
           });
-        }
-        else{
-          alert("Saldo insuficente!! Para esta reserva necessita de ter um saldo maior ou igual a " + parseFloat(6.4*this.people).toFixed(2)+ "€")
+        } else {
+          alert(
+            "Saldo insuficente!! Para esta reserva necessita de ter um saldo maior ou igual a " +
+              parseFloat(6.4 * this.people).toFixed(2) +
+              "€"
+          );
         }
       } else {
         alert("Apenas existem " + avaiableSeats + " lugares disponiveis!");
