@@ -21,12 +21,12 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" v-if="JSON.stringify(this.idMenusReservation) != '[]'">
           <div class="container">
             <p>Reservas anteriores</p>
             <div class="row">
               <div
-                v-for="i in this.idMenuFilteredByDate.length"
+                v-for="i in this.idMenusReservation.length"
                 :key="i"
                 class="col-md-4 col-lg-4 col-sm-4"
               >
@@ -38,21 +38,19 @@
                     id="date"
                     v-model="idMenu"
                     class="card-input-element"
-                    v-bind:value="idMenuFilteredByDate[i-1].idMenu"
+                    v-bind:value="idMenusReservation[i-1].idMenu"
                   />
                   <div class="panel panel-default card-input border">
                     <div class="panel-heading"></div>
                     <div
                       class="panel-body"
-                    >{{idMenuFilteredByDate[i-1].date}} , {{idMenuFilteredByDate[i-1].mealTime}}</div>
+                    >{{idMenusReservation[i-1].date}} , {{idMenusReservation[i-1].mealTime}}</div>
                   </div>
                 </label>
               </div>
             </div>
           </div>
-        </div>
-
-        <section id="formMultibanco" class="outer-wrapper text-center pt-4">
+           <section id="formMultibanco" class="outer-wrapper text-center pt-4">
           <div class="inner-wrapper">
             <div class="container">
               <div class="row" style="margin-top: 32px">
@@ -210,7 +208,19 @@
                         class="btn btn-outline-success rating"
                         type="button"
                       />
+                      
                     </div>
+                    <div><p>Comentário adicional</p> 
+                      <input
+                        v-model = comentario
+                        name="comentario"
+                        class="btn btn-outline-success rating"
+                        type="text"
+                      />
+                      <br>
+                      <br>  
+                    </div>
+                    <hr/>
                     <button
                       type="submit"
                       class="btn btn btn-primary my-2 my-sm-0"
@@ -222,6 +232,11 @@
             </div>
           </div>
         </section>
+        </div>
+        <div v-else>
+          <h3>Não existem reservas sem avaliação para mostrar</h3>
+        </div>
+       
       </div>
     </div>
   </div>
@@ -255,14 +270,24 @@ export default {
       idReservationWithoutFeedback: [],
       //array filtrado por idMenu, data < data de hoje e sem feedbacks
       idMenuFilteredByDate: [],
-      todaysDate: 0
+      feedbackUser: [],
+      idMenusReservation: [],
+      todaysDate: 0,
+      comentario:""
     };
   },
   computed: {
-    ...mapGetters("reservations", ["getReservationsByUser"]),
+    ...mapGetters("reservations", [
+      "getReservationsByUser",
+      "getReservationsByIdReservation",
+      "getIdReservationByUserMenu"
+    ]),
     ...mapGetters("menu", ["getMenuById", "getIdMenuByDaySchedule"]),
     ...mapGetters("user", ["getSaldoByUserLogged", "getUserLogged"]),
-    ...mapGetters("feedback", ["getFeedbackByUserAndReservation"]),
+    ...mapGetters("feedback", [
+      "getFeedbackByUserAndReservation",
+      "getFeedbackByUser"
+    ]),
 
     getMenuByDate() {
       return this.getIdMenuByDate(this.dateSelected);
@@ -283,13 +308,17 @@ export default {
       this.presentation = input;
     },
     saveFeedback() {
+      let idReservation = this.getIdReservationByUserMenu(
+        this.userLoggedId,
+        this.idMenu
+      ).idReservation;
       let newFeedback = {
-        comentario: "Olá",
+        comentario: this.comentario,
         temperature: this.temperature,
         taste: this.taste,
         service: this.service,
         presentation: this.presentation,
-        idReservation: this.idReservation,
+        idReservation: idReservation,
         idUser: this.userLoggedId
       };
       this.feedbackCreater({ newFeedback });
@@ -301,34 +330,38 @@ export default {
       .slice(0, 10)
       .replace(/-/g, "-");
     this.userLoggedId = this.getUserLogged.id;
-    this.usersReservations = this.getReservationsByUser(this.userLoggedId);
-    //filtrar por reservas ainda sem feedback
-    let reservationsMenu = [];
-    for (let i = 0; i < this.getReservationsByUser(1).length; i++) {
-      reservationsMenu.push(this.getReservationsByUser(1)[i].idMenu);
-      for (let j = 0; j < reservationsMenu.length; j++) {
-        //para cada valor obtido no array resevationsMenu vai fazer push do id menu para data()
-        if (typeof this.getFeedbackByUserAndReservation(1, 3) == "undefined") {
-         this.reservationsMenuId.push(this.getReservationsByUser(1)[i].idMenu);
+    //Get todas as reservas do utilizador logado e adiciona o idReservation ao array usersReservations no data()
+    for (let i in this.getReservationsByUser(this.userLoggedId)) {
+      this.usersReservations.push(
+        this.getReservationsByUser(this.userLoggedId)[i].idReservation
+      );
+    }
+    //Get todos os feedbacks do user e para cada elemento vai verificar se correspondem às reservas obtidas anteriormente
+    for (let i in this.getFeedbackByUser(this.userLoggedId)) {
+      this.feedbackUser.push(
+        this.getFeedbackByUser(this.userLoggedId)[i].idReservation
+      );
+    }
+    for (let i in this.usersReservations) {
+      let existe = false;
+      for (let j in this.feedbackUser) {
+        if (this.usersReservations[i] == this.feedbackUser[j]) {
+          existe = true;
         }
       }
+      if (existe == false) {
+        this.idReservationWithoutFeedback.push(this.usersReservations[i]);
+      }
     }
-    //erro nao está aqui, está acima
-    for (let i = 0; i < this.reservationsMenuId.length; i++) {
-      if (this.getMenuById(this.reservationsMenuId[i]).date<this.todaysDate) {
-        this.idMenuFilteredByDate.push(this.getMenuById(this.reservationsMenuId[i]));
-      }  
+    for (let i in this.idReservationWithoutFeedback) {
+      let idsMenu = this.getReservationsByIdReservation(
+        this.idReservationWithoutFeedback[i]
+      ).idMenu;
+      //check date
+      if (this.getMenuById(idsMenu).date < this.todaysDate) {
+        this.idMenusReservation.push(this.getMenuById(idsMenu));
+      }
     }
-    alert(JSON.stringify(this.idMenuFilteredByDate))
-
-    // for (let i = 0; i < this.usersReservations.length; i++) {
-    //   for (let j = 0; i < this.usersReservations.length; j++) {
-    //     this.reservationsMenuId.push(
-    //       this.getMenuById(this.usersReservations[j].idMenu)
-    //     );
-    //   }
-    // }
-    //this.dateSelected = this.reservationsMenuId[0].date;
   },
   updated() {
     // this.mealTimeSelected = this.getMenuById(this.idMenu).mealTime;

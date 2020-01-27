@@ -21,7 +21,10 @@ const getters = {
     //get numero reservas by idMenu
     getReservationsByIdMenu: state => idMenu => state.reservations.filter(reservations => (reservations.idMenu === idMenu)),
     getNumberReservationsByIdMenu: state => idMenu => state.reservations.filter(reservations => reservations.idMenu === idMenu).length,
-    getReservationsByUser: state => idUser => state.reservations.filter(reservations => reservations.idUser === idUser)
+    getReservationsByUser: state => idUser => state.reservations.filter(reservations => reservations.idUser === idUser),
+    getIdReservationByUserMenu: state => (idUser, idMenu) => {
+        return state.reservations.find(reservations => (reservations.idUser === idUser && reservations.idMenu == idMenu))
+    },
 }
 
 const mutations = {

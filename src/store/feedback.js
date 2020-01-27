@@ -19,7 +19,6 @@ const mutations = {
     newFeedback
   }) {
     const newId = state.feedbacks[state.feedbacks.length - 1].idFeedback + 1
-    alert("voment" + JSON.stringify(newFeedback))
     let newFeedback1 = {
       idFeedback: newId,
       comentario: newFeedback.comentario,
@@ -30,9 +29,8 @@ const mutations = {
       idReservation: newFeedback.idReservation,
       idUser: newFeedback.idUser
     }
-    return alert({
-      newFeedback1
-    }) //state.feedbacks.push(newFeedback1)
+    alert("Novo feedback adicionado!")
+    return  state.feedbacks.push(newFeedback1)
   }
 }
 const getters = {

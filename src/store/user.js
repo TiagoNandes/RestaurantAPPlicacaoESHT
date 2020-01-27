@@ -97,6 +97,7 @@ const mutations = {
         state.users[user].saldo = state.users[user].saldo + price
       }
     }
+    alert("Saldo adicionado")
   },
   logOut() {
     state.userLoggedId = null

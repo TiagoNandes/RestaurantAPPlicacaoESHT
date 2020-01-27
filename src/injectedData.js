@@ -46,7 +46,7 @@ if (!localStorage.getItem('user')) {
 /**************************** MENU ***************************************/
 const menuCreated = [{
         idMenu: 1,
-        date: "2020-01-26",
+        date: "2020-01-23",
         mealTime: "Jantar",
         avaiableSeats: 150
 
@@ -180,7 +180,7 @@ const feedbackCreated = [{
         taste: 3,
         service: 4,
         presentation: 5,
-        idReservation: 1,
+        idReservation: 2,
         idUser: 1
     },
     {
@@ -191,7 +191,7 @@ const feedbackCreated = [{
         service: 3,
         presentation: 4,
         idReservation: 2,
-        idUser: 1
+        idUser: 2
     },
 
 ]
@@ -239,8 +239,8 @@ const reservationsCreated = [{
         carne: 2,
         peixe: 2,
         vegetariano: 1,
-        idMenu: 2,
-        idUser: 1
+        idMenu: 4,
+        idUser: 2
     },
     {
         idReservation: 4,
