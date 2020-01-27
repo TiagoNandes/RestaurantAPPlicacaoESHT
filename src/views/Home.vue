@@ -9,7 +9,7 @@
         <button
           class="btn btn btn-primary my-2 my-sm-0 float-right"
           style="background-color: #127834; border-color: #127834"
-        >Login</button>
+        >Entrar</button>
       </router-link>
       <div id="logoText" class="row">
         <div class="col-sm-2 sidenav"></div>
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="container">
-        <div id="options" class="row mw-10">
+        <div id="options" class="row">
           <div class="col-sm-3" style="height:100px;">
             <router-link to="/weeklyMenu">
               <img
