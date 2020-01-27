@@ -45,7 +45,7 @@ const mutations = {
             numPersonsRegular: newReservation.numPersonsRegular,
             numPersonsKids: newReservation.numPersonsKids,
             price: newReservation.numPersonsKids * 6.4 + newReservation.numPersonsRegular * 8 + newReservation.numPersonsCommunity * 6.4,
-            date: newReservation.todaysDate,
+            date: newReservation.date,
             carne: newReservation.carne,
             peixe: newReservation.peixe,
             vegetariano: newReservation.vegetariano,

@@ -29,6 +29,7 @@ import editUser from '../views/admin/editUser.vue'
 import statiscsDay from '../views/admin/statisticsDay.vue'
 import statisticsFeedbacks from '../views/admin/statisticsFeedbacks.vue'
 import finishReservation from '../views/FinishReservation.vue'
+import reservationInfo from '../views/reservationInfo.vue'
 //import user from '../store/user'
 Vue.use(VueRouter)
 
@@ -195,6 +196,13 @@ const routes = [{
   component: finishReservation,
   meta: { requiresAuthUser: true }
 
+},
+{
+  path: '/reservationInfo',
+  name: 'reservationInfo',
+  component: reservationInfo,
+  //meta: { requiresAuthUser: true }
+
 }
 
 ]
@@ -205,12 +213,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.matched.some(routes => routes.meta.requiresAuthUser)) {
     if (store.getters["user/getUserLogged"] == undefined) {
-      next({
+      next(router.push("/"))
+      /*next({
         path: "/main",
         query: {
           redirect: to.fullPath
         }
-      })
+      })*/
       return
     }
     else{
@@ -230,18 +239,19 @@ router.beforeEach((to, from, next) => {
   }
   if (to.matched.some(routes => routes.meta.requiresAuthAdmin)) {
     if (store.getters["user/getUserLogged"] == undefined) {
-      next({
+      next(router.push("/"))
+      /*next({
         path: "/main",
         query: {
           redirect: to.fullPath
         }
-      })
+      })*/
       return
     }
     else{
       if(store.getters["user/getUserLogged"].id_tipoUser!=1){
         next({
-          path: "/main",
+          path: "",
           query: {
             redirect: to.fullPath
           }

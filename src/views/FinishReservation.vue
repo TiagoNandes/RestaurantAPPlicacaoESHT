@@ -186,7 +186,6 @@ export default {
     };
   },
   created() {
-    // alert(router.go(1))
     this.idMenu = this.$route.params.idMenu;
     this.numOfPeople = this.$route.params.people;
     this.carne = this.$route.params.carne;
@@ -234,7 +233,6 @@ export default {
       if (this.getSaldoByUserLogged>= newReservation.price){
       this.reservationCreater({newReservation})
       this.updateSaldo({idUser:newReservation.idUser, price: -Math.abs(newReservation.price)})
-      alert(JSON.stringify(this.getUserLogged))
 
       }
       else{

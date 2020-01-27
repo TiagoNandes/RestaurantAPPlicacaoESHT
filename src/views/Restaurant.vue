@@ -6,7 +6,7 @@
     <div class="col-sm-2 sidenav"></div>
     <div class="col-sm-8 text-center" style="padding-top:85px; margin-bottom: -40px;"> 
       <div id="mainText">
-      <img src="../assets/logo3.png" alt="Logo do Restaurante" style="transform: scale(0.5); margin-bottom: -100px;" >
+      <img src="../assets/alDente.png" alt="Logo do Restaurante" style="transform: scale(0.5); margin-bottom: -70px;" >
       <hr>
       <h4 style="color: #127834;"><b>Instalações</b></h4>
       </div>

@@ -86,12 +86,12 @@
                         </div>
                       </div>
                     </div>
-
+                    <router-link to="/reservationInfo">
                     <button
                       type="submit"
                       class="btn btn btn-primary my-2 my-sm-0 p-2"
                       style="background-color: #127834; border-color: #127834;"
-                    >Continuar</button>
+                    >Continuar</button> </router-link>
                   </form>
                 </div>
               </div>
