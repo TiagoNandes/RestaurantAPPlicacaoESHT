@@ -53,14 +53,14 @@ const menuCreated = [{
     },
     {
         idMenu: 2,
-        date: "2020-02-03",
+        date: "2020-01-27",
         mealTime: "Almoço",
         avaiableSeats: 150
 
     },
     {
         idMenu: 3,
-        date: "2020-02-03",
+        date: "2020-01-28",
         mealTime: "Jantar",
         avaiableSeats: 150
     },
@@ -213,7 +213,7 @@ const reservationsCreated = [{
         carne: 2,
         peixe: 1,
         vegetariano: 1,
-        idMenu: 1,
+        idMenu: 2,
         idUser: 2
     },
     {

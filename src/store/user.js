@@ -1,6 +1,6 @@
 //const user = JSON.parse(localStorage.getItem('user'));
 import router from '../router/index'
-//import {mapState } from 'vuex'
+import store from '../store'
 const imported = JSON.parse(localStorage.getItem('user'))
 const state = {
   users: imported,
@@ -32,11 +32,25 @@ const mutations = {
         }
       }
     }
+    let date = new Date()
+    .toJSON()
+    .slice(0, 10)
+    .replace(/-/g, "-");
+    let showAlert = false
+    let saveI = null
     if (loggedIn) {
       alert("Login efetuado com sucesso");
       state.userLoggedId = userId;
-      localStorage.setItem("token", userId)
       if (userType == 2) {
+        if(store.getters["reservations/getReservationsByUser"](userId).length!=0){
+        for(let i in store.getters["reservations/getReservationsByUser"](userId)){
+          if (store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[i].idMenu).date ==date){
+          showAlert=true
+          saveI = i
+          }
+        }
+      }
+
         router.push("/weeklyMenu")
       }
       else if (userType == 1) { router.push("/statisticsDay") }
@@ -44,7 +58,9 @@ const mutations = {
       alert("dados incorretos")
       router.go()
     }
-
+    if(showAlert == true){
+      alert("ALERTA: Hoje tem reservas no restaurante aplicação das ESHT ao "+store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime)
+    }
   },
   register(context, { data }) {
     //localStorage.clear()
@@ -97,7 +113,7 @@ const mutations = {
         state.users[user].saldo = state.users[user].saldo + price
       }
     }
-    alert("Saldo adicionado")
+    alert("Saldo atualizado")
   },
   logOut() {
     state.userLoggedId = null

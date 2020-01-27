@@ -86,7 +86,7 @@ const routes = [{
   path: '/addEmentaSemanal',
   name: 'addEmentaSemanal',
   component: addEmentaSemanal,
-  meta: { requiresAuthUser: true }
+  meta: { requiresAuthAdmin: true }
 
 },
 {
