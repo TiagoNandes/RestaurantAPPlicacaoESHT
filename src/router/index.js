@@ -201,7 +201,7 @@ const routes = [{
   path: '/reservationInfo',
   name: 'reservationInfo',
   component: reservationInfo,
-  //meta: { requiresAuthUser: true }
+  meta: { requiresAuthUser: true }
 
 }
 

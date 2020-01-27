@@ -46,39 +46,39 @@ if (!localStorage.getItem('user')) {
 /**************************** MENU ***************************************/
 const menuCreated = [{
         idMenu: 1,
-        date: "2020-01-23",
+        date: "2020-01-26",
         mealTime: "Jantar",
         avaiableSeats: 150
 
     },
     {
         idMenu: 2,
-        date: "2020-01-23",
+        date: "2020-02-03",
         mealTime: "Almoço",
         avaiableSeats: 150
 
     },
     {
         idMenu: 3,
-        date: "2020-01-26",
+        date: "2020-02-03",
         mealTime: "Jantar",
         avaiableSeats: 150
     },
     {
         idMenu: 4,
-        date: "2020-01-27",
+        date: "2020-02-07",
         mealTime: "Almoço",
         avaiableSeats: 150
     },
     {
         idMenu: 5,
-        date: "2020-01-28",
+        date: "2020-02-08",
         mealTime: "Almoço",
         avaiableSeats: 150
     },
     {
         idMenu: 6,
-        date: "2020-01-28",
+        date: "2020-02-09",
         mealTime: "Jantar",
         avaiableSeats: 150
     }

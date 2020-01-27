@@ -2,7 +2,7 @@
 //Meal(idMeal, description, idMealType)
 //Menu(id_menu, data, horario, id_prato)
 //const user = JSON.parse(localStorage.getItem('user'));
-//import router from '../router/index'
+import router from '../router/index'
 
 const imported = JSON.parse(localStorage.getItem('reservations'))
 
@@ -52,7 +52,8 @@ const mutations = {
             idMenu: newReservation.idMenu,
             idUser: newReservation.idUser
         }
-        return state.reservations.push(newReservation1)
+         state.reservations.push(newReservation1)
+         return router.push({name:"reservationInfo",params:{newReservation1}})
     }
 }
 const Reservation = {

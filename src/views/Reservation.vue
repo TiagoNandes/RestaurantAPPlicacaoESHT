@@ -64,9 +64,9 @@
                         <p>Data</p>
 
                         <div class="row">
-                          <div v-for="i in 3" :key="i" class="col-md-4 col-lg-4 col-sm-4">
-                            <label>
-                              <input
+                          <div v-for="i in ementa.length" :key="i" class="col-md-4 col-lg-4 col-sm-4">
+                            <label v-if="typeof ementa[i-1] != 'undefined'">
+                               <input
                                 required
                                 type="radio"
                                 name="date"
@@ -77,11 +77,11 @@
                               />
                               <div class="panel panel-default card-input border">
                                 <div class="panel-heading">
-                                  <!-- <b>{{moment(ementa[i-1].date).day('dddd')}}</b> -->
                                 </div>
                                 <div class="panel-body">{{ementa[i-1].date}}</div>
-                              </div>
+                              </div> 
                             </label>
+                            <div v-else>Não existem mais menus</div>
                           </div>
                         </div>
                       </div>
@@ -209,7 +209,11 @@ export default {
           return this.ementa.find(a => a.date === date);
         }
       );
-      this.ementa = uniqueDate;
+      if(typeof uniqueDate != 'undefined'){
+      this.ementa = uniqueDate;}
+      else{
+        alert("Não existem ementas para mostrar")
+      }
     }
   },
   created: function() {
@@ -219,13 +223,11 @@ export default {
       .replace(/-/g, "-");
     //get ementas com data > hoje
     this.ementa = this.getMenusNextMenus(this.todaysDate);
-    //    alert(JSON.stringify(this.ementa))
     this.dateSelected = this.ementa[0].date;
     this.filteredByDay();
   }
 };
 </script>
-
 
 <style>
 label {

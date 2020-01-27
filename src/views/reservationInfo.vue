@@ -17,35 +17,46 @@
             <div class="col-md-2" style></div>
             <div class="col-md-8" style>
               <h1 class="text-center pt-5" style="color: #127834;">A sua Reserva</h1>
-              <hr>
-              <p>Obrigado pela sua preferência! <br> Disponibilizamos aqui as informações da sua reserva.</p>
+              <hr />
+              <p>
+                Obrigado pela sua preferência!
+                <br />Disponibilizamos aqui as informações da sua reserva.
+              </p>
             </div>
 
             <div class="col-md-2" style></div>
           </div>
         </div>
-      <section id="resInfo" class="pt-4">
-        <div class="row">
-        <div class="col-4" style="border-right:1px solid #000;height:500px">Reserva #NUMERO_DE_RESERVA</div>
-        <div class="col-6">
-          <h5 class="text-left">Número de Pessoas:</h5>
-          <h5 class="text-left">Data:</h5>
-          <h5 class="text-left">Tipo de Serviço:</h5>
+        <section id="resInfo" class="pt-4">
+          <div class="row">
+            <div
+              class="col-4"
+              style="border-right:1px solid #000;height:500px"
+            >Reserva {{idReserva}}</div>
+            <div class="col-6">
+              <h5 class="text-left">Número de Pessoas: {{numPessoas}}</h5>
+              <h5 class="text-left">Data: {{date}}</h5>
+              <h5 class="text-left">Tipo de Serviço: {{mealTime}}</h5>
 
-          <h5 class="pt-4">Pessoa 1</h5>
-          <p>Adulto</p>
-          <p>Vegetariano</p>
-          <hr>
+              <h5 class="pt-4">Pratos</h5>
+              <p>Carne: {{carne}}</p>
+              <p>Peixe: {{peixe}}</p>
+              <p>Vegetariano: {{vegetariano}}</p>
+              <hr />
 
-          <h5>Pessoa 2</h5>
-          <p>Criança</p>
-          <p>Peixe</p>
-          <hr>
-        </div>
-        </div>
-        <div class="row">
-          <div class="col-4"><h5>TOTAL: x€</h5></div></div>
-      </section>
+              <h5>Elementos da reserva </h5>
+              <p>Comunidade Campus II: {{comunidade}}</p>
+              <p>Crianças: {{criancas}}</p>
+              <p>Outros:{{normal}}</p>
+              <!-- <hr /> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <h5>TOTAL: {{price}}€</h5>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -56,7 +67,6 @@
 // @ is an alias to /src
 import { mapGetters } from "vuex";
 import navBar from "@/components/navBar.vue";
-import router from "../router/index";
 export default {
   name: "reservation",
   components: {
@@ -64,82 +74,41 @@ export default {
   },
   data() {
     return {
-      nextMenus: "",
-      numPeople: 0,
-      dateSelected: "",
-      price: 0,
-      numPersonsCommunity: 0,
-      numPersonsRegular: 0,
-      numPersonsKids: 0,
-      state: "Em curso",
-      mealTime: 0,
-      todaysDate: "",
-      //guardar ementas com data > hoje
-      ementa: [],
-      data: "",
-      people: 0,
-      mealTimeSelected: 0
+      idReserva: 0,
+      numPessoas: 0,
+      date:"",
+      mealTime:"",
+      carne:0,
+      peixe:0,
+      vegetariano:0,
+      price:0,
+      comunidade:0,
+      criancas:0,
+      normal:0
     };
   },
-  computed: {
-    ...mapGetters("menu", [
-      "getMenuById",
-      "getIdMenuByDaySchedule",
-      "getMenusNextMenus",
-      "getIdMenuByDate"
-    ]),
-    ...mapGetters("user", ["getSaldoByUserLogged"]),
-    getMenuByDate() {
-      return this.getIdMenuByDate(this.dateSelected);
-    }
-  },
-  methods: {
-    saveReservation() {
-      let idMenu = this.getIdMenuByDaySchedule(
-        this.mealTimeSelected,
-        this.dateSelected
-      ).idMenu;
-      let avaiableSeats = this.getIdMenuByDaySchedule(
-        this.mealTimeSelected,
-        this.dateSelected
-      ).avaiableSeats;
-      if (avaiableSeats >= this.people) {
-        if (this.getSaldoByUserLogged>= 6.4*this.people) {
-          router.push({
-            name: "confirmation",
-            params: { people: this.people, idMenu: idMenu }
-          });
-        }
-        else{
-          alert("Saldo insuficente!! Para esta reserva necessita de ter um saldo maior ou igual a " + parseFloat(6.4*this.people).toFixed(2)+ "€")
-        }
-      } else {
-        alert("Apenas existem " + avaiableSeats + " lugares disponiveis!");
-      }
-    },
-    filteredByDay() {
-      const uniqueDate = Array.from(new Set(this.ementa.map(a => a.date))).map(
-        date => {
-          return this.ementa.find(a => a.date === date);
-        }
-      );
-      this.ementa = uniqueDate;
-    }
-  },
   created: function() {
-    this.todaysDate = new Date()
-      .toJSON()
-      .slice(0, 10)
-      .replace(/-/g, "-");
-    //get ementas com data > hoje
-    this.ementa = this.getMenusNextMenus(this.todaysDate);
-    //    alert(JSON.stringify(this.ementa))
-    this.dateSelected = this.ementa[0].date;
-    this.filteredByDay();
+    alert("reserva efetuada")
+    this.idReserva = this.$route.params.newReservation1.idReservation;
+    this.numPessoas =
+      this.$route.params.newReservation1.numPersonsCommunity +
+      this.$route.params.newReservation1.numPersonsRegular +
+      this.$route.params.newReservation1.numPersonsKids;
+    this.date = this.getMenuById(this.$route.params.newReservation1.idMenu).date
+    this.mealTime = this.getMenuById(this.$route.params.newReservation1.idMenu).mealTime
+    this.carne = this.$route.params.newReservation1.carne
+    this.peixe = this.$route.params.newReservation1.peixe
+    this.vegetariano = this.$route.params.newReservation1.vegetariano
+    this.price = this.$route.params.newReservation1.price
+    this.normal=this.$route.params.newReservation1.numPersonsRegular
+    this.criancas = this.$route.params.newReservation1.numPersonsKids
+    this.comunidade = this.$route.params.newReservation1.numPersonsCommunity
+  },
+  computed: {
+    ...mapGetters("menu", ["getMenuById"])
   }
 };
 </script>
-
 
 <style>
 label {

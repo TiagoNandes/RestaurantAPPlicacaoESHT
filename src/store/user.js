@@ -83,7 +83,6 @@ const mutations = {
     for (let user in state.users) {
       if (state.users[user].id == idUser) {
         state.users[user].saldo = state.users[user].saldo + price
-        alert(JSON.stringify(state.users[user]))
       }
     }
   },
