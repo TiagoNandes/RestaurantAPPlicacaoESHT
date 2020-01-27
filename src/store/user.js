@@ -1,6 +1,7 @@
 //const user = JSON.parse(localStorage.getItem('user'));
 import router from '../router/index'
 import store from '../store'
+import Swal from 'sweetalert2'
 const imported = JSON.parse(localStorage.getItem('user'))
 const state = {
   users: imported,
@@ -59,7 +60,17 @@ const mutations = {
       router.go()
     }
     if(showAlert == true){
-      alert("ALERTA: Hoje tem reservas no restaurante aplicação das ESHT ao "+store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime)
+      Swal.fire({
+        title: 'Hoje tem reservas no restaurante aplicação da ESHT ao '+store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime,
+        showClass: {
+          popup: 'animated fadeInDown faster'
+        },
+        hideClass: {
+          popup: 'animated fadeOutUp faster'
+        },
+        icon: 'warning'
+      })
+      //alert("ALERTA: Hoje tem reservas no restaurante aplicação das ESHT ao "+store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime)
     }
   },
   register(context, { data }) {
