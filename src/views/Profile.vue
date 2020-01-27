@@ -23,13 +23,18 @@
   <div class="py-3" >
     <div class="container">
       <div class="row mb-3">
-        <div class="text-center mx-auto col-lg-6 col-md-10" style="margin-bottom: 50px">
-          <h2><b>0.50€</b></h2>
+        <div class="col-6 pl-5"><h2><b>0.50€</b></h2>
           <router-link to="/addFunds"> <button
                       type="submit"
                       class="btn btn btn-primary my-2 my-sm-0 p-2"
                       style="background-color: #127834; border-color: #127834;"
-                    >Adicionar Saldo</button> </router-link>
+                    >Adicionar Saldo</button> </router-link></div>
+        <div class="text-center mx-auto col-6 pr-5" style="margin-bottom: 50px">
+          <h2><b>********</b></h2>
+           <button @click="showAlert"
+                  class="btn btn btn-primary my-2 my-sm-0 p-2"
+                  style="background-color: #127834; border-color: #127834;"
+                  >Mudar Password</button>
         </div>
       </div> 
 
@@ -128,21 +133,20 @@
 
 <script>
 // @ is an alias to /src
-import bgImage from "@/assets/bg.png";
-import navBar from "@/components/navBar.vue";
-
+import Vue from 'vue';
+import VueSweetalert2 from 'vue-sweetalert2';
+ 
+Vue.use(VueSweetalert2);
 
 export default {
-  name: "main",
-  components: {
-   navBar
-  },
-  data() {
-    return {
-      bgImage: bgImage
+        methods: {
+            showAlert() {
+                // Use sweetalert2
+                Vue.swal('Hello Vue world!!!');
+                //this.$swal('Hello Vue world!!!');
+            },
+        },
     };
-  }
-};
 
 
 
