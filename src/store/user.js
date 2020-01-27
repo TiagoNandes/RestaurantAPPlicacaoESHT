@@ -60,8 +60,20 @@ const mutations = {
       telefone: data.telefone,
       id_tipoUser: data.id_tipoUser
     }
-    router.push("/listAllUsers")
+    let existe = false
+    for (let i in state.users) {
+      if (state.users[i].email == newUser.email) {
+        existe = true
+      }
+    }
+    if (existe == false){
+      alert("Utilizador criado!! Faça login!")
+    router.push("/loginUser")
     return state.users.push(newUser)
+    }
+    else {
+      alert("O utilizador já existe!!")
+    }
   },
   //Update USER
   updater(context, { index, newUser }) {
@@ -86,9 +98,9 @@ const mutations = {
       }
     }
   },
-  logOut(){
+  logOut() {
     state.userLoggedId = null
-     router.push("/main")
+    router.push("/main")
   }
 }
 const getters = {
@@ -103,7 +115,7 @@ const getters = {
   getSaldoByUserLogged: state => {
     return state.users.find(users => (users.id === state.userLoggedId)).saldo
   },
-  getUserLogged: state => { 
+  getUserLogged: state => {
     return state.users.find(users => (users.id === state.userLoggedId))
   }
 }

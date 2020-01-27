@@ -5,7 +5,7 @@
     <div class="container">
       <div class="py-5">
         //FORM
-        <form class="py-5 mt-5 register" @submit.prevent="formRegister">
+        <form class="py-5 mt-5 register" @submit.prevent="register1">
           <h1 style="color: #127834;" class="py-4">Criar Conta</h1>
           <div class="row">
             <div class="col-3"></div>
@@ -69,7 +69,32 @@
                     <i class="fa fa-envelope"></i>
                   </span>
                 </div>
-                <input id="email" v-model="email" name class="form-control" placeholder="Endereço de e-mail" type="email" />
+                <input
+                  id="email"
+                  v-model="email"
+                  name
+                  class="form-control"
+                  placeholder="E-mail"
+                  type="text"
+                />
+                <input
+                  id="esmad"
+                  v-model="escola"
+                  name="escola"
+                  class="form-control"
+                  placeholder="Endereço de e-mail"
+                  value="@esmad.ipp.pt"
+                  type="radio"
+                /> @esmad.ipp.pt
+                <input
+                  id="esmad"
+                  v-model="escola"
+                  name="escola"
+                  class="form-control"
+                  placeholder="Endereço de e-mail"
+                  value="@esht.ipp.pt"
+                  type="radio"
+                />@esht.ipp.pt
               </div>
               <!-- form-group// -->
               <div class="form-group input-group">
@@ -84,7 +109,13 @@
                   <option value="2">+198</option>
                   <option value="3">+701</option>
                 </select>
-                <input name class="form-control" placeholder="Phone number" type="text" />
+                <input
+                  name
+                  class="form-control"
+                  v-model="telefone"
+                  placeholder="Phone number"
+                  type="text"
+                />
               </div>
               <!-- form-group end.// -->
               <div class="form-group input-group">
@@ -93,7 +124,13 @@
                     <i class="fa fa-lock"></i>
                   </span>
                 </div>
-                <input id="password" v-model="password" class="form-control" placeholder="Insira uma password" type="password" />
+                <input
+                  id="password"
+                  v-model="password"
+                  class="form-control"
+                  placeholder="Insira uma password"
+                  type="password"
+                />
               </div>
               <!-- form-group// -->
               <div class="form-group input-group">
@@ -147,13 +184,11 @@
 } */
 </style>
 
-
-
-
 <script>
 // @ is an alias to /src
 import navBar from "@/components/navBar.vue";
 import $ from "jquery";
+import { mapMutations } from "vuex";
 
 export default {
   name: "main",
@@ -161,7 +196,31 @@ export default {
     navBar
   },
   data() {
-    return {};
+    return {
+      nome: "",
+      sobrenome: "",
+      data_nascimento: "",
+      email: "",
+      telefone: "",
+      password: "",
+      escola: ""
+    };
+  },
+  methods: {
+    ...mapMutations("user", ["register"]),
+    register1() {
+      let data = {
+        nome: this.nome,
+        sobrenome: this.sobrenome,
+        data_nascimento: this.data_nascimento,
+        email: this.email + this.escola,
+        password: this.password,
+        saldo: 0,
+        telefone: this.telefone,
+        id_tipoUser: 2
+      };
+      this.register({ data });
+    }
   }
 };
 
