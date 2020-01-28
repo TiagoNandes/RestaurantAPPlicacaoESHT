@@ -133,17 +133,26 @@
 
 <script>
 // @ is an alias to /src
-import Vue from 'vue';
-import VueSweetalert2 from 'vue-sweetalert2';
+import navBar from "@/components/navBar.vue";
+import Swal from 'sweetalert2'
  
-Vue.use(VueSweetalert2);
 
 export default {
+  components: {
+   navBar
+  },
         methods: {
             showAlert() {
-                // Use sweetalert2
-                Vue.swal('Hello Vue world!!!');
-                //this.$swal('Hello Vue world!!!');
+                Swal.fire({
+        title: 'Hoje tem reservas no restaurante aplicação da ESHT ao "reservations/getReservationsByUser"',
+        showClass: {
+          popup: 'animated fadeInDown faster'
+        },
+        hideClass: {
+          popup: 'animated fadeOutUp faster'
+        },
+        icon: 'warning'
+      })
             },
         },
     };

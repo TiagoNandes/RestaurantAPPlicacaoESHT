@@ -33,9 +33,10 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
         </div>
         <!-- <div class="p-4 col-lg-1"></div> -->
         <div class="p-4 col-md-6">
-          
+          <div class="pt-5">
           <h2 class="mb-1 mr-5" style="color: #127834;"><b>Restaurante Aplicação</b></h2>
-          <p class="my-4 mr-5 pt-5">O nosso restaurante conta com capacidade para 50 pessoas, onde são aplicados os métodos de serviço leccionados nas UC de Práticas Hoteleiras da ESHT.</p>
+          <p class=" mr-5">O nosso restaurante conta com capacidade para 50 pessoas, onde são aplicados os métodos de serviço leccionados nas UC de Práticas Hoteleiras da ESHT.</p>
+          </div>
         </div>
       </div>
 
