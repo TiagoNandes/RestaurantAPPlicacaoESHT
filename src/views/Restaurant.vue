@@ -32,7 +32,7 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
           <img src="../assets/img_sala.jpg" alt="Imagem da sala" width="450">
         </div>
         <!-- <div class="p-4 col-lg-1"></div> -->
-        <div class="p-4 col-md-6">
+        <div class="pt-5 col-md-6">
           <div class="pt-5">
           <h2 class="mb-1 mr-5" style="color: #127834;"><b>Restaurante Aplicação</b></h2>
           <p class=" mr-5">O nosso restaurante conta com capacidade para 50 pessoas, onde são aplicados os métodos de serviço leccionados nas UC de Práticas Hoteleiras da ESHT.</p>
@@ -41,10 +41,13 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
       </div>
 
       <div class="row">
-        <div class="p-4 col-md-6">
+        <div class="pt-5 col-md-6">
+          <div class="pt-5">
           <h2 class="mb-1" style="color: #127834;"><b>Bar Aplicação</b></h2>
-          <p class="my-4 mr-5 pt-5 pl-5 text-center">No Bar Aplicação, os estudantes poêm em prática os conhecimentos de serviço de bar, obtidos nas aulas da Licenciatura. É um espaço agradável e acolhedor.</p>
+          <p class=" mr-5 pl-5 text-center">No Bar Aplicação, os estudantes poêm em prática os conhecimentos de serviço de bar, obtidos nas aulas da Licenciatura. É um espaço agradável e acolhedor.</p>
         </div>
+        </div>
+        
         <div class="p-4 col-lg-6 text-left">
           <img src="../assets/img_bar.jpg" alt="Imagem do bar" width="450">
         </div>
@@ -57,10 +60,11 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
           <img src="../assets/img_cozinha.jpg" alt="Imagem da sala" width="450">
         </div>
         <!-- <div class="p-4 col-lg-1"></div> -->
-        <div class="p-4 col-md-6">
-          
+        <div class="pt-5 col-md-6">
+          <div class="pt-5">
           <h2 class="mb-1 mr-5" style="color: #127834;"><b>Cozinha Aplicação</b></h2>
-          <p class="my-4 mr-5 pt-5">Gerida pelo Cozinheiro Chefe, Rui Fonseca, a nossa cozinha encontra-se totalmente equipada e preparada para os mais diversos serviços.</p>
+          <p class="mr-5">Gerida pelo Cozinheiro Chefe, Rui Fonseca, a nossa cozinha encontra-se totalmente equipada e preparada para os mais diversos serviços.</p>
+        </div>
         </div>
       </div>
 

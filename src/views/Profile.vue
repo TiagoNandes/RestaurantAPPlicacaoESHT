@@ -142,18 +142,16 @@ export default {
    navBar
   },
         methods: {
-            showAlert() {
-                Swal.fire({
-        title: 'Hoje tem reservas no restaurante aplicação da ESHT ao "reservations/getReservationsByUser"',
-        showClass: {
-          popup: 'animated fadeInDown faster'
-        },
-        hideClass: {
-          popup: 'animated fadeOutUp faster'
-        },
-        icon: 'warning'
-      })
-            },
+            showAlert() {Swal.fire({
+  title: 'Insira a sua nova password:',
+  input: 'password',
+  inputPlaceholder: 'Password',
+  inputAttributes: {
+    maxlength: 10,
+    autocapitalize: 'off',
+    autocorrect: 'off'
+  }
+}) },
         },
     };
 
