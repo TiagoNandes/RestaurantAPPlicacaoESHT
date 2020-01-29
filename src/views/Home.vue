@@ -1,18 +1,19 @@
 <template>
   <div class="home page-holder bg-cover">
-    <div id="loginButton" class="container">
+    <div id="loginButton">
       <div class="row pt-5">
-        <div class="col-10"></div>
+        <div class="col-10"><router-link to="/loginUser"><button
+          class="btn btn btn-primary my-2 my-sm-0 float-right"
+          style="background-color: #127834; border-color: #127834"
+        >Entrar</button></router-link></div>
         <div class="col-2">
-          <router-link to="/loginUser">
-            <button
-              class="btn btn btn-primary my-2 my-sm-0 float-right"
-              style="background-color: #127834; border-color: #127834"
-            >Entrar</button>
-          </router-link>
+          
+        
+      
         </div>
       </div>
     </div>
+   
 
     <div id="landingPage" class="container pt-5">
       <div class="row">
@@ -79,7 +80,8 @@
 <style>
 body{
   height: 100%;
-overflow-y: hidden
+overflow-y: hidden;
+overflow-x: hidden;
 }
 .home {
   background-image: url("../assets/bg.png");
@@ -136,6 +138,7 @@ margin:0.4em auto;
   body{
   height: 100%;
 overflow-y: scroll;
+overflow-x:hidden
 }
   #landingPage {
     position: relative;
