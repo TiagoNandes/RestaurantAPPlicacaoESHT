@@ -23,15 +23,18 @@
             </div>
           </div>
         </div>
+        <br>
         <button type="submit" class="btn btn-success">Ver estatistica</button>
       </form>
       <br />
+      <br>
             <h2>Estatisticas do dia {{this.date}} ao {{this.mealTime}}</h2>
 
       <br />
+      <br>
       <div v-if = "this.existe===true" class="row">
         <div class="col" id="contentSpan">
-          <span class="badge badge-secondary">
+          <span class="badge badge-secondary w-100 p-3">
             <i class="fas fa-utensils" style="font-size:36px"></i>
             <br />
             <br />
@@ -45,7 +48,7 @@
         <br />
 
         <div class="col" id="contentSpan">
-          <span class="badge badge-danger">
+          <span class="badge badge-danger w-100 p-3">
             <i class="fas fa-drumstick-bite" style="font-size:36px"></i>
             <br />
             <br />
@@ -58,7 +61,7 @@
         </div>
         <br />
         <div class="col" id="contentSpan">
-          <span class="badge badge-info">
+          <span class="badge badge-info w-100 p-3">
             <i class="fas fa-fish" style="font-size:36px"></i>
             <br />
             <br />
@@ -71,7 +74,7 @@
         </div>
         <br />
         <div class="content col">
-          <span class="badge badge-success">
+          <span class="badge badge-success w-100 p-3">
             <i class="fas fa-carrot" style="font-size:36px"></i>
             <br />
             <br />

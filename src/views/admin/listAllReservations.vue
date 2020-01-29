@@ -57,11 +57,11 @@
 </template> 
 <script>
 import { mapGetters, mapMutations } from "vuex";
-import router from "../../router/index";
+//import router from "../../router/index";
 import Navbar from "@/components/homeAdmin.vue";
+import Swal from "sweetalert2";
 
 export default {
-  
   name: "listAllReservations",
   components: {
     Navbar
@@ -93,13 +93,25 @@ export default {
       numPersonsKids
     ) {
       let seats = numPersonsCommunity + numPersonsRegular + numPersonsKids;
-      if (confirm("Deseja mesmo remover?")) {
-        this.reservationDeleter({ idReservation });
-        this.updateAvaiableSeats({ idMenu, seats }); //update lugares disponiveis
-        this.updateSaldo({ idUser, price }); //update saldo
-              router.go();
-
-      }
+      Swal.fire({
+        text: "Deseja mesmo remover?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#127834",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sim!"
+      }).then(result => {
+        if (result.value) {
+          Swal.fire({
+            text: "Removido com sucesso!",
+            icon: "success",
+            confirmButtonColor: "#127834"
+          });
+          this.reservationDeleter({ idReservation });
+          this.updateAvaiableSeats({ idMenu, seats }); //update lugares disponiveis
+          this.updateSaldo({ idUser, price }); //update saldo
+        }
+      });
     }
   }
 };

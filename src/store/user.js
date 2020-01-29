@@ -124,13 +124,27 @@ const mutations = {
     return localStorage.setItem('user', JSON.stringify(state.users))
   },
   deleter(context, id) {
-    if (confirm("Deseja mesmo remover?")) {
-      for (let user in state.users) {
-        if (state.users[user].id == id) {
-          state.users.splice(user, 1);
+    Swal.fire({
+      text: "Deseja mesmo remover?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#127834",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim!"
+    }).then(result => {
+      if (result.value) {
+        Swal.fire({
+          text: "Removido com sucesso!",
+          icon: "success",
+          confirmButtonColor: "#127834"
+        });
+        for (let user in state.users) {
+          if (state.users[user].id == id) {
+            state.users.splice(user, 1);
+          }
         }
       }
-    }
+    });
   },
   //Carregamento saldo
 
@@ -141,12 +155,14 @@ const mutations = {
     for (let user in state.users) {
       if (state.users[user].id == idUser) {
         state.users[user].saldo = state.users[user].saldo + price
-        Swal.fire({
-          title: 'Saldo atualizado',
-          text: 'Saldo atual: ' + state.users[user].saldo,
-          icon: 'success',
-          confirmButtonColor: '#127834'
-        })
+        if (store.getters["userType/getTypeByUser"](state.userLoggedId) == "user") {
+          Swal.fire({
+            title: 'Saldo atualizado',
+            text: 'Saldo atual: ' + state.users[user].saldo,
+            icon: 'success',
+            confirmButtonColor: '#127834'
+          })
+        }
       }
     }
 

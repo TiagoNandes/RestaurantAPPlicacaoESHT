@@ -23,16 +23,19 @@
             </div>
           </div>
         </div>
+        <br />
         <button type="submit" class="btn btn-success">Ver estatistica</button>
       </form>
       <br />
-            <h2>Estatisticas do dia {{this.date}} ao {{this.mealTime}}</h2>
+      <br />
+      <h2>Estatisticas do dia {{this.date}} ao {{this.mealTime}}</h2>
 
       <br />
-      <div v-if = "this.existe===true" class="row">
+      <br />
+      <div v-if="this.existe===true" class="row">
         <div class="col" id="contentSpan">
-          <span class="badge badge-secondary">
-            <br>
+          <span class="badge badge-secondary w-100 p-3">
+            <br />
             <i class="fas fa-pepper-hot" style="font-size:36px"></i>
             <br />
             <br />
@@ -45,8 +48,8 @@
         <br />
 
         <div class="col" id="contentSpan">
-          <span class="badge badge-danger">
-            <br>
+          <span class="badge badge-danger w-100 p-3">
+            <br />
             <i class="fas fa-cocktail" style="font-size:36px"></i>
             <br />
             <br />
@@ -58,8 +61,8 @@
         </div>
         <br />
         <div class="col" id="contentSpan">
-          <span class="badge badge-info">
-            <br>
+          <span class="badge badge-info w-100 p-3">
+            <br />
             <i class="fas fa-thermometer-half" style="font-size:36px"></i>
             <br />
             <br />
@@ -71,8 +74,8 @@
         </div>
         <br />
         <div class="content col">
-          <span class="badge badge-success">
-            <br>
+          <span class="badge badge-success w-100 p-3">
+            <br />
             <i class="fas fa-concierge-bell" style="font-size:36px"></i>
             <br />
             <br />
@@ -83,9 +86,9 @@
           </span>
         </div>
       </div>
-          <div v-if= "this.existe===false" class="row">
-            <h3>Não existem estatisticas para este dia</h3>
-    </div>
+      <div v-if="this.existe===false" class="row">
+        <h3>Não existem estatisticas para este dia</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -93,7 +96,7 @@
 <script>
 import { mapGetters } from "vuex";
 import Navbar from "@/components/homeAdmin.vue";
-import moment from 'moment'
+import moment from "moment";
 export default {
   name: "statisticsFeedback",
   components: {
@@ -109,10 +112,10 @@ export default {
       existe: false,
       actualDate: "",
       idReservation: 0,
-      tasteValue:0,
-      presentationValue:0,
-      serviceValue:0,
-      temperatureValue:0
+      tasteValue: 0,
+      presentationValue: 0,
+      serviceValue: 0,
+      temperatureValue: 0
     };
   },
   created() {
@@ -121,19 +124,23 @@ export default {
       .slice(0, 10)
       .replace(/-/g, "-");
     if (this.getIdMenuByDaySchedule("Almoço", String(this.date))) {
-      this.idMenu = this.getIdMenuByDaySchedule("Almoço",String(this.date)
+      this.idMenu = this.getIdMenuByDaySchedule(
+        "Almoço",
+        String(this.date)
       ).idMenu;
-      this.mealTime= "Almoço"
-      this.existe = true
-
-    } else if (this.getIdMenuByDaySchedule("Jantar", String(this.date))){
-      this.idMenu = this.getIdMenuByDaySchedule("Jantar", String(this.date)).idMenu;
-      this.mealTime= "Jantar"
-      this.existe = true
+      this.mealTime = "Almoço";
+      this.existe = true;
+    } else if (this.getIdMenuByDaySchedule("Jantar", String(this.date))) {
+      this.idMenu = this.getIdMenuByDaySchedule(
+        "Jantar",
+        String(this.date)
+      ).idMenu;
+      this.mealTime = "Jantar";
+      this.existe = true;
     }
   },
   computed: {
-      ...mapGetters("reservations", [
+    ...mapGetters("reservations", [
       "getAllReservations",
       "getReservationsByIdMenu"
     ]),
@@ -173,28 +180,34 @@ export default {
         mediaService = service / count;
         mediaPresentation = service / count;
         mediaTemperature = temperature / count;
-        this.tasteValue= mediaTaste
-        this.serviceValue = mediaService
-        this.presentationValue = mediaPresentation
-        this.temperatureValue = mediaTemperature
+        this.tasteValue = mediaTaste;
+        this.serviceValue = mediaService;
+        this.presentationValue = mediaPresentation;
+        this.temperatureValue = mediaTemperature;
       }
-      return this.tasteValue, this.serviceValue, this.presentationValue,this.temperatureValue
+      return (
+        this.tasteValue,
+        this.serviceValue,
+        this.presentationValue,
+        this.temperatureValue
+      );
     }
   },
   methods: {
     filteredStatistics() {
-      if(typeof this.getIdMenuByDaySchedule(this.mealTime, this.date) !== 'undefined'){
-      this.existe= true
-      this.idMenu = this.getIdMenuByDaySchedule(
-        this.mealTime,
-        this.date
-      ).idMenu;
-      this.calculateAverage;
+      if (
+        typeof this.getIdMenuByDaySchedule(this.mealTime, this.date) !==
+        "undefined"
+      ) {
+        this.existe = true;
+        this.idMenu = this.getIdMenuByDaySchedule(
+          this.mealTime,
+          this.date
+        ).idMenu;
+        this.calculateAverage;
+      } else {
+        this.existe = false;
       }
-      else {
-        this.existe = false
-      }
-
     }
   }
 };

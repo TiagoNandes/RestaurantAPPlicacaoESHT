@@ -16,12 +16,12 @@
         >Ementa</a>
         <ul class="collapse list-unstyled" id="ementaMenu">
           <li>
-            <a href="#">
+            <a>
               <router-link class="dropdown-item" to="/listAllEmentas">Listar todas</router-link>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a>
               <router-link to="/addEmentaSemanal">Adicionar ementa</router-link>
             </a>
           </li>
@@ -36,7 +36,7 @@
         >Reservas</a>
         <ul class="collapse list-unstyled" id="reservationsMenu">
           <li>
-            <a href="#">
+            <a>
               <router-link to="/listAllReservations">Listar todas</router-link>
             </a>
           </li>
@@ -51,7 +51,7 @@
         >Utilizador</a>
         <ul class="collapse list-unstyled" id="userMenu">
           <li>
-            <a href="#">
+            <a>
               <router-link to="/listAllUsers">Listar todas</router-link>
             </a>
           </li>
@@ -66,24 +66,24 @@
         >Estatísticas</a>
         <ul class="collapse list-unstyled" id="statsMenu">
           <li>
-            <a href="#">
+            <a>
               <router-link to="/statisticsDay">Diárias</router-link>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a>
               <router-link to="/statisticsFeedbacks">Feedbacks</router-link>
             </a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="#">
+        <a>
           <router-link to="/listAllFeedbacks">Comentários</router-link>
         </a>
       </li>
        <li>
-        <a href="#" v-on:click='logOut1()'>
+        <a v-on:click='logOut1()'>
            <router-link to="">Logout</router-link> 
         </a>
       </li>
