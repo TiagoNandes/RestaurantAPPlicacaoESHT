@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="restaurantPage">
     <navBar></navBar>
   <div class="container">
     <div class="row">
@@ -81,7 +81,11 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
 
 
 <style>
-
+.restaurantPage{
+  height: 100%;
+overflow-y: auto;
+overflow-x: hidden;
+}
 .home {
   background-image: url("../assets/bg.png");
   -webkit-background-size: cover;

@@ -1,5 +1,5 @@
 <template>
-  <div class="home page-holder bg-cover">
+  <div class="home page-holder bg-cover scrollNo">
     <div id="loginButton">
       <div class="row pt-5">
         <div class="col-10"><router-link to="/loginUser"><button
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div id="routerOptions" class="container">
       <div class="row">
         <div class="col-md-3 mainOptions"><router-link to="/weeklyMenu">
               <img
@@ -78,10 +78,9 @@
 </template>
 
 <style>
-body{
-  height: 100%;
+.scrollNo{
+height: 100%;
 overflow-y: hidden;
-overflow-x: hidden;
 }
 .home {
   background-image: url("../assets/bg.png");
@@ -216,7 +215,7 @@ overflow-x:hidden
 @media only screen and (min-width: 1200px) {
   #landingPage {
     position: relative;
-    top: -80px;
+    top: -130px;
   }
   #mainLogo {
     transform: scale(0.7);
@@ -224,6 +223,10 @@ overflow-x:hidden
   #alDente {
     position: relative;
     top: -10px;
+  }
+  #routerOptions{
+    position: relative;
+    top:-50px;
   }
   .mainOptions{
     position: relative;
