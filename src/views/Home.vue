@@ -1,118 +1,86 @@
 <template>
   <div class="home page-holder bg-cover">
-    <div class="container">
-      <div class="row">
-        <br />
-        <br />
+    <div id="loginButton" class="container">
+      <div class="row pt-5">
+        <div class="col-10"></div>
+        <div class="col-2">
+          <router-link to="/loginUser">
+            <button
+              class="btn btn btn-primary my-2 my-sm-0 float-right"
+              style="background-color: #127834; border-color: #127834"
+            >Entrar</button>
+          </router-link>
+        </div>
       </div>
-      <router-link to="/loginUser">
-        <button
-          class="btn btn btn-primary my-2 my-sm-0 float-right"
-          style="background-color: #127834; border-color: #127834"
-        >Entrar</button>
-      </router-link>
-      <div id="logoText" class="row">
-        <div class="col-sm-2 sidenav"></div>
-        <div class="col-sm-8 text-center">
+    </div>
+
+    <div id="landingPage" class="container pt-5">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-xs-12 col-12 text-center">
           <img
+            class="mainLogo"
             id="mainLogo"
             src="../assets/alDente.png"
             alt="Logótipo Temporário"
-            style="transform: scale(0.7); top:2px;"
+            style=" top:2px;"
           />
-          <div id="mainText">
-            <h1 style="color: #127834; font-family:Pacifico;">Al Dente</h1>
-            <hr />
-            <h5>Restaurante de Aplicação da ESHT</h5>
-            <h5>Gestão e Administração Hoteleira</h5>
-          </div>
-          <div id="buttonScene">
-            <div id="flips">
-              <router-link to="/restaurant">
-                <button
-                  class="btn btn btn-primary my-2 my-sm-0 buttonFlip buttonFlip--front"
-                  style="background-color: #127834; border-color: #127834"
-                >
-                  O que é o
-                  <br />Restaurante de Aplicação?
-                </button>
-              </router-link>
-              <!-- <p class="buttonFlip buttonFlip--back">Lol Funciona</p> -->
-            </div>
-          </div>
+          <h1 id="alDente" style="color: #127834; font-family:Pacifico;">Al Dente</h1>
         </div>
       </div>
-      <div class="container">
-        <div id="options" class="row">
-          <div class="col-sm-3" style="height:100px;">
-            <router-link to="/weeklyMenu">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <hr class="lineBreak" />
+          <h5 class="lineBreak smallText">ESHT</h5>
+          <h5 class="lineBreak smallText">Gestão e Administração Hoteleira</h5>
+          <router-link to="/restaurant">
+          <a class="button1">O que é o<br/>Restaurante de Aplicação Al Dente?</a>
+          </router-link>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mainOptions"><router-link to="/weeklyMenu">
               <img
                 id="ementaSemanal"
-                class="menuIcons"
-                style="bottom: 120px"
                 src="../assets/ementaSemanal1.png"
-                alt
               />
             </router-link>
-          </div>
-          <div class="col-sm-3" style="height:100px;">
-            <router-link to="/reservation">
+        </div>
+        <div class="col-md-3 mainOptions">
+              <router-link to="/reservation">
               <img
                 id="reservarRefeicao"
-                class="menuIcons"
-                style="bottom: 125px"
                 src="../assets/reservarRefeicao1.png"
-                alt
               />
             </router-link>
-          </div>
-          <div class="col-sm-3" style="height:100px;">
-            <router-link to="/restaurant">
+        </div>
+        <div class="col-md-3 mainOptions"><router-link to="/restaurant">
               <img
                 id="instalacoes"
-                class="menuIcons"
-                style="bottom: 62px; left: -116px;"
                 src="../assets/instalacoes.png"
-                alt
               />
-            </router-link>
-          </div>
-          <div class="col-sm-3" style="height:100px;">
-            <router-link to="/feedback">
+            </router-link></div>
+        <div class="col-md-3 mainOptions"><router-link to="/feedback">
               <img
                 id="feedback"
-                class="menuIcons"
-                style="bottom: 70px; left:-81px;"
                 src="../assets/feedback1.png"
-                alt
               />
-            </router-link>
-          </div>
-        </div>
+            </router-link></div>
       </div>
-
-      <!--<div id="footer" class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      Trabalho realizado por:
-    </div>
-    <div class="col-sm">
-      Diogo Fernandes
-    </div>
-    <div class="col-sm">
-      Sara Rodrigues
-    </div>
-    <div class="col-sm">
-      Tiago Fernandes
-    </div>
-  </div>
-      </div>-->
     </div>
   </div>
 </template>
 
-
 <style>
+body{
+  height: 100%;
+overflow-y: hidden
+}
 .home {
   background-image: url("../assets/bg.png");
   -webkit-background-size: cover;
@@ -126,68 +94,138 @@
 .page-holder {
   min-height: 100vh;
 }
-
 .bg-cover {
   background-size: cover !important;
 }
 
-#logoText {
-  position: relative;
-  bottom: 10px;
+a.button1{
+display:inline-block;
+padding:0.35em 1.2em;
+border:0.1em solid #127834;
+margin:0 0.3em 0.3em 0;
+border-radius:0.12em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:black;
+text-align:center;
+transition: all 0.2s;
+}
+a.button1:hover{
+color:white;
+background-color:#127834;
+}
+@media all and (max-width:30em){
+a.button1{
+display:block;
+margin:0.4em auto;
+}
 }
 
-#mainText {
-  position: relative;
-  bottom: 45px;
+.content{
+  display: none;
+  background-color: #f1f1f1;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
-.menuIcons {
-  transform: scale(0.2);
-  position: fixed;
-  right: 75px;
-}
-
-#buttonScene {
-  perspective: 600px;
-}
-
-#flips {
-  width: 100%;
+/*Ecrãs 768px e para baixo..*/
+@media only screen and (max-width: 768px) {
+  body{
   height: 100%;
-  position: relative;
-  transition: transform 1s;
-  transform-style: preserve-3d;
+overflow-y: scroll;
 }
-
-.buttonFlip {
-  backface-visibility: hidden;
-}
-.buttonFlip--back {
-  transform: rotateY(180deg);
-}
-/*#footer{
-  height: 50px;
-  position: absolute;
-  bottom: -25px;
-  background-color: #383a38;
-  border-radius: 25px;
-} */
-</style>
-
-
-
-
-<script>
-// @ is an alias to /src
-import bgImage from "@/assets/bg.png";
-
-export default {
-  name: "main",
-  components: {},
-  data() {
-    return {
-      bgImage: bgImage
-    };
+  #landingPage {
+    position: relative;
+    top: -65px;
   }
-};
-</script>
+  .button1 {
+    position: relative;
+    top: -150px;
+  }
+  .mainOptions {
+    position: relative;
+    top: -150px;
+  }
+  .lineBreak {
+    position: relative;
+    top: -75px;
+  }
+  #mainLogo {
+    transform: scale(0.5);
+  }
+  .smallText {
+    visibility: hidden;
+  }
+  #alDente {
+    transform: scale(0.8);
+    position: relative;
+    top: -70px;
+  }
+  .mainOptions {
+    transform: scale(0.30);
+    position: relative;
+    top:-100px;
+    margin-top:-250px;
+  }
+  #ementaSemanal{
+    position:relative;
+    left:-25px;
+  }
+  #reservarRefeicao{
+    position: relative;
+    right: -15px;
+  }
+   #instalacoes{
+    position: relative;
+    left: -15px;
+  }
+}
+
+/*Ecrãs 768px e para cima..*/
+@media only screen and (min-width: 768px) {
+  #landingPage {
+    position: relative;
+    top: -65px;
+  }
+  .lineBreak {
+    position: relative;
+    top: -25px;
+  }
+  #mainLogo {
+    transform: scale(0.6);
+  }
+  #alDente {
+    position: relative;
+    top: -25px;
+  }
+  .mainOptions {
+    transform: scale(0.20);
+    position: relative;
+    top: -200px;
+    left: -20px;
+  }
+}
+
+/*Ecrãs 1200px e para cima..*/
+@media only screen and (min-width: 1200px) {
+  #landingPage {
+    position: relative;
+    top: -80px;
+  }
+  #mainLogo {
+    transform: scale(0.7);
+  }
+  #alDente {
+    position: relative;
+    top: -10px;
+  }
+  .mainOptions{
+    position: relative;
+    top: -200px;
+    transform: scale(0.25);
+  }
+}
+</style>
