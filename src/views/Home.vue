@@ -230,7 +230,7 @@ overflow-x:hidden
   }
   .mainOptions{
     position: relative;
-    top: -200px;
+    top: -260px;
     transform: scale(0.25);
   }
 }
