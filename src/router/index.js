@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import About from '../views/About.vue'
 import Main from '../views/Main.vue'
 import AddFunds from '../views/AddFunds.vue'
 import WeeklyMenu from '../views/WeeklyMenu.vue'
@@ -130,6 +131,11 @@ const routes = [{
   path: '/restaurant',
   name: 'restaurant',
   component: Restaurant
+},
+{
+  path: '/About',
+  name: 'About',
+  component: About
 },
 {
   path: '/statisticsDay',

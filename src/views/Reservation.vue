@@ -64,9 +64,13 @@
                         <p>Data</p>
 
                         <div class="row">
-                          <div v-for="i in ementa.length" :key="i" class="col-md-4 col-lg-4 col-sm-4">
+                          <div
+                            v-for="i in ementa.length"
+                            :key="i"
+                            class="col-md-4 col-lg-4 col-sm-4"
+                          >
                             <label v-if="typeof ementa[i-1] != 'undefined'">
-                               <input
+                              <input
                                 required
                                 type="radio"
                                 name="date"
@@ -76,10 +80,9 @@
                                 v-bind:value="ementa[i-1].date"
                               />
                               <div class="panel panel-default card-input border">
-                                <div class="panel-heading">
-                                </div>
+                                <div class="panel-heading"></div>
                                 <div class="panel-body">{{ementa[i-1].date}}</div>
-                              </div> 
+                              </div>
                             </label>
                             <div v-else>Não existem mais menus</div>
                           </div>
@@ -140,6 +143,7 @@
 import { mapGetters } from "vuex";
 import navBar from "@/components/navBar.vue";
 import router from "../router/index";
+import Swal from 'sweetalert2';
 export default {
   name: "reservation",
   components: {
@@ -193,14 +197,23 @@ export default {
             params: { people: this.people, idMenu: idMenu }
           });
         } else {
-          alert(
-            "Saldo insuficente!! Para esta reserva necessita de ter um saldo maior ou igual a " +
+          Swal.fire({
+            icon: "error",
+            title: "Saldo insuficente!",
+            text:
+              "Para esta reserva necessita de ter um saldo de, no mínimo, " +
               parseFloat(6.4 * this.people).toFixed(2) +
-              "€"
-          );
+              "€",
+            confirmButtonColor: "#127834"
+          });
         }
       } else {
-        alert("Apenas existem " + avaiableSeats + " lugares disponiveis!");
+        Swal.fire({
+            icon: "error",
+            title: "Erro!",
+            text: 'Apenas existem ' + avaiableSeats + ' lugares disponiveis!',
+            confirmButtonColor: "#127834"
+          });
       }
     },
     filteredByDay() {
@@ -209,10 +222,10 @@ export default {
           return this.ementa.find(a => a.date === date);
         }
       );
-      if(typeof uniqueDate != 'undefined'){
-      this.ementa = uniqueDate;}
-      else{
-        alert("Não existem ementas para mostrar")
+      if (typeof uniqueDate != "undefined") {
+        this.ementa = uniqueDate;
+      } else {
+        alert("Não existem ementas para mostrar");
       }
     }
   },

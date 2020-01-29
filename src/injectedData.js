@@ -78,9 +78,9 @@ const menuCreated = [{
     },
     {
         idMenu: 6,
-        date: "2020-02-09",
+        date: "2020-02-01",
         mealTime: "Jantar",
-        avaiableSeats: 150
+        avaiableSeats: 2
     }
 
 ]

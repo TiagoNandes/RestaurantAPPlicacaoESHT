@@ -1,6 +1,7 @@
 //Comentario(id_comentario, comentario, temperatura, sabor, serviço, apresentação, id_reserva, id_utilizador)
 //calcular media de pontuações (getTemperatura)
 const imported = JSON.parse(localStorage.getItem('feedback'))
+import Swal from 'sweetalert2'
 
 const state = {
   feedbacks: imported
@@ -9,7 +10,6 @@ const mutations = {
   feedbackDeleter(context, idFeedback) {
     for (let feedback in state.feedbacks) {
       if (state.feedbacks[feedback].idFeedback == idFeedback) {
-        alert(feedback)
         state.feedbacks.splice(feedback, 1);
       }
     }
@@ -29,7 +29,11 @@ const mutations = {
       idReservation: newFeedback.idReservation,
       idUser: newFeedback.idUser
     }
-    alert("Novo feedback adicionado!")
+    Swal.fire({
+      text: 'Novo feedback adicionado!',
+      icon: 'success',
+      confirmButtonColor: '#127834'
+    })
     return  state.feedbacks.push(newFeedback1)
   }
 }

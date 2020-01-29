@@ -40,11 +40,6 @@ const mutations = {
     let showAlert = false
     let saveI = null
     if (loggedIn) {
-      Swal.fire(
-        '',
-        'Login efetuado com sucesso!',
-        'success'
-      )
       state.userLoggedId = userId;
       if (userType == 2) {
         if (store.getters["reservations/getReservationsByUser"](userId).length != 0) {
@@ -64,15 +59,18 @@ const mutations = {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Email ou password incorretos!'
+        text: 'Email ou password incorretos!',
+        confirmButtonColor: '#127834'
       })
     }
     if (showAlert == true) {
       Swal.fire({
         position: 'top-end',
         text: 'Hoje tem reservas no restaurante aplicação da ESHT ao ' + store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime,
-        showConfirmButton: false,
-        timer: 3000
+        showConfirmButton: true,
+        confirmButtonColor: '#127834',
+        timer: 10000,
+        backdrop: false
       })
 
     }
@@ -100,18 +98,20 @@ const mutations = {
       }
     }
     if (existe == false) {
-      Swal.fire(
-        'Conta criada com sucesso!',
-        'Efetue o login',
-        'success'
-      )
+      Swal.fire({
+        title: 'Conta criada com sucesso!',
+        text: 'Efetue o login',
+        icon: 'success',
+        confirmButtonColor: '#127834'
+      })
       router.push("/loginUser")
       return state.users.push(newUser)
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Já existe uma conta com este email!'
+        text: 'Já existe uma conta com este email!',
+        confirmButtonColor: '#127834'
       })
     }
   },
@@ -141,11 +141,12 @@ const mutations = {
     for (let user in state.users) {
       if (state.users[user].id == idUser) {
         state.users[user].saldo = state.users[user].saldo + price
-        Swal.fire(
-          'Saldo atualizado',
-          'Saldo atual: ' + state.users[user].saldo,
-          'success'
-        )
+        Swal.fire({
+          title: 'Saldo atualizado',
+          text: 'Saldo atual: ' + state.users[user].saldo,
+          icon: 'success',
+          confirmButtonColor: '#127834'
+        })
       }
     }
 

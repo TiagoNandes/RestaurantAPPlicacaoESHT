@@ -78,8 +78,6 @@ export default {
       this.num = this.num + 1;
       this.daysCont.push(dayOfWeek);
     }
-    //alert(this.daysCont);
-    //alert(JSON.stringify(this.$store.getters.getMenuOfTheWeek));
   }
 };
 </script>

@@ -67,6 +67,7 @@
 // @ is an alias to /src
 import { mapGetters } from "vuex";
 import navBar from "@/components/navBar.vue";
+import Swal from 'sweetalert2';
 export default {
   name: "reservation",
   components: {
@@ -88,7 +89,11 @@ export default {
     };
   },
   created: function() {
-    alert("reserva efetuada")
+    Swal.fire({
+        text: 'Reserva efetuada com sucesso!',
+        icon: 'success',
+        confirmButtonColor: '#127834'
+      })
     this.idReserva = this.$route.params.newReservation1.idReservation;
     this.numPessoas =
       this.$route.params.newReservation1.numPersonsCommunity +

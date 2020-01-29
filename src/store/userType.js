@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2'
 //TipoUser(id_tipoUser,tipoUser)
 const state = {
   userTypes: [
@@ -19,7 +20,11 @@ const mutations = {
       tipo: data.tipo
     }
     state.userTypes.push(newTipoUser)
-    alert("Novo tipo de user criado!!")
+    Swal.fire({
+      text: 'Novo tipo de user criado com sucesso!',
+      icon: 'success',
+      confirmButtonColor: '#127834'
+    })
   }
 }
 const getters = {

@@ -164,6 +164,7 @@ label {
 import navBar from "@/components/navBar.vue";
 //import router from '../router/index'
 import { mapMutations, mapGetters } from "vuex";
+import Swal from 'sweetalert2';
 export default {
   name: "main",
   components: {
@@ -238,11 +239,14 @@ export default {
         });
         this.reservationCreater({ newReservation });
       } else {
-        alert(
-          "Saldo insuficente!! Para esta reserva necessita de ter um saldo maior ou igual a " +
+        Swal.fire({
+        icon: 'error',
+        title: 'Saldo insuficente!',
+        text: 'Para esta reserva necessita de ter um saldo maior ou igual a ' +
             parseFloat(this.price).toFixed(2) +
-            "€"
-        );
+            '€',
+        confirmButtonColor: '#127834'
+      })
       }
     }
   }

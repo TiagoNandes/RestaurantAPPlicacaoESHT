@@ -180,7 +180,6 @@ export default {
     };
   },
   created() {
-    // alert(router.go(1))
     this.idMenu = this.$route.params.idMenu;
     this.numOfPeople = this.$route.params.people;
     for (let i in this.numOfPeople) this.value.push(0 * i);
