@@ -72,7 +72,7 @@ const menuCreated = [{
     },
     {
         idMenu: 5,
-        date: "2020-02-08",
+        date: "2020-01-29",
         mealTime: "Almoço",
         avaiableSeats: 150
     },
@@ -248,12 +248,12 @@ const reservationsCreated = [{
         numPersonsRegular: 0,
         numPersonsKids: 0,
         price: 0,
-        date: "11-01-2020",
+        date: "19-01-2020",
         carne: 2,
         peixe: 2,
         vegetariano: 1,
         idMenu: 5,
-        idUser: 3
+        idUser: 2
     }
 ]
 var e = []

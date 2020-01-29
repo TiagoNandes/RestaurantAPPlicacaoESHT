@@ -26,7 +26,6 @@
                 id="buttonMultibanco"
                 class="btn btn-outline-success text-center"
                 style="padding: 41px 47px;"
-                href="#cardDetails"
               >
                 <img id="iconMultibanco" src="../assets/multibanco.png" alt />
                 <br />Cartão de Crédito
@@ -44,10 +43,12 @@
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4 col-sm-offset-8">
                   <form role="form" @submit.prevent="addFunds">
-                    >
                     <div class="form-group">
                       <label for="exampleInputCard">Número de Cartão</label>
                       <input
+                        minlength="13"
+                        maxlength="16"
+                        required
                         type="text"
                         class="form-control text-center"
                         id="exampleInputEmail1"
@@ -57,6 +58,9 @@
                     <div class="form-group">
                       <label for="exampleInputCVV">CVV</label>
                       <input
+                      minlength="3"
+                      maxlength="3"
+                      required
                         type="text"
                         class="form-control text-center"
                         id="exampleInputPassword1"
@@ -66,11 +70,14 @@
                     <div class="form-group pb-4">
                       <label for="exampleInputAmount">Quantia</label>
                       <input
+                      step="0.01"
+                      min="1"
+                      required
                         type="number"
                         class="form-control text-center"
                         id="exampleInputPassword1"
                         v-model="newSaldo"
-                        placeholder="5.00€"
+                        placeholder="5.00"
                       />
                     </div>
                     <button
@@ -112,7 +119,7 @@ export default {
     addFunds() {
       this.idUser = this.getUserLogged.id;
       this.newSaldo = this.newSaldo;
-      this.updateSaldo({idUser:this.idUser, price:Math.abs(this.newSaldo)})
+      this.updateSaldo({ idUser: this.idUser, price: Math.abs(this.newSaldo) });
     }
   }
 };

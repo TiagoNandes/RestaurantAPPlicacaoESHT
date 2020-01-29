@@ -1,22 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import About from '../views/About.vue'
 import Main from '../views/Main.vue'
 import AddFunds from '../views/AddFunds.vue'
 import WeeklyMenu from '../views/WeeklyMenu.vue'
 import Reservation from '../views/Reservation.vue'
 import Confirmation from '../views/Confirmation.vue'
 import Restaurant from '../views/Restaurant.vue'
-import Registration from '../views/Registration.vue'
-import LoginUser from '../views/LoginUser.vue'
+import Registration from '../views/auth/Registration.vue'
+import LoginUser from '../views/auth/LoginUser.vue'
 import Profile from '../views/Profile.vue'
 import store from '../store'
-import Login from '../views/auth/Login.vue'
-import Register from '../views/auth/Register.vue'
-import usersList from '../views/usersList.vue'
-import menuOfTheWeek from '../views/menuOfTheWeek.vue'
-import reserva from '../views/reserva.vue'
 import feedback from '../views/feedback.vue'
 import menuSelection from '../views/menuSelection.vue'
 import addEmentaSemanal from '../views/admin/addEmentaSemanal.vue'
@@ -37,30 +31,6 @@ const routes = [{
   path: '/',
   name: 'home',
   component: Home
-},
-{
-  path: '/login',
-  name: 'login',
-  component: Login
-},
-{
-  path: '/register',
-  name: 'register',
-  component: Register
-}, {
-  path: '/usersList',
-  name: 'usersList',
-  component: usersList
-},
-{
-  path: '/menuOfTheWeek',
-  name: 'menuOfTheWeek',
-  component: menuOfTheWeek
-}, {
-  path: '/reserva',
-  name: 'reserva',
-  component: reserva,
-  meta: { requiresAuthUser: true }
 },
 {
   path: '/feedback',
@@ -125,11 +95,6 @@ const routes = [{
   component: editUser,
   meta: { requiresAuthUser: true }
 
-},
-{
-  path: '/About',
-  name: 'About',
-  component: About
 },
 {
   path: '/main',

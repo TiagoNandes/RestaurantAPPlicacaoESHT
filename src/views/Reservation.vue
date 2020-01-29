@@ -36,7 +36,7 @@
                         <p>Numero Pessoas</p>
 
                         <div class="row">
-                          <div v-for="i in 6" :key="i" class="col-md-2 col-lg-2 col-sm-2">
+                          <div v-for="i in 12" :key="i" class="col-md-2 col-lg-2 col-sm-2">
                             <label>
                               <input
                                 required

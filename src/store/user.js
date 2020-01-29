@@ -21,11 +21,11 @@ const mutations = {
     for (var user in users) {
       if (users[user] != null) {
         if (JSON.stringify(users[user].email) == JSON.stringify({
-          email
-        }.email)) {
+            email
+          }.email)) {
           if (users[user].password == {
-            pass
-          }.pass) {
+              pass
+            }.pass) {
             loggedIn = true
             userId = users[user].id
             userType = users[user].id_tipoUser
@@ -34,46 +34,52 @@ const mutations = {
       }
     }
     let date = new Date()
-    .toJSON()
-    .slice(0, 10)
-    .replace(/-/g, "-");
+      .toJSON()
+      .slice(0, 10)
+      .replace(/-/g, "-");
     let showAlert = false
     let saveI = null
     if (loggedIn) {
-      alert("Login efetuado com sucesso");
+      Swal.fire(
+        '',
+        'Login efetuado com sucesso!',
+        'success'
+      )
       state.userLoggedId = userId;
       if (userType == 2) {
-        if(store.getters["reservations/getReservationsByUser"](userId).length!=0){
-        for(let i in store.getters["reservations/getReservationsByUser"](userId)){
-          if (store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[i].idMenu).date ==date){
-          showAlert=true
-          saveI = i
+        if (store.getters["reservations/getReservationsByUser"](userId).length != 0) {
+          for (let i in store.getters["reservations/getReservationsByUser"](userId)) {
+            if (store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[i].idMenu).date == date) {
+              showAlert = true
+              saveI = i
+            }
           }
         }
-      }
 
         router.push("/weeklyMenu")
+      } else if (userType == 1) {
+        router.push("/statisticsDay")
       }
-      else if (userType == 1) { router.push("/statisticsDay") }
     } else if (!loggedIn) {
-      alert("dados incorretos")
-      router.go()
-    }
-    if(showAlert == true){
       Swal.fire({
-        title: 'Hoje tem reservas no restaurante aplicação da ESHT ao '+store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime,
-        showClass: {
-          popup: 'animated fadeInDown faster'
-        },
-        hideClass: {
-          popup: 'animated fadeOutUp faster'
-        },
-        icon: 'warning'
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Email ou password incorretos!'
       })
-      //alert("ALERTA: Hoje tem reservas no restaurante aplicação das ESHT ao "+store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime)
+    }
+    if (showAlert == true) {
+      Swal.fire({
+        position: 'top-end',
+        text: 'Hoje tem reservas no restaurante aplicação da ESHT ao ' + store.getters["menu/getMenuById"](store.getters["reservations/getReservationsByUser"](userId)[saveI].idMenu).mealTime,
+        showConfirmButton: false,
+        timer: 3000
+      })
+
     }
   },
-  register(context, { data }) {
+  register(context, {
+    data
+  }) {
     //localStorage.clear()
     const newId = state.users[state.users.length - 1].id + 1
     let newUser = {
@@ -93,17 +99,27 @@ const mutations = {
         existe = true
       }
     }
-    if (existe == false){
-      alert("Utilizador criado!! Faça login!")
-    router.push("/loginUser")
-    return state.users.push(newUser)
-    }
-    else {
-      alert("O utilizador já existe!!")
+    if (existe == false) {
+      Swal.fire(
+        'Conta criada com sucesso!',
+        'Efetue o login',
+        'success'
+      )
+      router.push("/loginUser")
+      return state.users.push(newUser)
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Já existe uma conta com este email!'
+      })
     }
   },
   //Update USER
-  updater(context, { index, newUser }) {
+  updater(context, {
+    index,
+    newUser
+  }) {
     state.users[index] = newUser
     return localStorage.setItem('user', JSON.stringify(state.users))
   },
@@ -118,13 +134,21 @@ const mutations = {
   },
   //Carregamento saldo
 
-  updateSaldo(context, { idUser, price }) {
+  updateSaldo(context, {
+    idUser,
+    price
+  }) {
     for (let user in state.users) {
       if (state.users[user].id == idUser) {
         state.users[user].saldo = state.users[user].saldo + price
+        Swal.fire(
+          'Saldo atualizado',
+          'Saldo atual: ' + state.users[user].saldo,
+          'success'
+        )
       }
     }
-    alert("Saldo atualizado")
+
   },
   logOut() {
     state.userLoggedId = null

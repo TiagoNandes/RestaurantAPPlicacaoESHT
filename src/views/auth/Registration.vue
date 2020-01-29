@@ -60,6 +60,7 @@
                   class="form-control"
                   placeholder="Data de Nascimento"
                   required
+                  max="2004-12-31"
                 />
               </div>
               <!-- form-group// -->
@@ -69,6 +70,7 @@
                     <i class="fa fa-envelope"></i>
                   </span>
                 </div>
+                <div class="">
                 <input
                   id="email"
                   v-model="email"
@@ -76,8 +78,11 @@
                   class="form-control"
                   placeholder="E-mail"
                   type="text"
+                  pattern="[^@\x22]+"
                 />
+                </div>
                 <input
+                  required
                   id="esmad"
                   v-model="escola"
                   name="escola"
@@ -87,6 +92,7 @@
                   type="radio"
                 /> @esmad.ipp.pt
                 <input
+                  required
                   id="esmad"
                   v-model="escola"
                   name="escola"
@@ -103,12 +109,6 @@
                     <i class="fa fa-phone"></i>
                   </span>
                 </div>
-                <select class="custom-select" style="max-width: 120px;">
-                  <option selected>+351</option>
-                  <option value="1">+972</option>
-                  <option value="2">+198</option>
-                  <option value="3">+701</option>
-                </select>
                 <input
                   name
                   class="form-control"
@@ -173,6 +173,11 @@
 
 .bg-cover {
   background-size: cover !important;
+}
+
+input[type="radio"] {
+  transform: scale(0.5);
+  vertical-align: sub;
 }
 
 /*#footer{
