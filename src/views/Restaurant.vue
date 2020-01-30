@@ -75,6 +75,32 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
 
     </div>
   </div>
+
+<div class="py-5" >
+    <div class="container">
+      <div class="row">
+        <div class="text-center mx-auto col-lg-8 col-10">
+          <h1 class="mb-3">Carousel</h1>
+          <div id="carousel1" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+            <div class="carousel-inner">
+              <div class="carousel-item active"> <img class="d-block w-100" src="../assets/img_sala.jpg"> <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div> </div>
+              <div class="carousel-item"> <img class="d-block w-100" src="https://static.pingendo.com/cover-bubble-light.svg"> </div>
+              <div class="carousel-item"> <img class="d-block w-100" src="https://static.pingendo.com/cover-bubble-dark.svg"> </div>
+            </div>
+            <ol class="carousel-indicators">
+              <li data-target="#carousel1" data-slide-to="0" class="active"> </li>
+              <li data-target="#carousel1" data-slide-to="1"> </li>
+              <li data-target="#carousel1" data-slide-to="2"> </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   </div>
   
 </template>

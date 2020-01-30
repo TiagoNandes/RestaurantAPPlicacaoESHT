@@ -78,10 +78,7 @@
 </template>
 
 <style>
-.scrollNo{
-height: 100%;
-overflow-y: hidden;
-}
+
 .home {
   background-image: url("../assets/bg.png");
   -webkit-background-size: cover;
