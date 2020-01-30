@@ -57,83 +57,83 @@
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4 col-sm-offset-8">
                   <form role="form" @submit.prevent="saveFeedback">
-                    <div class="form-group">
+                    <div id="rtnFood" class="form-group" data-toggle="buttons">
                       <p for="exampleInputCard">Como estava a comida?</p>
                       <input
                         @click="updateTaste(1)"
                         name="ratingFood"
                         v-bind:value="1"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnFood"
                         type="button"
                       />
                       <input
                         @click="updateTaste(2)"
                         name="ratingFood"
                         v-bind:value="2"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnFood"
                         type="button"
                       />
                       <input
                         @click="updateTaste(3)"
                         name="ratingFood"
                         v-bind:value="3"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnFood"
                         type="button"
                       />
                       <input
                         @click="updateTaste(4)"
                         name="ratingFood"
                         v-bind:value="4"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnFood"
                         type="button"
                       />
                       <input
                         @click="updateTaste(5)"
                         name="ratingFood"
                         v-bind:value="5"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnFood"
                         type="button"
                       />
                     </div>
-                    <div class="form-group">
+                    <div id="rtnService" class="form-group" data-toggle="buttons">
                       <p>Como foi o serviço?</p>
                       <input
                         @click="updateService(1)"
                         v-bind:value="1"
                         name="ratingService"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnService"
                         type="button"
                       />
                       <input
                         @click="updateService(2)"
                         v-bind:value="2"
                         name="ratingService"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnService"
                         type="button"
                       />
                       <input
                         @click="updateService(3)"
                         v-bind:value="3"
                         name="ratingService"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnService"
                         type="button"
                       />
                       <input
                         @click="updateService(4)"
                         v-bind:value="4"
                         name="ratingService"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnService"
                         type="button"
                       />
                       <input
                         @click="updateService(5)"
                         v-bind:value="5"
                         name="ratingService"
-                        class="btn btn-outline-success rating"
+                        class="btn btn-outline-success rating btnService"
                         type="button"
                       />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" data-toggle="buttons">
                       <p>A comida estava à temperatura adequada?</p>
                       <input
                         @click="updateTemperature(1)"
@@ -171,7 +171,7 @@
                         type="button"
                       />
                     </div>
-                    <div class="form-group pb-4">
+                    <div class="form-group pb-4" data-toggle="buttons">
                       <p>Gostou da apresentação da comida?</p>
                       <input
                         @click="updatePresentation(1)"
@@ -211,10 +211,12 @@
                       
                     </div>
                     <div><p>Comentário adicional</p> 
-                      <input
+                      <textarea
+                        id="inputComment"
                         v-model = comentario
                         name="comentario"
                         class="btn btn-outline-success rating"
+                        style="height: 150px; width: 300px;"
                         type="text"
                       />
                       <br>
@@ -248,6 +250,7 @@ import navBar from "@/components/navBar.vue";
 import { mapGetters, mapMutations } from "vuex";
 //import router from "../router/index";
 
+
 export default {
   name: "feedback",
   components: {
@@ -274,7 +277,51 @@ export default {
       idMenusReservation: [],
       todaysDate: 0,
       comentario:""
+
+      
+
     };
+  },
+  mounted(){ /*
+// Vai encontrar a div rtnFood
+var rtnFood = document.getElementById("rtnFood");
+// Vai encontrar os btnsFood
+var buttonFood = rtnFood.getElementsByClassName("btnFood");
+// Loop para meter active o botao clicado
+for (var i = 0; i < buttonFood.length; i++) {
+  buttonFood[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("focus");
+
+    // If there's no active class
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" focus", "");
+    }
+
+    // Add the active class to the current/clicked button
+    this.className += " focus";
+  });
+} */
+
+/*
+// Vai encontrar a div rtnFood
+var rtnService = document.getElementById("rtnService");
+// Vai encontrar os btnsFood
+var btnService = rtnService.getElementsByClassName("btnService");
+// Loop para meter active o botao clicado
+for (var j = 0; j < btnService.length; j++) {
+  btnService[j].addEventListener("click", function() {
+    var current = document.getElementsByClassName("focus");
+
+    // If there's no active class
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" focus", "");
+    }
+
+    // Add the active class to the current/clicked button
+    this.className += " focus";
+  });
+} */
+
   },
   computed: {
     ...mapGetters("reservations", [
@@ -372,11 +419,15 @@ export default {
 
 
 <style>
+#inputComment:hover{
+background-color: white;
+color: black;
+}
 .rating {
   border-radius: 8px;
-  background-color: #127834; /* Green */
-  border: none;
-  color: white;
+  background-color: white; /* Green */
+  border-color: green;
+  color: black;
   padding: 6px;
   padding-right: 15px;
   padding-left: 15px;
@@ -387,6 +438,7 @@ export default {
   margin: 4px 2px;
   cursor: pointer;
 }
+
 #principal {
   font-family: "Poppins", sans-serif;
 }
@@ -418,7 +470,6 @@ export default {
   border-radius: 25px;
 } */
 </style>
-
 
 
 
