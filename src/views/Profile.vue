@@ -16,7 +16,7 @@
               </div>
             </div>
             <h4 class="pt-4" style>
-              <b>Nome do Utilizador</b>
+              <b>{{nomeUser}}</b>
             </h4>
             <!--Maybe cor verde também? -->
             <hr />
@@ -53,6 +53,7 @@
         </div>
       </div>
     </div>
+    <h3>Reservas do utilizador</h3>
 
     <div class="row">
       <div class="col-3"></div>
@@ -62,47 +63,13 @@
             <tr>
               <th scope="col">Dia</th>
               <th scope="col">Hora</th>
-              <th scope="col">Avaliação</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr v-for="menu in this.menus" :key="menu">
               <!-- <i class="fas fa-trash-alt"></i> -->
-              <td>7 Dezembro</td>
-              <td>7h55</td>
-              <td>
-                <a href>
-                  <i class="fas fa-trash-alt" style="color: #127834; float:right;"></i>
-                </a>
-                <a href>
-                  <i class="fas fa-eye" style="color: #127834; float:right; padding-right: 15px;"></i>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>18 Março</td>
-              <td>16h00</td>
-              <td>
-                <a href>
-                  <i class="fas fa-trash-alt" style="color: #127834; float:right;"></i>
-                </a>
-                <a href>
-                  <i class="fas fa-eye" style="color: #127834; float:right; padding-right: 15px;"></i>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>Dia</td>
-              <td>Hora</td>
-              <td>
-                Avaliação
-                <a href>
-                  <i class="fas fa-trash-alt" style="color: #127834; float:right;"></i>
-                </a>
-                <a href>
-                  <i class="fas fa-eye" style="color: #127834; float:right; padding-right: 15px;"></i>
-                </a>
-              </td>
+              <td>{{menu.date}}</td>
+              <td>{{menu.mealTime}}</td>
             </tr>
           </tbody>
         </table>
@@ -152,12 +119,11 @@
 
 
 
-
 <script>
 // @ is an alias to /src
 import navBar from "@/components/navBar.vue";
 import Swal from "sweetalert2";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
@@ -165,29 +131,53 @@ export default {
   },
   data() {
     return {
+      newPassword: "",
+      name: "",
+      ids: [],
+      menus: []
     };
+  },
+  created() {
+    for (let i in this.getReservationsByUser(this.getUserLogged.id)) {
+      this.ids.push(
+        this.getReservationsByUser(this.getUserLogged.id)[i].idMenu
+      );
+    }
+
+    for (let i in this.ids) {
+      this.menus.push(this.getMenuById(this.ids[i]));
+    }
   },
   computed: {
     ...mapGetters("user", ["getUserLogged"]),
-
+    ...mapGetters("reservations", ["getReservationsByUser"]),
+    ...mapGetters("menu", ["getMenuById"]),
+    nomeUser() {
+      return this.getUserLogged.nome + " " + this.getUserLogged.sobrenome;
+    },
     saldo() {
-      return this.getUserLogged.saldo;
+      return Math.round(this.getUserLogged.saldo * 100) / 100;
     }
   },
   methods: {
-    showAlert() {
-      Swal.fire({
-        title: "Insira a sua nova password:",
+    ...mapMutations("user", ["updatePassword"]),
+    async showAlert() {
+      const { value: password } = await Swal.fire({
+        title: "Enter your password",
         input: "password",
-        confirmButtonColor: "#127834",
-        inputPlaceholder: "Password",
+        inputPlaceholder: "Enter your password",
         inputAttributes: {
           maxlength: 10,
           autocapitalize: "off",
           autocorrect: "off"
         }
       });
+
+      if (password) {
+        this.newPassword = `${password}`;
+        this.updatePassword(this.newPassword);
+      }
     }
-  }
+  },
 };
 </script>
