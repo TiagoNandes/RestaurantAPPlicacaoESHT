@@ -22,12 +22,12 @@ public ———|
           |———— store.js (Vue store with all the modules imported from store/index.js)
 ```
 
-## Project setup
+## Project setup - install modules
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run application
 ```
 npm run serve
 ```
