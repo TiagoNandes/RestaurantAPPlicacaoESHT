@@ -78,7 +78,7 @@ const menuCreated = [{
     },
     {
         idMenu: 6,
-        date: "2020-02-31",
+        date: "2020-01-31",
         mealTime: "Jantar",
         avaiableSeats: 2
     },
@@ -92,7 +92,7 @@ const menuCreated = [{
         idMenu: 8,
         date: "2020-02-01",
         mealTime: "Jantar",
-        avaiableSeats: 2
+        avaiableSeats: 150
     },
     {
         idMenu: 9,
@@ -478,7 +478,7 @@ const mealCreated = [{
     }
 ]
 var c = []
-for (let value in menuCreated) {
+for (let value in mealCreated) {
     c.push(mealCreated[value])
 }
 if (!localStorage.getItem('meal')) {
