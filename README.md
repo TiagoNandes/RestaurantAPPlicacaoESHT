@@ -1,6 +1,6 @@
 # Al Dente
 
-# <p align="center"><img src="https://raw.githubusercontent.com/TiagoNandes/RestaurantAPPlicacaoESHT/master/src/assets/alDente.png" width="500"></p>
+# <p align="center"><img src="https://raw.githubusercontent.com/TiagoNandes/RestaurantAPPlicacaoESHT/master/src/assets/alDente.png"></p>
 
 ## Information
 
