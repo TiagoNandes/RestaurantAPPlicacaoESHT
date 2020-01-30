@@ -169,7 +169,7 @@ const mutations = {
   },
   logOut() {
     state.userLoggedId = null
-    router.push("/main")
+    router.go()
   },
   updatePassword(context, newPassword){
     for (let i in state.users) {
