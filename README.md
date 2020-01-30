@@ -30,3 +30,12 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+#### Authors
+
+* **Diogo Fernandes** - [Diogo-Fernandes](https://github.com/Diogo-Fernandes)
+
+* **Sara Rodrigues** - [saravdp](https://github.com/saravdp)
+
+* **Tiago Fernandes** - [TiagoNandes](https://github.com/TiagoNandes)
+
