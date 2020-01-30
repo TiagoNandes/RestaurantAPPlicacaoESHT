@@ -12,7 +12,7 @@
               style="transform: scale(0.5); margin-bottom: -70px;"
             />
             <hr />
-            <h4 style="color: #127834;">
+            <h4 style="color: #127834; font-family:Courgette;">
               <b>Os nossos pratos</b>
             </h4>
           </div>
