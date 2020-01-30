@@ -22,6 +22,15 @@ public ———|
           |———— store.js (Vue store with all the modules imported from store/index.js)
 ```
 
+### Plugins and dependecies used:
+- [Vue CLI](https://cli.vuejs.org/).
+- [Vue Router](https://router.vuejs.org/).
+- [Vuex](https://vuex.vuejs.org/).
+- [SweetAlert2](https://sweetalert2.github.io/).
+- [Bootstrap](https://getbootstrap.com/).
+- [FontAwesome](https://fontawesome.com/).
+
+
 ### Project setup - install modules
 ```
 npm install
