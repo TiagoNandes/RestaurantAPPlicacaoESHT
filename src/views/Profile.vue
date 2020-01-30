@@ -30,7 +30,7 @@
         <div class="row mb-3">
           <div class="col-6 pl-5">
             <h2>
-              <b>0.50€</b>
+              <b>{{saldo}}€</b>
             </h2>
             <router-link to="/addFunds">
               <button
@@ -157,17 +157,29 @@
 // @ is an alias to /src
 import navBar from "@/components/navBar.vue";
 import Swal from "sweetalert2";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     navBar
+  },
+  data() {
+    return {
+    };
+  },
+  computed: {
+    ...mapGetters("user", ["getUserLogged"]),
+
+    saldo() {
+      return this.getUserLogged.saldo;
+    }
   },
   methods: {
     showAlert() {
       Swal.fire({
         title: "Insira a sua nova password:",
         input: "password",
-        confirmButtonColor: '#127834',
+        confirmButtonColor: "#127834",
         inputPlaceholder: "Password",
         inputAttributes: {
           maxlength: 10,

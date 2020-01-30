@@ -15,11 +15,11 @@ export default {
     //localStorage.clear()
   },
   beforeDestroy() {
-    /*localStorage.setItem("reservations", JSON.stringify(this.getAllReservations))
+    localStorage.setItem("reservations", JSON.stringify(this.getAllReservations))
     localStorage.setItem("user", JSON.stringify(this.getAllUsers))
     localStorage.setItem("menu", JSON.stringify(this.getAllMenus))
     localStorage.setItem("meal", JSON.stringify(this.getAllMeals))
-    localStorage.setItem("feedback", JSON.stringify(this.getAllFeedbacks))*/
+    localStorage.setItem("feedback", JSON.stringify(this.getAllFeedbacks))
       },
   computed: {
     ...mapGetters("reservations", ["getAllReservations"]),

@@ -34,7 +34,7 @@
       <br />
       <div v-if="this.existe===true" class="row">
         <div class="col" id="contentSpan">
-          <span class="badge badge-secondary w-100 p-3">
+          <span class="badge badge-secondary w-100 p-4">
             <br />
             <i class="fas fa-pepper-hot" style="font-size:36px"></i>
             <br />
@@ -48,7 +48,7 @@
         <br />
 
         <div class="col" id="contentSpan">
-          <span class="badge badge-danger w-100 p-3">
+          <span class="badge badge-danger w-100 p-4">
             <br />
             <i class="fas fa-cocktail" style="font-size:36px"></i>
             <br />
@@ -61,7 +61,7 @@
         </div>
         <br />
         <div class="col" id="contentSpan">
-          <span class="badge badge-info w-100 p-3">
+          <span class="badge badge-info w-100 p-4">
             <br />
             <i class="fas fa-thermometer-half" style="font-size:36px"></i>
             <br />
@@ -73,8 +73,8 @@
           </span>
         </div>
         <br />
-        <div class="content col">
-          <span class="badge badge-success w-100 p-3">
+        <div class="col" id="contentSpan">
+          <span class="badge badge-success w-100 p-4">
             <br />
             <i class="fas fa-concierge-bell" style="font-size:36px"></i>
             <br />
