@@ -14,7 +14,7 @@ public ———|
           |———— index.html (HTML main file )
    
    src ———|
-          |———— assets (images and ressources)
+          |———— assets (images and resources)
           |———— components (Vue components)
           |———— views (Vue views)
           |———— main.js (Vue main file)
