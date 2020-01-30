@@ -18,7 +18,6 @@ const mutations = {
             mealTime: mealTime,
             avaiableSeats: availableSeats
         }
-        alert(JSON.stringify(newMenu))
         return state.menus.push(newMenu)
     },
     updateAvaiableSeats(context, {

@@ -3,11 +3,11 @@
 const state = {
     //*MEAL TYPES
     mealTypes: [{
-        idMealType: 1,
+        idMealType: 2,
         mealType: "Entrada"
       },
       {
-        idMealType: 2,
+        idMealType: 1,
         mealType: "Sopa"
       },
       {

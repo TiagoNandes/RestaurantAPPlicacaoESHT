@@ -9,12 +9,12 @@
       <form @submit.prevent="formSubmit" class="needs-validation" novalidate>
         <div class="row">
           <div class="col">
-            <label for="date" class="mr-sm-2">Escolha o dia:</label>
+            <label required for="date" class="mr-sm-2">Escolha o dia:</label>
             <input id="date" type="date" v-model="date" />
           </div>
           <div class="col">
             <div class="form-group">
-              <label for="sel1">Selecione o horário:</label>
+              <label  required for="sel1">Selecione o horário:</label>
               <select class="form-control" id="sel1" name="sellist1" v-model="mealTime">
                 <option>Almoço</option>
                 <option>Jantar</option>
@@ -24,6 +24,7 @@
           <div class="col">
               <label for="availableSeats">Lugares disponíveis: </label>
               <input
+              minlength="1"
                 min="1"
                 required
                 type="number"
@@ -41,6 +42,7 @@
           <div class="col">
             <label for="entrada" class="mr-sm-2">Entrada:</label>
             <input
+            minlength="3"
               type="text"
               class="form-control mb-2 mr-sm-2"
               id="entrada"
@@ -55,6 +57,7 @@
           <div class="col">
             <label for="sopa" class="mr-sm-2">Sopa:</label>
             <input
+            minlength="3"
               type="text"
               class="form-control mb-2 mr-sm-2"
               id="sopa"
@@ -72,6 +75,7 @@
           <div class="col">
             <label for="pratoCarne">Prato Carne:</label>
             <input
+            minlength="3"
               type="text"
               class="form-control"
               id="pratoCarne"
@@ -86,6 +90,7 @@
           <div class="col">
             <label for="pratoPeixe">Prato Peixe:</label>
             <input
+            minlength="3"
               type="text"
               class="form-control"
               id="pratoPeixe"
@@ -103,6 +108,7 @@
           <div class="col">
             <label for="pratoVeg">Prato Vegetariano:</label>
             <input
+            minlength="3"
               type="text"
               class="form-control"
               id="pratoVeg"
@@ -118,20 +124,21 @@
           <div class="col">
             <label for="sobremesa">Sobremesa:</label>
             <input
+            minlength="3"
+              required
               type="text"
               class="form-control"
               id="sobremesa"
               placeholder="Sobremesa"
               name="sobremesa"
               v-model="sobremesa"
-              required
             />
             <div class="valid-feedback">Valid.</div>
             <div class="invalid-feedback">Please fill out this field.</div>
           </div>
         </div>
         <br />
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="submit btn btn-success">Guardar</button>
       </form>
     </div>
   </div>
