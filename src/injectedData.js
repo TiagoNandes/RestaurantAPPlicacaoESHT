@@ -1,5 +1,5 @@
 //alert(localStorage.getItem("reservations"))
-localStorage.clear()
+//localStorage.clear()
 /**************************** USER ***************************************/
 const userCreated = [{
         id: 1,
