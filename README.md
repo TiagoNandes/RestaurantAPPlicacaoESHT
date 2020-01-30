@@ -1,5 +1,7 @@
 # Al Dente
 
+# <p align="center"><img src="https://raw.githubusercontent.com/TiagoNandes/RestaurantAPPlicacaoESHT/master/src/assets/alDente.png" width="500"></p>
+
 ## Information
 
 Al Dente is a project developed during the 2nd year in the Web Information Systems and Technologies course for the Web Programming I subject at ESMAD. 
