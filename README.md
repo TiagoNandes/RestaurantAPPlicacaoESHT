@@ -17,9 +17,9 @@ public ———|
           |———— assets (images and ressources)
           |———— components (Vue components)
           |———— views (Vue views)
-          |———— store (State management with Vue X)
+          |———— main.js (Vue main file)
           |———— router.js (Routes made with Vue Router)
-          |———— store.js (Vue store with all the modules imported from store/index.js)
+          |———— store (VueX store with all the modules imported from store/index.js)
 ```
 
 ### Plugins and dependecies used:
