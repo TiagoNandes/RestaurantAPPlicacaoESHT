@@ -22,7 +22,7 @@ public ———|
           |———— store.js (Vue store with all the modules imported from store/index.js)
 ```
 
-## Project setup - install modules
+### Project setup - install modules
 ```
 npm install
 ```
