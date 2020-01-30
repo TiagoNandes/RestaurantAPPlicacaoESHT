@@ -21,6 +21,18 @@
               </select>
             </div>
           </div>
+          <div class="col">
+              <label for="availableSeats">Lugares disponíveis: </label>
+              <input
+                min="1"
+                required
+                type="number"
+                class="form-control"
+                id="availableSeats"
+                v-model="availableSeats"
+                placeholder="ex: 150"
+              />
+          </div>
         </div>
         <!-- ver https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input/data para mais info -->
         <br />
@@ -125,7 +137,7 @@
   </div>
 </template>
 <script>
-import { mapGetters, mapMutations} from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 import Navbar from "@/components/homeAdmin.vue";
 export default {
@@ -137,6 +149,7 @@ export default {
     return {
       date: "",
       mealTime: "",
+      availableSeats: "",
       sopa: "",
       entrada: "",
       pratoCarne: "",
@@ -149,13 +162,14 @@ export default {
     ...mapGetters("menu", ["getMenuById", "getIdMenuByDaySchedule"])
   },
   methods: {
-    ...mapMutations("meals",["mealCreater"]),
-    ...mapMutations("menu",["menuCreater"]),
+    ...mapMutations("meals", ["mealCreater"]),
+    ...mapMutations("menu", ["menuCreater"]),
 
     formSubmit() {
       let newMeal = {
         date: this.date,
         mealTime: this.mealTime,
+        availableSeats: this.availableSeats,
         sopa: this.sopa,
         entrada: this.entrada,
         pratoCarne: this.pratoCarne,
@@ -165,24 +179,24 @@ export default {
       };
       if (this.getIdMenuByDaySchedule(newMeal.mealTime, newMeal.date)) {
         //create meals
-        let menu = this.getIdMenuByDaySchedule(newMeal.mealTime, newMeal.date).idMenu
-        this.mealCreater([menu, newMeal.sopa, 1])
-        this.mealCreater([menu, newMeal.entrada, 2])
-        this.mealCreater([menu, newMeal.pratoCarne, 3])
-        this.mealCreater([menu, newMeal.pratoPeixe, 4])
-        this.mealCreater([menu, newMeal.pratoVeg, 5])
-        this.mealCreater([menu, newMeal.sobremesa, 6])
-
-      } else {
-         //create menu then create meals
-         this.menuCreater([newMeal.date, newMeal.mealTime])
         let menu = this.getIdMenuByDaySchedule(newMeal.mealTime, newMeal.date)
-        this.mealCreater([menu.idMenu, newMeal.sopa, 1])
-        this.mealCreater([menu.idMenu, newMeal.entrada, 2])
-        this.mealCreater([menu.idMenu, newMeal.pratoCarne, 3])
-        this.mealCreater([menu.idMenu, newMeal.pratoPeixe, 4])
-        this.mealCreater([menu.idMenu, newMeal.pratoVeg, 5])
-        this.mealCreater([menu.idMenu, newMeal.sobremesa, 6])
+          .idMenu;
+        this.mealCreater([menu, newMeal.sopa, 1]);
+        this.mealCreater([menu, newMeal.entrada, 2]);
+        this.mealCreater([menu, newMeal.pratoCarne, 3]);
+        this.mealCreater([menu, newMeal.pratoPeixe, 4]);
+        this.mealCreater([menu, newMeal.pratoVeg, 5]);
+        this.mealCreater([menu, newMeal.sobremesa, 6]);
+      } else {
+        //create menu then create meals
+        this.menuCreater([newMeal.date, newMeal.mealTime, newMeal.availableSeats]);
+        let menu = this.getIdMenuByDaySchedule(newMeal.mealTime, newMeal.date);
+        this.mealCreater([menu.idMenu, newMeal.sopa, 1]);
+        this.mealCreater([menu.idMenu, newMeal.entrada, 2]);
+        this.mealCreater([menu.idMenu, newMeal.pratoCarne, 3]);
+        this.mealCreater([menu.idMenu, newMeal.pratoPeixe, 4]);
+        this.mealCreater([menu.idMenu, newMeal.pratoVeg, 5]);
+        this.mealCreater([menu.idMenu, newMeal.sobremesa, 6]);
       }
     }
   }
