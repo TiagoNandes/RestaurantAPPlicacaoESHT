@@ -8,7 +8,7 @@
       <div id="mainText">
       <img src="../assets/alDente.png" alt="Logo do Restaurante" style="transform: scale(0.5); margin-bottom: -70px;" >
       <hr>
-      <h4 style="color: #127834;"><b>Instalações</b></h4>
+      <h4 style="color: #127834; font-family:Courgette;"><b>Instalações</b></h4>
       </div>
       <div id="buttonScene">
       <div id="flips">     
@@ -21,7 +21,7 @@
   <div class="py-5" >
     <div class="container">
       <div class="row mb-3">
-        <div class="text-center rounded-lg mx-auto p-4 col-lg-6 col-md-10 border border-success" style="margin-bottom: 50px">
+        <div class="text-center rounded-lg mx-auto p-4 col-lg-8 col-md-10 border border-success" style="margin-bottom: 50px">
           <!-- <h2 class="text-white">Heading 2</h2> -->
           <p>O Restaurante de Aplicação da Escola Superior de Hotelaria e Turismo é da responsabilidade do Politécnico do Porto, com capacidade para 50 pessoas sentadas.
 Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseguindo sempre estar à altura das expectativas dos clientes.</p>
@@ -34,7 +34,7 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
         <!-- <div class="p-4 col-lg-1"></div> -->
         <div class="pt-5 col-md-6">
           <div class="pt-5">
-          <h2 class="mb-1 mr-5" style="color: #127834;"><b>Restaurante Aplicação</b></h2>
+          <h2 class="mb-1 mr-5" style="color: #127834; font-family:Courgette;"><b>Restaurante Aplicação</b></h2>
           <p class=" mr-5">O nosso restaurante conta com capacidade para 50 pessoas, onde são aplicados os métodos de serviço leccionados nas UC de Práticas Hoteleiras da ESHT.</p>
           </div>
         </div>
@@ -43,8 +43,8 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
       <div class="row">
         <div class="pt-5 col-md-6">
           <div class="pt-5">
-          <h2 class="mb-1" style="color: #127834;"><b>Bar Aplicação</b></h2>
-          <p class=" mr-5 pl-5 text-center">No Bar Aplicação, os estudantes poêm em prática os conhecimentos de serviço de bar, obtidos nas aulas da Licenciatura. É um espaço agradável e acolhedor.</p>
+          <h2 class="mb-1" style="color: #127834; font-family:Courgette;"><b>Bar Aplicação</b></h2>
+          <p class=" mr-5 pl-5 text-center" style="font-family:Poppins;">No Bar Aplicação, os estudantes poêm em prática os conhecimentos de serviço de bar, obtidos nas aulas da Licenciatura. É um espaço agradável e acolhedor.</p>
         </div>
         </div>
         
@@ -62,7 +62,7 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
         <!-- <div class="p-4 col-lg-1"></div> -->
         <div class="pt-5 col-md-6">
           <div class="pt-5">
-          <h2 class="mb-1 mr-5" style="color: #127834;"><b>Cozinha Aplicação</b></h2>
+          <h2 class="mb-1 mr-5" style="color: #127834; font-family:Courgette;"><b>Cozinha Aplicação</b></h2>
           <p class="mr-5">Gerida pelo Cozinheiro Chefe, Rui Fonseca, a nossa cozinha encontra-se totalmente equipada e preparada para os mais diversos serviços.</p>
         </div>
         </div>
@@ -75,7 +75,7 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
 
     </div>
   </div>
-
+<!--
 <div class="py-5" >
     <div class="container">
       <div class="row">
@@ -99,7 +99,7 @@ Durante estes últimos anos, o Restaurante tem acolhido diversos eventos, conseg
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   
   </div>
   
