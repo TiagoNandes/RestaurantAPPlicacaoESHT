@@ -10,13 +10,15 @@ const state = {
     menus: imported
 }
 const mutations = {
-    menuCreater(context, [date, mealTime]) {
+    menuCreater(context, [date, mealTime, availableSeats]) {
         const newId = state.menus[state.menus.length - 1].idMenu + 1
         let newMenu = {
             idMenu: newId,
             date: date,
             mealTime: mealTime,
+            avaiableSeats: availableSeats
         }
+        alert(JSON.stringify(newMenu))
         return state.menus.push(newMenu)
     },
     updateAvaiableSeats(context, {

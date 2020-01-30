@@ -170,6 +170,13 @@ const mutations = {
   logOut() {
     state.userLoggedId = null
     router.push("/main")
+  },
+  updatePassword(context, newPassword){
+    for (let i in state.users) {
+     if( state.users[i].id==state.userLoggedId){
+       state.users[i].password= newPassword
+     }
+    }
   }
 }
 const getters = {
