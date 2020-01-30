@@ -100,19 +100,20 @@ a.button1{
 display:inline-block;
 padding:0.35em 1.2em;
 border:0.1em solid #127834;
+background-color:#127834;
 margin:0 0.3em 0.3em 0;
 border-radius:0.12em;
 box-sizing: border-box;
 text-decoration:none;
 font-family:'Roboto',sans-serif;
 font-weight:300;
-color:black;
+color:white;
 text-align:center;
 transition: all 0.2s;
 }
 a.button1:hover{
-color:white;
-background-color:#127834;
+color:black;
+background-color:transparent;
 }
 @media all and (max-width:30em){
 a.button1{
