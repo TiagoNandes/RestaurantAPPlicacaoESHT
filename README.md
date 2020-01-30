@@ -8,6 +8,20 @@ Al Dente is a project developed during the 2nd year in the Web Information Syste
 The main objective is to develop an app that allows users to make and manage reservations at ESHT's restaurant.
 This app will lower food waste, make the processes of consulting, making and paying a reservation much easier, and allow for a convenient and informative way to get to know the school's restaurant.  
 
+### Folder organization:
+```
+public ———|
+          |———— index.html (HTML main file )
+   
+   src ———|
+          |———— assets (images and ressources)
+          |———— components (Vue components)
+          |———— views (Vue views)
+          |———— store (State management with Vue X)
+          |———— router.js (Routes made with Vue Router)
+          |———— store.js (Vue store with all the modules imported from store/index.js)
+```
+
 ## Project setup
 ```
 npm install
