@@ -14,7 +14,7 @@
           <div class="row">
             <div class="col-md-2" style></div>
             <div class="col-md-8" style>
-              <h1 class="text-center pt-5 pb-4" style="color: #127834;">Ementa Semanal</h1>
+              <h1 class="text-center pt-5 pb-4" style="color: #127834; font-family:Courgette;">Ementa Semanal</h1>
               <!-- <ul class="nav nav-pills nav-fill pt-5">
                 <li class="nav-item border">
                   <a class="nav-link" href="#">Segunda-Feira</a>

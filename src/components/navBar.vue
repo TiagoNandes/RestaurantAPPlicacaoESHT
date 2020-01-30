@@ -16,6 +16,9 @@
           <li class="nav-item">
             <router-link style="color: #127834" to="/restaurant">Instalações</router-link>
           </li>
+          <li class="nav-item">
+            <router-link style="color: #127834" to="/ourDishes">Os Nossos Pratos</router-link>
+          </li>
           <li v-show="this.getUser !== undefined" class="nav-item">
             <router-link style="color: #127834" to="/reservation">Reservar Refeição</router-link>
           </li>

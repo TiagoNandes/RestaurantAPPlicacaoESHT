@@ -8,6 +8,7 @@ import WeeklyMenu from '../views/WeeklyMenu.vue'
 import Reservation from '../views/Reservation.vue'
 import Confirmation from '../views/Confirmation.vue'
 import Restaurant from '../views/Restaurant.vue'
+import ourDishes from '../views/ourDishes.vue'
 import Registration from '../views/auth/Registration.vue'
 import LoginUser from '../views/auth/LoginUser.vue'
 import Profile from '../views/Profile.vue'
@@ -131,6 +132,11 @@ const routes = [{
   path: '/restaurant',
   name: 'restaurant',
   component: Restaurant
+},
+{
+  path: '/ourDishes',
+  name: 'ourDishes',
+  component: ourDishes
 },
 {
   path: '/About',
