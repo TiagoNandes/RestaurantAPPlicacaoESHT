@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Main from '../views/Main.vue'
 import AddFunds from '../views/AddFunds.vue'
 import WeeklyMenu from '../views/WeeklyMenu.vue'
 import Reservation from '../views/Reservation.vue'
@@ -70,7 +69,7 @@ const routes = [{
   path: '/listAllUsers',
   name: 'listAllUsers',
   component: listAllUsers,
-  meta: { requiresAuthAdmin: true }
+  //meta: { requiresAuthAdmin: true }
 
 },
 {
@@ -97,11 +96,6 @@ const routes = [{
   component: editUser,
   meta: { requiresAuthUser: true }
 
-},
-{
-  path: '/main',
-  name: 'main',
-  component: Main
 },
 {
   path: '/addFunds',

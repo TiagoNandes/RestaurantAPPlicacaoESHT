@@ -155,7 +155,8 @@ const mutations = {
     for (let user in state.users) {
       if (state.users[user].id == idUser) {
         state.users[user].saldo = state.users[user].saldo + price
-        if (store.getters["userType/getTypeByUser"](state.userLoggedId) == "user") {
+        let id_tipoUser = store.getters["userType/getTypeByUser"](store.getters["user/getUserLogged"].id_tipoUser)
+        if (id_tipoUser == "user") {
           Swal.fire({
             title: 'Saldo atualizado',
             text: 'Saldo atual: ' + state.users[user].saldo,
@@ -169,7 +170,7 @@ const mutations = {
   },
   logOut() {
     state.userLoggedId = null
-    router.push("/main")
+    router.go()
   },
   updatePassword(context, newPassword){
     for (let i in state.users) {

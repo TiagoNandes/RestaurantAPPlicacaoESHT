@@ -1,19 +1,20 @@
 <template>
   <div class="home page-holder bg-cover">
     <div id="loginButton">
-      <div class="row pt-5">
-        <div class="col-10"><router-link to="/loginUser"><button
-          class="btn btn btn-primary my-2 my-sm-0 float-right"
-          style="background-color: #127834; border-color: #127834"
-        >Entrar</button></router-link></div>
-        <div class="col-2">
-          
-        
-      
-        </div>
+      <div v-if="typeof this.getUserLogged == 'undefined'">
+        <router-link to="/loginUser">
+          <button
+            class="btn btn btn-primary my-2 my-sm-0 float-right"
+            style="background-color: #127834; border-color: #127834"
+          >Entrar</button>
+        </router-link>
+       
       </div>
+       <div class="row pt-5">
+          <div class="col-10"></div>
+          <div class="col-2"></div>
+        </div>
     </div>
-   
 
     <div id="landingPage" class="container pt-5">
       <div class="row">
@@ -36,47 +37,51 @@
           <h5 class="lineBreak smallText">ESHT</h5>
           <h5 class="lineBreak smallText">Gestão e Administração Hoteleira</h5>
           <router-link to="/restaurant">
-          <a class="button1">O que é o<br/>Restaurante de Aplicação Al Dente?</a>
+            <a class="button1">
+              O que é o
+              <br />Restaurante de Aplicação Al Dente?
+            </a>
           </router-link>
-
         </div>
       </div>
     </div>
 
     <div id="routerOptions" class="container">
       <div class="row">
-        <div class="col-md-3 mainOptions"><router-link to="/weeklyMenu">
-              <img
-                id="ementaSemanal"
-                src="../assets/ementaSemanal1.png"
-              />
+        <div class="col-md-3 mainOptions">
+          <div v-if="typeof this.getUserLogged != 'undefined'">
+            <router-link to="/reservation">
+              <img id="reservarRefeicao" src="../assets/reservarRefeicao1.png" />
             </router-link>
+          </div>
         </div>
         <div class="col-md-3 mainOptions">
-              <router-link to="/reservation">
-              <img
-                id="reservarRefeicao"
-                src="../assets/reservarRefeicao1.png"
-              />
-            </router-link>
+          <router-link to="/weeklyMenu">
+            <img id="ementaSemanal" src="../assets/ementaSemanal1.png" />
+          </router-link>
         </div>
-        <div class="col-md-3 mainOptions"><router-link to="/restaurant">
-              <img
-                id="instalacoes"
-                src="../assets/instalacoes.png"
-              />
-            </router-link></div>
-        <div class="col-md-3 mainOptions"><router-link to="/feedback">
-              <img
-                id="feedback"
-                src="../assets/feedback1.png"
-              />
-            </router-link></div>
+        <div class="col-md-3 mainOptions">
+          <router-link to="/restaurant">
+            <img id="instalacoes" src="../assets/instalacoes.png" />
+          </router-link>
+        </div>
+        <div v-if="typeof this.getUserLogged != 'undefined'" class="col-md-3 mainOptions">
+          <router-link to="/feedback">
+            <img id="feedback" src="../assets/feedback1.png" />
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters("user", ["getUserLogged"])
+  }
+};
+</script>
 <style>
 .home {
   background-image: url("../assets/bg.png");
@@ -94,32 +99,32 @@
 .bg-cover {
   background-size: cover !important;
 }
-a.button1{
-display:inline-block;
-padding:0.35em 1.2em;
-border:0.1em solid #127834;
-background-color:#127834;
-margin:0 0.3em 0.3em 0;
-border-radius:0.12em;
-box-sizing: border-box;
-text-decoration:none;
-font-family:'Roboto',sans-serif;
-font-weight:300;
-color:white;
-text-align:center;
-transition: all 0.2s;
+a.button1 {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #127834;
+  background-color: #127834;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
 }
-a.button1:hover{
-color:black;
-background-color:transparent;
+a.button1:hover {
+  color: black;
+  background-color: transparent;
 }
-@media all and (max-width:30em){
-a.button1{
-display:block;
-margin:0.4em auto;
+@media all and (max-width: 30em) {
+  a.button1 {
+    display: block;
+    margin: 0.4em auto;
+  }
 }
-}
-.content{
+.content {
   display: none;
   background-color: #f1f1f1;
   max-height: 0;
@@ -128,11 +133,11 @@ margin:0.4em auto;
 }
 /*Ecrãs 768px e para baixo..*/
 @media only screen and (max-width: 768px) {
-  body{
-  height: 100%;
-overflow-y: scroll;
-overflow-x:hidden
-}
+  body {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
   #landingPage {
     position: relative;
     top: -65px;
@@ -161,20 +166,20 @@ overflow-x:hidden
     top: -70px;
   }
   .mainOptions {
-    transform: scale(0.30);
+    transform: scale(0.3);
     position: relative;
-    top:-100px;
-    margin-top:-250px;
+    top: -100px;
+    margin-top: -250px;
   }
-  #ementaSemanal{
-    position:relative;
-    left:-25px;
+  #ementaSemanal {
+    position: relative;
+    left: -25px;
   }
-  #reservarRefeicao{
+  #reservarRefeicao {
     position: relative;
     right: -15px;
   }
-   #instalacoes{
+  #instalacoes {
     position: relative;
     left: -15px;
   }
@@ -197,7 +202,7 @@ overflow-x:hidden
     top: -25px;
   }
   .mainOptions {
-    transform: scale(0.20);
+    transform: scale(0.2);
     position: relative;
     top: -200px;
     left: -20px;
@@ -216,11 +221,11 @@ overflow-x:hidden
     position: relative;
     top: -10px;
   }
-  #routerOptions{
+  #routerOptions {
     position: relative;
-    top:-50px;
+    top: -50px;
   }
-  .mainOptions{
+  .mainOptions {
     position: relative;
     top: -260px;
     transform: scale(0.25);
