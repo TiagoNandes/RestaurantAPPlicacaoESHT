@@ -6,7 +6,6 @@ import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import injectedData from './injectedData'
 import VueSweetalert2 from 'vue-sweetalert2';
 require('jquery')
 require('bootstrap')
@@ -16,7 +15,6 @@ Vue.use(VueSweetalert2);
 
 const vm = new Vue({
   router,
-  injectedData,
   store,
   render: h => h(App)
 }).$mount('#app')

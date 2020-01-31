@@ -160,7 +160,7 @@ const mealCreated = [{
     },
     {
         idMeal: 8,
-        description: "Creme de Legumes com Frango",
+        description: "Creme de legumes",
         idMealType: 1,
         idMenu: 2
     },
@@ -172,13 +172,13 @@ const mealCreated = [{
     },
     {
         idMeal: 10,
-        description: "Lombos de Robalo Cozidos com Legumes e Puré de Batata",
+        description: "Lombos de robalo",
         idMealType: 4,
         idMenu: 2
     },
     {
         idMeal: 11,
-        description: "Quinoa salteada com ovo e abacate",
+        description: "Quinoa salteada com abacate",
         idMealType: 5,
         idMenu: 2
     },
@@ -232,7 +232,7 @@ const mealCreated = [{
     },
     {
         idMeal: 20,
-        description: "Creme de Legumes com Frango",
+        description: "Creme de legumes",
         idMealType: 1,
         idMenu: 4
     },
@@ -244,13 +244,13 @@ const mealCreated = [{
     },
     {
         idMeal: 22,
-        description: "Lombos de Robalo Cozidos com Legumes e Puré de Batata",
+        description: "Lombos de robalo",
         idMealType: 4,
         idMenu: 4
     },
     {
         idMeal: 23,
-        description: "Quinoa salteada com ovo e abacate",
+        description: "Quinoa salteada com abacate",
         idMealType: 5,
         idMenu: 4
     },
@@ -304,7 +304,7 @@ const mealCreated = [{
     },
     {
         idMeal: 32,
-        description: "Creme de Legumes com Frango",
+        description: "Creme de legumes",
         idMealType: 1,
         idMenu: 6
     },
@@ -316,13 +316,13 @@ const mealCreated = [{
     },
     {
         idMeal: 34,
-        description: "Lombos de Robalo Cozidos com Legumes e Puré de Batata",
+        description: "Lombos de robalo",
         idMealType: 4,
         idMenu: 6
     },
     {
         idMeal: 35,
-        description: "Quinoa salteada com ovo e abacate",
+        description: "Quinoa salteada com abacate",
         idMealType: 5,
         idMenu: 6
     },
@@ -376,7 +376,7 @@ const mealCreated = [{
     },
     {
         idMeal: 44,
-        description: "Creme de Legumes com Frango",
+        description: "Creme de legumes",
         idMealType: 1,
         idMenu: 8
     },
@@ -388,13 +388,13 @@ const mealCreated = [{
     },
     {
         idMeal: 46,
-        description: "Lombos de Robalo Cozidos com Legumes e Puré de Batata",
+        description: "Lombos de robalo",
         idMealType: 4,
         idMenu: 8
     },
     {
         idMeal: 47,
-        description: "Quinoa salteada com ovo e abacate",
+        description: "Quinoa salteada com abacate",
         idMealType: 5,
         idMenu: 8
     },
@@ -448,7 +448,7 @@ const mealCreated = [{
     },
     {
         idMeal: 56,
-        description: "Creme de Legumes com Frango",
+        description: "Creme de legumes",
         idMealType: 1,
         idMenu: 10
     },
@@ -460,13 +460,13 @@ const mealCreated = [{
     },
     {
         idMeal: 58,
-        description: "Lombos de Robalo Cozidos com Legumes e Puré de Batata",
+        description: "Lombos de robalo",
         idMealType: 4,
         idMenu: 10
     },
     {
         idMeal: 59,
-        description: "Quinoa salteada com ovo e abacate",
+        description: "Quinoa salteada com abacate",
         idMealType: 5,
         idMenu: 10
     },

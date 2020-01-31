@@ -98,6 +98,7 @@
 <script>
 import { mapMutations, mapGetters } from "vuex";
 import navBar2 from "@/components/navBar2.vue";
+import router from "../router/index";
 
 export default {
   name: "main",
@@ -120,6 +121,7 @@ export default {
       this.idUser = this.getUserLogged.id;
       this.newSaldo = this.newSaldo;
       this.updateSaldo({ idUser: this.idUser, price: Math.abs(this.newSaldo) });
+      router.push("/profile")
     }
   }
 };

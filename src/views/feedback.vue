@@ -248,7 +248,6 @@
 // @ is an alias to /src
 import navBar2 from "@/components/navBar2.vue";
 import { mapGetters, mapMutations } from "vuex";
-//import router from "../router/index";
 
 
 export default {

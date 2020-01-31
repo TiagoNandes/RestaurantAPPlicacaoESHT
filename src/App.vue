@@ -4,6 +4,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import injectedData from './injectedData'
 
 export default {
   data(){
@@ -12,7 +13,8 @@ export default {
     }
   },
   created(){
-    //localStorage.clear()
+      //localStorage.clear()
+      injectedData
   },
   beforeDestroy() {
     localStorage.setItem("reservations", JSON.stringify(this.getAllReservations))

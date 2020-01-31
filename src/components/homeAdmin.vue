@@ -169,7 +169,7 @@ a:focus {
   left: 0;
   height: 100vh;
   z-index: 999;
-  background: #15d381;
+  background: #127834;
   color: #fff;
   transition: all 0.3s;
 }
@@ -200,7 +200,7 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-  color: #15d381;
+  color: #127834;
   background: #fff;
 }
 
@@ -242,7 +242,7 @@ ul.CTAs a {
 
 a.download {
   background: #fff;
-  color: #15d381;
+  color: #127834;
 }
 
 a.article,

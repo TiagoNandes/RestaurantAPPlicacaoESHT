@@ -72,7 +72,7 @@
                 <li class="list-group-item flex-fill">Prato Principal</li>
                 <li class="list-group-item flex-fill">Sobremesa</li>
               </ul>
-              <ul class="list-group list-group-horizontal pt-5">
+              <ul class=" pl-5 list-group list-group-horizontal pt-5">
                 <li class="list-group-item flex-fill border-0">{{this.getEntrada}}</li>
                 <li class="list-group-item flex-fill border-0">{{this.getSopa}}</li>
                 <li class="list-group-item flex-fill border-0">
