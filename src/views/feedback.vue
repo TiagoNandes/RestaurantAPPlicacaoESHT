@@ -1,6 +1,6 @@
 <template>
   <div id="principal">
-    <navBar></navBar>
+    <navBar2></navBar2>
 
     <div class="container">
       <div class="row">
@@ -246,7 +246,7 @@
 
 <script>
 // @ is an alias to /src
-import navBar from "@/components/navBar.vue";
+import navBar2 from "@/components/navBar2.vue";
 import { mapGetters, mapMutations } from "vuex";
 //import router from "../router/index";
 
@@ -254,7 +254,7 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   name: "feedback",
   components: {
-    navBar
+    navBar2
   },
   data() {
     return {

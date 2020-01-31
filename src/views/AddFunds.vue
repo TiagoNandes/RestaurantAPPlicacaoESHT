@@ -1,6 +1,6 @@
 <template>
   <div id="principal">
-    <navBar></navBar>
+    <navBar2></navBar2>
 
     <div class="container">
       <div class="row">
@@ -97,12 +97,12 @@
 </template>
 <script>
 import { mapMutations, mapGetters } from "vuex";
-import navBar from "@/components/navBar.vue";
+import navBar2 from "@/components/navBar2.vue";
 
 export default {
   name: "main",
   components: {
-    navBar
+    navBar2
   },
 
   data() {

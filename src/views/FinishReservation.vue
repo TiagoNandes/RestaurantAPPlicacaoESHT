@@ -1,6 +1,6 @@
 <template>
   <div id="principal">
-    <navBar></navBar>
+    <navBar2></navBar2>
 
     <div class="container">
       <div class="row">
@@ -161,14 +161,14 @@ label {
 
 <script>
 // @ is an alias to /src
-import navBar from "@/components/navBar.vue";
+import navBar2 from "@/components/navBar2.vue";
 //import router from '../router/index'
 import { mapMutations, mapGetters } from "vuex";
 import Swal from 'sweetalert2';
 export default {
   name: "main",
   components: {
-    navBar
+    navBar2
   },
 
   data() {

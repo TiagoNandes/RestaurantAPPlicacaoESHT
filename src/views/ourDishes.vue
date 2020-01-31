@@ -1,6 +1,6 @@
 <template>
   <div class="restaurantPage">
-    <navBar></navBar>
+    <navBar2></navBar2>
     <div class="container">
       <div class="row">
         <div class="col-sm-2 sidenav"></div>
@@ -350,13 +350,13 @@ button:active {
 <script>
 // @ is an alias to /src
 import bgImage from "@/assets/bg.png";
-import navBar from "@/components/navBar.vue";
+import navBar2 from "@/components/navBar2.vue";
 import jQuery from "jquery";
 
 export default {
   name: "main",
   components: {
-    navBar
+    navBar2
   },
   data() {
     return {

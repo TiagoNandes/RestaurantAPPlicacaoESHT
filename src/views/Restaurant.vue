@@ -1,6 +1,7 @@
 <template>
   <div class="restaurantPage">
-    <navBar></navBar>
+    <!-- <navBar></navBar> -->
+    <navBar2></navBar2>
   <div class="container">
     <div class="row">
     <div class="col-sm-2 sidenav"></div>
@@ -157,13 +158,13 @@ overflow-x: hidden;
 <script>
 // @ is an alias to /src
 import bgImage from "@/assets/bg.png";
-import navBar from "@/components/navBar.vue";
+import navBar2 from "@/components/navBar2.vue";
 
 
 export default {
   name: "main",
   components: {
-   navBar
+   navBar2
   },
   data() {
     return {

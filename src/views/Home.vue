@@ -1,5 +1,5 @@
 <template>
-  <div class="home page-holder bg-cover scrollNo">
+  <div class="home page-holder bg-cover">
     <div id="loginButton">
       <div class="row pt-5">
         <div class="col-10"><router-link to="/loginUser"><button

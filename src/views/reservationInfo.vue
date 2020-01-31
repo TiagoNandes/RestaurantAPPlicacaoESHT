@@ -1,6 +1,6 @@
 <template>
   <div id="principal">
-    <navBar></navBar>
+    <navBar2></navBar2>
 
     <div class="container">
       <div class="row">
@@ -66,12 +66,12 @@
 <script>
 // @ is an alias to /src
 import { mapGetters } from "vuex";
-import navBar from "@/components/navBar.vue";
+import navBar2 from "@/components/navBar2.vue";
 import Swal from 'sweetalert2';
 export default {
   name: "reservation",
   components: {
-    navBar
+    navBar2
   },
   data() {
     return {
