@@ -6,7 +6,7 @@ const userCreated = [{
         nome: "Sara",
         sobrenome: "Rodrigues",
         data_nascimento: "1996-08-13",
-        email: "sara@esmad.ipp.pt",
+        email: "admin@esmad.ipp.pt",
         password: "123",
         saldo: 20.95,
         telefone: 1,
